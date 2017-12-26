@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yijiupi.kjjsp.mapper.DianZanMapper">
+    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.DianZanPO">
+        <id column="did" property="did" jdbcType="INTEGER"/>
+        <result column="tid" property="tid" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="addDianZan">
+        INSERT INTO dianzan(tid,username) VALUES (#{tid},#{username})
+    </insert>
+    <select id="ListGetDianZan" resultMap="BaseResultMap">
+        SELECT DID,TID,USERNAME FROM dianzan where tid=#{tid}
+    </select>
+    <delete id="delectDianZan">
+        DELETE FROM dianzan where tid=#{tid} and username=#{username}
+    </delete>
+
+</mapper>

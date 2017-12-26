@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yijiupi.kjjsp.mapper.FriendMapper">
+    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.FriendPO">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="qzoneUname" property="qzoneuname" jdbcType="VARCHAR"/>
+        <result column="fid" property="fid" jdbcType="INTEGER"/>
+        <result column="friendUname" property="frienduname" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="listGetFriend" resultMap="BaseResultMap">
+        SELECT  id, uid, qzoneUname, fid, friendUname, status FROM friend
+        where uid=#{uid} and  status=1 LIMIT #{begin},#{pageSizeStr}
+    </select>
+    <select id="getCount" parameterType="Integer" resultType="Integer">
+        select count(id) from friend where  uid=#{uid} and status=1
+    </select>
+    <select id="getFriend" resultType="String">
+        select status from friend where qzoneUname=#{username} and friendUname=#{friendName}
+    </select>
+    <select id="listByFid" resultMap="BaseResultMap">
+        select uid,qzoneUname from friend where fid=#{fid} and status=0
+    </select>
+    <select id="getStatusByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO" resultType="String">
+        select status from friend where uid=#{uid} and fid=#{fid}
+    </select>
+    <update id="updateStatus" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
+        update friend set status=1 where uid=#{fid} and fid =#{uid}
+    </update>
+    <update id="updateStatusByFidAndUid" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
+        UPDATE  friend set status=1 where uid in (#{uid},#{fid}) and fid in (#{uid},#{fid})
+    </update>
+    <insert id="insertByFriendName" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
+        INSERT into friend( uid, qzoneUname, fid, friendUname, status) VALUES (#{uid},#{qzoneuname},#{fid},#{frienduname},0)
+    </insert>
+    <insert id="insertByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
+        INSERT into friend( uid, qzoneUname, fid, friendUname, status) VALUES (#{uid},#{qzoneuname},#{fid},#{frienduname},1)
+    </insert>
+    <delete id="deleteFriend" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
+        DELETE from friend where status=0 and uid=#{fid} and fid=#{uid}
+    </delete>
+
+</mapper>

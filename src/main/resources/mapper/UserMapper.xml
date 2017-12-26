@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yijiupi.kjjsp.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.UserPO">
+        <id column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getUser" parameterType="com.yijiupi.kjjsp.pojo.UserPO" resultMap="BaseResultMap">
+      select uid,username,password from user where username=#{username} and password =#{password}
+ </select>
+    <select id="getUserByFriendName" parameterType="String" resultMap="BaseResultMap">
+         select uid,username from user where username=#{1}
+    </select>
+</mapper>
