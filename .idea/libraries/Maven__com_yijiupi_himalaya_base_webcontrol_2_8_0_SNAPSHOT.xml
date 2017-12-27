@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.yijiupi:himalaya-base-webcontrol:2.8.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yijiupi/himalaya-base-webcontrol/2.8.0-SNAPSHOT/himalaya-base-webcontrol-2.8.0-20171214.084235-13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yijiupi/himalaya-base-webcontrol/2.8.0-SNAPSHOT/himalaya-base-webcontrol-2.8.0-20171214.084235-13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/yijiupi/himalaya-base-webcontrol/2.8.0-SNAPSHOT/himalaya-base-webcontrol-2.8.0-20171214.084235-13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
