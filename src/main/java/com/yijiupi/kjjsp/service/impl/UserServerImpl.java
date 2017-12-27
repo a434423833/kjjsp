@@ -1,19 +1,15 @@
 package com.yijiupi.kjjsp.service.impl;
 
+import com.yijiupi.kjjsp.conver.login.LoginConver;
 import com.yijiupi.kjjsp.mapper.*;
 import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
 import com.yijiupi.kjjsp.utile.GetTimeUtil;
-import com.yijiupi.kjjsp.utile.Md5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import sun.reflect.generics.visitor.Visitor;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,9 +37,9 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public LoginVO userLogin(LoginVO loginVO) {
-        UserPO userPO = convertToVO(loginVO);
+        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
         userPO = userMapper.getUser(userPO);
-        return convertToPO(userPO);
+        return LoginConver.converVOUserPO(userPO);
     }
 
     @Override
@@ -185,6 +181,19 @@ public class UserServerImpl implements UserServer {
         talkMapper.insertInfor(talkPO);
     }
 
+    @Override
+    public void updateUser(LoginVO tmp) {
+        UserPO userPO = LoginConver.converTOLoginVO(tmp);
+        userMapper.updateUser(userPO);
+    }
+
+    @Override
+    public void updateUser1(LoginVO loginVO) {
+        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
+        userMapper.updateUser1(userPO);
+
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;
@@ -221,24 +230,6 @@ public class UserServerImpl implements UserServer {
         friendPO.setFid(userPO.getUid());
         friendPO.setFrienduname(userPO.getUsername());
         return friendPO;
-    }
-
-    private UserPO convertToVO(LoginVO loginVO) {
-        UserPO userPO = new UserPO();
-        userPO.setUsername(loginVO.getUsername());
-        userPO.setPassword(Md5.getMD5(loginVO.getPassword()));
-        return userPO;
-    }
-
-    private LoginVO convertToPO(UserPO userPO) {
-        if (null == userPO) {
-            return null;
-        }
-        LoginVO loginVO = new LoginVO();
-        loginVO.setUid(userPO.getUid());
-        loginVO.setUsername(userPO.getUsername());
-        loginVO.setPassword(userPO.getPassword());
-        return loginVO;
     }
 
 

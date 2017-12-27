@@ -21,19 +21,6 @@
         </div>
         <div class="row" style="margin-left: -75px">
             <div style="margin-left: 300px">
-                <ul>
-                    <li>
-                        <a href="index.php">首页</a>
-                    </li>
-                    <li>
-                        <a href="index.php?type=0">杂记</a>
-                    </li>
-                    <li><a href="index.php?type=1">随想</a></li>
-                    <li><a href="index.php?type=2">开发</a></li>
-                    <li><a href="index.php?type=3">算法</a></li>
-                    <li><a href="index.php?type=4">分享</a></li>
-                    <li><a href="index.php?type=7">专题</a></li>
-                </ul>
             </div>
         </div>
     </div>

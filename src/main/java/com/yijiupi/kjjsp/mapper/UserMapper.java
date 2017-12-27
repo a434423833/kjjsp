@@ -9,4 +9,8 @@ public interface UserMapper {
     UserPO getUser(UserPO userPO);
 
     UserPO getUserByFriendName(String friendName);
+
+    void updateUser(UserPO userPO);
+
+    void updateUser1(UserPO userPO);
 }

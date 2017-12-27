@@ -106,5 +106,9 @@ public interface UserServer {
     void addVisitor(Object object, String fw_id, String fw_name);
 
     void insertInfor(String infor, Object object);
+
+    void updateUser(LoginVO tmp);
+
+    void updateUser1(LoginVO loginVO);
 }
 

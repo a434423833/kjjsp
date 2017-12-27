@@ -14,20 +14,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @Description: 处理用户请求
@@ -244,4 +245,49 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "upLoad", method = RequestMethod.POST)
+    public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String pathRoot = request.getSession().getServletContext().getRealPath("");
+        String path = "";
+        if (!file.isEmpty()) {
+            //生成uuid作为文件名称
+            String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+            //获得文件类型（可以判断如果不是图片，禁止上传）
+            String contentType = file.getContentType();
+            //获得文件后缀名称
+            String imageName = contentType.substring(contentType.indexOf("/") + 1);
+            path = "/img/head/" + uuid + "." + imageName;
+            file.transferTo(new File(pathRoot + path));
+            LOGGER.info("图片上传成功");
+        }
+        System.out.println(path);
+        request.setAttribute("imagesPath", path);
+        Object object = map.get("user");
+        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
+        LoginVO tmp = (LoginVO) object;
+        tmp.setFile(path);
+        userServer.updateUser(tmp);
+        map.put("user", tmp);
+        return new ModelAndView("redirect:zhuti/information.jsp");
+    }
+
+    @RequestMapping(value = "/addInfor", method = RequestMethod.POST)
+    public Result addInfor(LoginVO loginVO, ModelMap map) {
+        Object object = map.get("user");
+        LoginVO tmp = (LoginVO) object;
+        loginVO.setUid(tmp.getUid());
+        userServer.updateUser1(loginVO);
+        tmp.setPhone(loginVO.getPhone());
+        tmp.setSex(loginVO.getSex());
+        tmp.setAge(loginVO.getAge());
+        tmp.setUsername(loginVO.getUsername());
+        map.put("user", tmp);
+        return ResultUtil.success();
+    }
+
+    @RequestMapping(value = "/exit", method = RequestMethod.GET)
+    public ModelAndView exit(HttpSession session) {
+        session.invalidate();
+        return new ModelAndView("redirect:zhuti/guangchang.jsp");
+    }
 }

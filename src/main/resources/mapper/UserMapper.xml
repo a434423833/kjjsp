@@ -5,12 +5,22 @@
         <id column="uid" property="uid" jdbcType="INTEGER"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="file" property="file" jdbcType="VARCHAR"/>
     </resultMap>
-
     <select id="getUser" parameterType="com.yijiupi.kjjsp.pojo.UserPO" resultMap="BaseResultMap">
-      select uid,username,password from user where username=#{username} and password =#{password}
+        select uid,account,username,password,age,sex,phone,file from user where account=#{account} and password =#{password}
  </select>
     <select id="getUserByFriendName" parameterType="String" resultMap="BaseResultMap">
-         select uid,username from user where username=#{1}
+         select uid,account,username,password,age,sex,phone,file from user where username=#{1}
     </select>
+    <update id="updateUser" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+        UPDATE user set file=#{file} where uid=#{uid}
+    </update>
+    <update id="updateUser1" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+        UPDATE user set username=#{username},age=#{age},sex=#{sex},phone=#{phone} where uid=#{uid}
+    </update>
 </mapper>
