@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../css/zhuti.css">
     <link rel="stylesheet" href="../css/zhuye/zhuye.css">
     <script type="text/javascript" src="https://api.dreamwings.cn/siyue/?encode=js"></script>
+    <script type='text/javascript' src='../js/zhuye/zhuye.js'></script>
     <script>var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
@@ -84,7 +85,7 @@
                 </div>
             </div>
             <!--右侧-->
-            <%@ include file="import/right.jsp" %>
+            <%@ include file="import/right_zhuye.jsp" %>
         </div>
     </div>
 </div>

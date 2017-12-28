@@ -291,4 +291,15 @@ public class UserController {
         session.invalidate();
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
     }
+
+
+    @RequestMapping(value = "/updategq", method = RequestMethod.POST)
+    public Result updategq(LoginVO loginVO, ModelMap map) {
+        Object object = map.get("user");
+        LoginVO tmp = (LoginVO) object;
+        loginVO.setUid(tmp.getUid());
+        userServer.updategq(loginVO);
+        return ResultUtil.success(loginVO.getQianming());
+    }
+
 }

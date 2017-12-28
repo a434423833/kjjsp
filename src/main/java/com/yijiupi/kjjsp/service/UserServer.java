@@ -110,5 +110,7 @@ public interface UserServer {
     void updateUser(LoginVO tmp);
 
     void updateUser1(LoginVO loginVO);
+
+    void updategq(LoginVO loginVO);
 }
 

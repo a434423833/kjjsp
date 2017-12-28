@@ -172,6 +172,8 @@ public class LoginVO {
                 ", account='" + account + '\'' +
                 ", phone='" + phone + '\'' +
                 ", file='" + file + '\'' +
+                ", qianming='" + qianming + '\'' +
+                ", admin=" + admin +
                 '}';
     }
 }

@@ -18,10 +18,15 @@
                         </figure>
                     </div>
                 </div>
-
-                <div class="about-me-content" align="center">昵称</div>
-                <h1 class="widget-title">
-                    主人还没有发表个性签名哦</h1>
+                <div class="about-me-content" align="center">${user.username}&nbsp;&nbsp;${user.age}&nbsp;&nbsp;
+                    <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}">
+                </div>
+                <h1 class="widget-title" onclick="click_gq()"
+                    style="font-size: 5px;margin-top: 10px">
+                    <a id="gexingqianming" onclick="click_gq()"> ${qianming==null?"还没有设置个性签名":qianming}</a>
+                    <input type="text" id="updategq" onblur="blur_gq()"
+                           style="display: none;margin-left: 80px;height: 18px" placeholder="点击修改您的个性签名">
+                </h1>
 
 
             </div>

@@ -194,6 +194,12 @@ public class UserServerImpl implements UserServer {
 
     }
 
+    @Override
+    public void updategq(LoginVO loginVO) {
+        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
+        userMapper.updategq(userPO);
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;

@@ -25,4 +25,7 @@
     <update id="updateUser1" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
         UPDATE user set username=#{username},age=#{age},sex=#{sex},phone=#{phone} where uid=#{uid}
     </update>
+    <update id="updategq" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+        UPDATE user set qianming=#{qianming} where uid=#{uid}
+    </update>
 </mapper>

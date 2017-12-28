@@ -13,4 +13,6 @@ public interface UserMapper {
     void updateUser(UserPO userPO);
 
     void updateUser1(UserPO userPO);
+
+    void updategq(UserPO userPO);
 }
