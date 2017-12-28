@@ -35,6 +35,7 @@
             src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
     <link rel="stylesheet" href="../css/zhuti.css">
     <script type="text/javascript" src="https://api.dreamwings.cn/siyue/?encode=js"></script>
+    <script type="text/javascript" src="../js/guangchang/guangchang.js"></script>
     <script>var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
@@ -43,7 +44,7 @@
         s.parentNode.insertBefore(hm, s)
     })();</script>
 </head>
-<body class="home blog custom-background">
+<body class="home blog custom-background" onload="load_liuyan()">
 <!--头部-->
 <%@ include file="import/head.jsp" %>
 
@@ -52,35 +53,14 @@
         <div class="row">
             <div class="col-md-8">
                 <div id="primary" class="content-area">
-                    <main id="main" class="site-main" role="main">
-                        <article id="post-5097"
-                                 class="post-5097 post type-post status-publish format-standard post-password-required hentry category-remember-idealism tag-236 tag-235">
-
-                        </article>
-                        <article id="post-5080"
-                                 class="post-5080 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-5046"
-                                 class="post-5046 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-4996"
-                                 class="post-4996 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-63 tag-55">
-
-                        </article>
-                        <article id="post-4976"
-                                 class="post-4976 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-4918"
-                                 class="post-4918 post type-post status-publish format-standard post-password-required hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-
+                    <span style="color: #75baff">在这里你可以想说的都说出来，但是要注意言论哦！发言不规范的会被关进小黑屋的!</span>
+                    <span style="color: #75baff;float: right;margin-top: 25px">--来自弱弱的作者</span>
+                    <main id="main" class="site-main" role="main" style="margin-top: 30px">
+                        <%@ include file="import/guangchangliuyan.jsp" %>
                     </main>
                 </div>
             </div>
+
             <!--右侧-->
             <%@ include file="import/right_gc.jsp" %>
         </div>

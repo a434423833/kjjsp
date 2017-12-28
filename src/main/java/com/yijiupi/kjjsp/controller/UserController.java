@@ -2,11 +2,10 @@ package com.yijiupi.kjjsp.controller;
 
 
 import cn.dsna.util.images.ValidateCode;
-import com.yijiupi.kjjsp.pojo.FriendVO;
-import com.yijiupi.kjjsp.pojo.LoginVO;
-import com.yijiupi.kjjsp.pojo.Result;
+import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
+import com.yijiupi.kjjsp.utile.PageResultUtil;
 import com.yijiupi.kjjsp.utile.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -244,7 +243,16 @@ public class UserController {
         }
     }
 
-
+    /**
+     * 头像上传
+     *
+     * @param map
+     * @param file
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException
+     */
     @RequestMapping(value = "upLoad", method = RequestMethod.POST)
     public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String pathRoot = request.getSession().getServletContext().getRealPath("");
@@ -271,6 +279,13 @@ public class UserController {
         return new ModelAndView("redirect:zhuti/information.jsp");
     }
 
+    /**
+     * 信息完善
+     *
+     * @param loginVO
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/addInfor", method = RequestMethod.POST)
     public Result addInfor(LoginVO loginVO, ModelMap map) {
         Object object = map.get("user");
@@ -285,6 +300,13 @@ public class UserController {
         return ResultUtil.success();
     }
 
+    /**
+     * 退出
+     *
+     * @param session
+     * @param sessionStatus
+     * @return
+     */
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public ModelAndView exit(HttpSession session, SessionStatus sessionStatus) {
         sessionStatus.setComplete();
@@ -292,14 +314,35 @@ public class UserController {
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
     }
 
-
+    /**
+     * 修改个性签名
+     *
+     * @param loginVO
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/updategq", method = RequestMethod.POST)
     public Result updategq(LoginVO loginVO, ModelMap map) {
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
         loginVO.setUid(tmp.getUid());
         userServer.updategq(loginVO);
+        tmp.setQianming(loginVO.getQianming());
+        map.put("user", tmp);
         return ResultUtil.success(loginVO.getQianming());
+    }
+
+    /**
+     * 得到广场留言
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getGuangChangLiuYanList", method = RequestMethod.POST)
+    public PageResult getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO) {
+        LOGGER.info("进入getGuangChangLiuYanList ");
+        Page page = new Page();
+        List<GcliuyanDTO> gcLiuYanList = userServer.getGuangChangLiuYanList(gcliuyanDTO, page);
+        return PageResultUtil.success(gcLiuYanList, page);
     }
 
 }

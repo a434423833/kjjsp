@@ -3,7 +3,9 @@ package com.yijiupi.kjjsp.service;
 
 
 import com.yijiupi.kjjsp.pojo.FriendVO;
+import com.yijiupi.kjjsp.pojo.GcliuyanDTO;
 import com.yijiupi.kjjsp.pojo.LoginVO;
+import com.yijiupi.kjjsp.pojo.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -112,5 +114,7 @@ public interface UserServer {
     void updateUser1(LoginVO loginVO);
 
     void updategq(LoginVO loginVO);
+
+    List<GcliuyanDTO> getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO, Page page);
 }
 

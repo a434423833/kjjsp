@@ -34,6 +34,8 @@ public class UserServerImpl implements UserServer {
     DianZanMapper dianZanMapper;
     @Autowired
     VisitorMapper visitorMapper;
+    @Autowired
+    GcliuyanMapper gcliuyanMapper;
 
     @Override
     public LoginVO userLogin(LoginVO loginVO) {
@@ -198,6 +200,20 @@ public class UserServerImpl implements UserServer {
     public void updategq(LoginVO loginVO) {
         UserPO userPO = LoginConver.converTOLoginVO(loginVO);
         userMapper.updategq(userPO);
+    }
+
+    @Override
+    public List<GcliuyanDTO> getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO, Page page) {
+        page.setPageIndex(gcliuyanDTO.getPageIndex());
+        int count = gcliuyanMapper.getCount();
+        page.setCount(count);
+        page.setPageCount(count / gcliuyanDTO.getPageSize());
+        if (count % gcliuyanDTO.getPageSize() != 0) {
+            page.setPageCount(count / gcliuyanDTO.getPageSize() + 1);
+        }
+        gcliuyanDTO.setBegin((gcliuyanDTO.getPageIndex() - 1) * gcliuyanDTO.getPageSize());
+        return gcliuyanMapper.getGuangChangLiuYanList(gcliuyanDTO);
+
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {

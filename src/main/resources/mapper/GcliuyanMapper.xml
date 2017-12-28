@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yijiupi.kjjsp.mapper.GcliuyanMapper">
+    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.GcliuyanDTO">
+        <id column="gcid" property="gcid" jdbcType="INTEGER"/>
+        <result column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="infor" property="infor" jdbcType="VARCHAR"/>
+        <result column="time" property="time" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="file" property="file" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="getGuangChangLiuYanList" parameterType="com.yijiupi.kjjsp.pojo.GcliuyanDTO" resultMap="BaseResultMap">
+        select gcid,u.uid,infor,time,username,file,sex from user as u ,gcliuyan as g where g.uid=u.uid order by g.gcid  desc  limit #{begin},#{pageSize}
+    </select>
+    <select id="getCount" resultType="int">
+        SELECT count(*) from gcliuyan
+    </select>
+
+</mapper>

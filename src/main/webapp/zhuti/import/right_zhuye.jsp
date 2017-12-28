@@ -21,9 +21,13 @@
                 <div class="about-me-content" align="center">${user.username}&nbsp;&nbsp;${user.age}&nbsp;&nbsp;
                     <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}">
                 </div>
-                <h1 class="widget-title" onclick="click_gq()"
+                <h1 class="widget-title"
                     style="font-size: 5px;margin-top: 10px">
-                    <a id="gexingqianming" onclick="click_gq()"> ${qianming==null?"还没有设置个性签名":qianming}</a>
+                    <a href="###">寄语:</a>
+
+                    <a id="gexingqianming"
+                       onclick="click_gq('+${user.qianming}+')"> ${user.qianming==""||user.qianming==null?"还没有设置个性签名":user.qianming}
+                    </a>
                     <input type="text" id="updategq" onblur="blur_gq()"
                            style="display: none;margin-left: 80px;height: 18px" placeholder="点击修改您的个性签名">
                 </h1>
@@ -36,6 +40,16 @@
             <div class="textwidget">
                 <div class='like-vote'>
                     <p class='like-title'>Do you like me?</p>
+                    <div class='like-count'>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside id="text-6" class="widget widget_text">
+            <div class="textwidget">
+                <div class='like-vote'>
+                    <p class='like-title'>Who has visited you!</p>
                     <div class='like-count'>
                         <i class="fa fa-heart"></i><span></span>
                     </div>

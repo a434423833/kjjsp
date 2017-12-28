@@ -12,6 +12,7 @@
                     可以发现隐藏世界！</c:if>
                 <c:if test="${!result}">
                     欢迎来到木东驿站</br>
+                    ${user.username}</br>
                     <c:if test="${user.username!=null?false:true}">
                         请先<a href="information.jsp">完善信息</a>
                     </c:if>

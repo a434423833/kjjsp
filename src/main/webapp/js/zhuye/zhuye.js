@@ -1,11 +1,17 @@
-function click_gq() {
+var beginqianm = null;
+function click_gq(qianming) {
     if ("${fw_id}" == null || "${fw_id==user.uid?true:false}") {
-        $("#gexingqianming").html("");
+        beginqianm = $("#gexingqianming").html();
+        if (qianming != null || qianming != "") {
+            $("#gexingqianming").html(beginqianm);
+        }
         $("#updategq").css("display", "block");
     }
 }
+
 function blur_gq() {
     var qianming = $("#updategq").val();
+
     $("#updategq").css("display", "none");
     $.ajax({
             type: "POST",      //传输方式
@@ -15,9 +21,13 @@ function blur_gq() {
             },
             success: function (obj) {
                 if (obj.code == 0) {
+                    if (obj.data == "" || obj.data == null || obj.data.length == 0) {
+                        $("#gexingqianming").html("还没有设置个性签名");
+                        return;
+                    }
                     $("#gexingqianming").html(obj.data);
                 } else {
-                    $("#gexingqianming").html("${user.qianming}");
+                    $("#gexingqianming").html(beginqianm);
                 }
 
             }
