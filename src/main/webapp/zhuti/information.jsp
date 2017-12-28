@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="import/quanxian.jsp" %>
+
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
@@ -45,7 +45,9 @@
                 </div>
                 <h1>
                     <i18n data-i18n="Hello, I am" id="">
-                        请尽量将下列信息补充完整！</br></br>
+                        <c:if test="${msg==null?true:flase}">请尽量将下列信息补充完整！</c:if>
+                        <c:if test="${msg!=null?true:flase}">${msg}</c:if>
+                        </br></br>
                         <form action="" style="font-size: 10px;margin-left: 850px">
                             <table>
                                 <tr style="height: 40px">

@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ include file="import/quanxian.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +52,7 @@
             欢迎来到木东驿站
         </div>
         <div style="height: 50px;display: none"></div>
-        <div id="div1"><a id="div2" href="guangchang.jsp">点击这里</a>，我们畅所欲言。</div>
+        <div id="div1"><a id="div2" href="zhuye.jsp">点击这里</a>，我们畅所欲言。</div>
     </div>
     <div id="div5" style="margin-left: -1000px"><img src="../img/index_bg2.png"></div>
     <div id="div3" style="margin-left: -10px">

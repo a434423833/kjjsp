@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ include file="import/quanxian.jsp" %>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -35,6 +35,7 @@
     <script type='text/javascript'
             src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
     <link rel="stylesheet" href="../css/zhuti.css">
+    <link rel="stylesheet" href="../css/zhuye/zhuye.css">
     <script type="text/javascript" src="https://api.dreamwings.cn/siyue/?encode=js"></script>
     <script>var _hmt = _hmt || [];
     (function () {

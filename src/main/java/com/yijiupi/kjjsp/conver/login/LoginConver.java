@@ -21,6 +21,8 @@ public class LoginConver {
         userPO.setPhone(loginVO.getPhone());
         userPO.setFile(loginVO.getFile());
         userPO.setAccount(loginVO.getAccount());
+        userPO.setQianming(loginVO.getQianming());
+        userPO.setAdmin(loginVO.getAdmin());
 
         return userPO;
     }
@@ -38,6 +40,8 @@ public class LoginConver {
         loginVO.setPhone(userPO.getPhone());
         loginVO.setFile(userPO.getFile());
         loginVO.setSex(userPO.getSex());
+        loginVO.setAdmin(userPO.getAdmin());
+        loginVO.setQianming(userPO.getQianming());
         return loginVO;
     }
 }

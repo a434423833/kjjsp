@@ -286,7 +286,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
-    public ModelAndView exit(HttpSession session) {
+    public ModelAndView exit(HttpSession session, SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
         session.invalidate();
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
     }

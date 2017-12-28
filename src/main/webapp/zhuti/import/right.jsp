@@ -4,15 +4,24 @@
 <div class="col-md-4 blog_sidebar">
     <div id="secondary" class="primary-sidebar widget-area" role="complementary">
 
-        <aside id="kotha_about_widget-3" class="widget kotha_about_widget"><h1 class="widget-title">
-            主人还没有发表个性签名哦</h1>
+        <aside id="kotha_about_widget-3" class="widget kotha_about_widget">
             <div class="about-widget">
-
-                <div align="center"><img class="img-responsive"
-                                         src="https://static.dreamwings.cn/wp-content/uploads/2016/06/head.png"
-                                         alt="最好的我还未等到  .. T_T~"/></div>
+                <!--头像显示-->
+                <div align="center">
+                    <div class="imgtest">
+                        <figure>
+                            <div>
+                                <img class="img-responsive"
+                                     src="..${user.file}"
+                                     alt="还没有设置头像哦"/>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
 
                 <div class="about-me-content" align="center">昵称</div>
+                <h1 class="widget-title">
+                    主人还没有发表个性签名哦</h1>
 
 
             </div>
