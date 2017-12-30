@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author caohao 2017/12/28
  */
-public class GcliuyanDTO {
+public class GcliuyanDTO1 {
     private Integer gcid;
     private Integer uid;
     private String infor;
@@ -15,31 +15,7 @@ public class GcliuyanDTO {
     private Integer sex;
     private Integer beforgcid;
     private Integer index;
-    private List<GcliuyanDTO1> gcliuyanDTO1List;
-
-    public Integer getBeforgcid() {
-        return beforgcid;
-    }
-
-    public void setBeforgcid(Integer beforgcid) {
-        this.beforgcid = beforgcid;
-    }
-
-    public Integer getIndex() {
-        return index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public List<GcliuyanDTO1> getGcliuyanDTO1List() {
-        return gcliuyanDTO1List;
-    }
-
-    public void setGcliuyanDTO1List(List<GcliuyanDTO1> gcliuyanDTO1List) {
-        this.gcliuyanDTO1List = gcliuyanDTO1List;
-    }
+    private List<GcliuyanDTO2> gcliuyanDTO2List;
 
     public Integer getGcid() {
         return gcid;
@@ -97,4 +73,27 @@ public class GcliuyanDTO {
         this.sex = sex;
     }
 
+    public Integer getBeforgcid() {
+        return beforgcid;
+    }
+
+    public void setBeforgcid(Integer beforgcid) {
+        this.beforgcid = beforgcid;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public List<GcliuyanDTO2> getGcliuyanDTO2List() {
+        return gcliuyanDTO2List;
+    }
+
+    public void setGcliuyanDTO2List(List<GcliuyanDTO2> gcliuyanDTO2List) {
+        this.gcliuyanDTO2List = gcliuyanDTO2List;
+    }
 }

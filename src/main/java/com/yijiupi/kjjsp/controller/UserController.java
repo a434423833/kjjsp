@@ -1,6 +1,5 @@
 package com.yijiupi.kjjsp.controller;
 
-
 import cn.dsna.util.images.ValidateCode;
 import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
@@ -65,7 +64,6 @@ public class UserController {
         }
         return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE3, null);
     }
-
 
     private boolean checkCode(String code, ModelMap map) {
         Object object = map.get("v_code");
@@ -220,7 +218,6 @@ public class UserController {
         return ResultUtil.success(list);
     }
 
-
     @RequestMapping(value = "getCode", method = RequestMethod.GET)
     public void getCode(HttpServletResponse response, ModelMap map) {
         ServletOutputStream fw = null;
@@ -338,11 +335,22 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getGuangChangLiuYanList", method = RequestMethod.POST)
-    public PageResult getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO) {
+    public PageResult getGuangChangLiuYanList(Page page) {
         LOGGER.info("进入getGuangChangLiuYanList ");
-        Page page = new Page();
-        List<GcliuyanDTO> gcLiuYanList = userServer.getGuangChangLiuYanList(gcliuyanDTO, page);
-        return PageResultUtil.success(gcLiuYanList, page);
+        GuangChangLiuYanVO guangChangLiuYanVO = userServer.getGuangChangLiuYanVo(page);
+        return PageResultUtil.success(guangChangLiuYanVO, page);
+    }
+
+    /**
+     * 添加广场留言
+     *
+     * @return
+     */
+    @RequestMapping(value = "/addGuangChangLiuYan", method = RequestMethod.POST)
+    public Result addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
+        LOGGER.info("addGuangChangLiuYan ");
+        userServer.addGuangChangLiuYan(gcliuyanDTO);
+        return ResultUtil.success();
     }
 
 }

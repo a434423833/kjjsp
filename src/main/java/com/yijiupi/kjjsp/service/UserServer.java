@@ -1,11 +1,7 @@
 
 package com.yijiupi.kjjsp.service;
 
-
-import com.yijiupi.kjjsp.pojo.FriendVO;
-import com.yijiupi.kjjsp.pojo.GcliuyanDTO;
-import com.yijiupi.kjjsp.pojo.LoginVO;
-import com.yijiupi.kjjsp.pojo.Page;
+import com.yijiupi.kjjsp.pojo.*;
 
 import java.util.List;
 import java.util.Map;
@@ -111,10 +107,33 @@ public interface UserServer {
 
     void updateUser(LoginVO tmp);
 
+    /**
+     * 信息完善
+     *
+     * @param loginVO
+     */
     void updateUser1(LoginVO loginVO);
 
+    /**
+     * 修改个性签名
+     *
+     * @param loginVO
+     */
     void updategq(LoginVO loginVO);
 
-    List<GcliuyanDTO> getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO, Page page);
+    /**
+     * 获得广场留言
+     *
+     * @param page
+     * @return
+     */
+    GuangChangLiuYanVO getGuangChangLiuYanVo(Page page);
+
+    /**
+     * 添加广场留言
+     *
+     * @param gcliuyanDTO
+     */
+    void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO);
 }
 

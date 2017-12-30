@@ -3,17 +3,16 @@
     <div id="comments" class="comments-area comments">
         <div id="respond" class="comment-respond">
             <h3 id="reply-title" class="comment-reply-title">我想大声说~</h3>
-            <form action="https://www.dreamwings.cn/wp-comments-post.php" method="post"
+            <form action="" method="post"
                   id="commentform" class="comment-form row" novalidate>
                 <div class="col-md-12"><textarea id="comment" class="OwO-textarea"
                                                  placeholder="真的不说两句么？可以勾搭妹子的！"
                                                  name="comment" aria-required="true"></textarea>
+                    <div style="float: left;margin-top: -20px;color: red;font-size: 5px" id="tixing_liuyan"></div>
                 </div>
-                <p class="form-submit col-md-12"><input name="submit" type="submit" id="submit"
-                                                        class="submit"
-                                                        value="发表(●&#039;◡&#039;●)ﾉ"/> <input
-                        type='hidden' name='comment_post_ID' value='785' id='comment_post_ID'/>
-                    <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+                <p class="form-submit col-md-12" style="margin-top: -15px">
+                    <input name="submit" type="button" id="submit" class="submit" onclick="click_gcly(${user.uid})"
+                           value="发表(●&#039;◡&#039;●)ﾉ"/>
                 </p></form>
         </div><!-- #respond -->
         <script>$(document).ready(function () {
@@ -28,11 +27,12 @@
             })
         });</script>
         <h3 class="common-title comments-title">
-            <li>已经有了<span style="color: #1abc9c;" id="span_count">100</span>个大吼的声音</li>
+            <li>已经有了<span style="color: #1abc9c;" id="span_count"></span>个大吼的声音</li>
         </h3>
 
-
+        <!--留言-->
         <ul class="comment-list" id="guangchang_liuyan">
+
         </ul><!-- .comment-list -->
 
     </div>

@@ -1,11 +1,9 @@
 package com.yijiupi.kjjsp.pojo;
 
-import java.util.List;
-
 /**
  * @author caohao 2017/12/28
  */
-public class GcliuyanDTO {
+public class GcliuyanDTO2 {
     private Integer gcid;
     private Integer uid;
     private String infor;
@@ -15,7 +13,6 @@ public class GcliuyanDTO {
     private Integer sex;
     private Integer beforgcid;
     private Integer index;
-    private List<GcliuyanDTO1> gcliuyanDTO1List;
 
     public Integer getBeforgcid() {
         return beforgcid;
@@ -31,14 +28,6 @@ public class GcliuyanDTO {
 
     public void setIndex(Integer index) {
         this.index = index;
-    }
-
-    public List<GcliuyanDTO1> getGcliuyanDTO1List() {
-        return gcliuyanDTO1List;
-    }
-
-    public void setGcliuyanDTO1List(List<GcliuyanDTO1> gcliuyanDTO1List) {
-        this.gcliuyanDTO1List = gcliuyanDTO1List;
     }
 
     public Integer getGcid() {

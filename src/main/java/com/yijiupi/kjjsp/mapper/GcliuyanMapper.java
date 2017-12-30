@@ -1,12 +1,21 @@
 package com.yijiupi.kjjsp.mapper;
 
 import com.yijiupi.kjjsp.pojo.GcliuyanDTO;
+import com.yijiupi.kjjsp.pojo.GcliuyanDTO1;
+import com.yijiupi.kjjsp.pojo.GcliuyanDTO2;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface GcliuyanMapper {
 
-    List<GcliuyanDTO> getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO);
-
     int getCount();
+
+    void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO);
+
+    List<GcliuyanDTO> getGuangChangLiuYanList(@Param("begin") Integer begin, @Param("pageSize") Integer pageSize);
+
+    List<GcliuyanDTO1> getGuangChangLiuYan1List1(@Param("list1") List<Integer> list1);
+
+    List<GcliuyanDTO2> getGuangChangLiuYan1List2(@Param("list2") List<Integer> list2);
 }

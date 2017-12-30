@@ -6,6 +6,7 @@ import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
 import com.yijiupi.kjjsp.utile.GetTimeUtil;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -13,6 +14,7 @@ import org.springframework.util.Assert;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Description:
@@ -203,17 +205,53 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public List<GcliuyanDTO> getGuangChangLiuYanList(GcliuyanDTO gcliuyanDTO, Page page) {
-        page.setPageIndex(gcliuyanDTO.getPageIndex());
+    public GuangChangLiuYanVO getGuangChangLiuYanVo(Page page) {
         int count = gcliuyanMapper.getCount();
         page.setCount(count);
-        page.setPageCount(count / gcliuyanDTO.getPageSize());
-        if (count % gcliuyanDTO.getPageSize() != 0) {
-            page.setPageCount(count / gcliuyanDTO.getPageSize() + 1);
+        Integer pageSize = page.getPageSize();
+        page.setPageCount(count / pageSize);
+        if (count % pageSize != 0) {
+            page.setPageCount(count / pageSize + 1);
         }
-        gcliuyanDTO.setBegin((gcliuyanDTO.getPageIndex() - 1) * gcliuyanDTO.getPageSize());
-        return gcliuyanMapper.getGuangChangLiuYanList(gcliuyanDTO);
+        page.setBegin((page.getPageIndex() - 1) * pageSize);
 
+        int begin = page.getBegin();
+        List<GcliuyanDTO> gcliuyanDTOList = gcliuyanMapper.getGuangChangLiuYanList(begin, pageSize);//拿到第一层数据
+
+        List<Integer> list1 = gcliuyanDTOList.stream().map(GcliuyanDTO::getGcid).collect(Collectors.toList());
+        List<GcliuyanDTO1> gcliuyanDTO1List1 = gcliuyanMapper.getGuangChangLiuYan1List1(list1);          //拿到第二层数据
+
+        List<Integer> list2 = gcliuyanDTO1List1.stream().map(GcliuyanDTO1::getGcid).collect(Collectors.toList());
+        List<GcliuyanDTO2> gcliuyanDTO1List2 = gcliuyanMapper.getGuangChangLiuYan1List2(list2);          //拿到第三层数据
+
+        GuangChangLiuYanVO guangChangLiuYanVO = getGuangChangLiuYanVO(page, gcliuyanDTOList, gcliuyanDTO1List1, gcliuyanDTO1List2);
+
+        return guangChangLiuYanVO;
+
+    }
+
+    @NotNull
+    private GuangChangLiuYanVO getGuangChangLiuYanVO(Page page, List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
+        GuangChangLiuYanVO guangChangLiuYanVO = new GuangChangLiuYanVO();
+        guangChangLiuYanVO.setPage(page);
+        guangChangLiuYanVO.setGcliuyanDTOList(gcliuyanDTOList);
+        for (GcliuyanDTO gcliuyanDTO : gcliuyanDTOList) {     //将第二层数据对应给第一层
+            int gcid = gcliuyanDTO.getGcid();
+            List<GcliuyanDTO1> beforlist1 = gcliuyanDTO1List1.parallelStream().filter(p -> p.getBeforgcid() == gcid).collect(Collectors.toList());
+            gcliuyanDTO.setGcliuyanDTO1List(beforlist1);
+        }
+        for (GcliuyanDTO1 gcliuyanDTO1 : gcliuyanDTO1List1) {     //将第二层数据对应给第一层
+            int gcid = gcliuyanDTO1.getGcid();
+            List<GcliuyanDTO2> beforlist2 = gcliuyanDTO1List2.parallelStream().filter(p -> p.getBeforgcid() == gcid).collect(Collectors.toList());
+            gcliuyanDTO1.setGcliuyanDTO2List(beforlist2);
+        }
+        return guangChangLiuYanVO;
+    }
+
+    @Override
+    public void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
+        gcliuyanDTO.setTime(GetTimeUtil.getTime());
+        gcliuyanMapper.addGuangChangLiuYan(gcliuyanDTO);
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {
@@ -253,6 +291,5 @@ public class UserServerImpl implements UserServer {
         friendPO.setFrienduname(userPO.getUsername());
         return friendPO;
     }
-
 
 }

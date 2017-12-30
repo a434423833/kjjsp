@@ -66,14 +66,12 @@
                                 <tr style="height: 40px">
                                     <td>性别:
                                     <td><input type="radio" name="sex" value="1"
-                                               <c:if
-                                                       test="${user.sex==1?true:false}">disabled="true"</c:if>
+                                               <c:if test="${user.sex>0?true:false}">disabled="true"</c:if>
                                                <c:if test="${user.sex==1?true:false}">checked=""</c:if>
                                                style="margin-left: -20px">男
                                         <input type="radio" name="sex" value="2"
-                                               <c:if
-                                                       test="${user.sex==2?true:false}">disabled="true"</c:if>
-                                               <c:if test="${user.sex==1?true:false}">checked=""</c:if>
+                                               <c:if test="${user.sex>0?true:false}">disabled="true"</c:if>
+                                               <c:if test="${user.sex==2?true:false}">checked=""</c:if>
                                                style="margin-left:30px">女
                                     </td>
                                     </td>
