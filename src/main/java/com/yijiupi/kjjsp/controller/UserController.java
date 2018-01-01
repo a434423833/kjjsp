@@ -42,10 +42,9 @@ public class UserController {
     @Autowired
     private UserServer userServer;
 
-    @RequestMapping(value = "/text", method = RequestMethod.POST)
-    public String text(ModelMap map, LoginVO loginVO) {
-        map.addAttribute("user", loginVO);
-        return "aa";
+    @RequestMapping(value = "/")
+    public ModelAndView text() {
+        return new ModelAndView("forward:index.jsp");
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
