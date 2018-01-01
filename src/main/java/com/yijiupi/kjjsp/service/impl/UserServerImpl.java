@@ -6,7 +6,6 @@ import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
 import com.yijiupi.kjjsp.utile.GetTimeUtil;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -230,7 +229,7 @@ public class UserServerImpl implements UserServer {
 
     }
 
-    @NotNull
+   
     private GuangChangLiuYanVO getGuangChangLiuYanVO(Page page, List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         GuangChangLiuYanVO guangChangLiuYanVO = new GuangChangLiuYanVO();
         guangChangLiuYanVO.setPage(page);
