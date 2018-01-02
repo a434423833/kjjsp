@@ -77,6 +77,12 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ValidateCode.jar</systemPath>
         </dependency>
+        <!--mvn install:install-file -Dfile=C:\Users\caohao\Desktop\ValidateCode.jar -DgroupId=com.import -DartifactId=valicode -Dversion=1.0.0.RELEASE -Dpackaging=jar-->
+        <dependency>
+            <groupId>com.import</groupId>
+            <artifactId>valicode</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
 
     </dependencies>
     <build>
