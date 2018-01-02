@@ -47,7 +47,7 @@
         <foreach collection="list1" item="employeeId" index="index" open="(" close=")" separator=",">
             #{employeeId}
         </foreach>
-        order by g.gcid
+        order by g.gcid desc
     </select>
 
     <select id="getGuangChangLiuYan1List2" resultMap="BaseResultMap2">
@@ -56,14 +56,18 @@
         <foreach collection="list2" item="employeeId" index="index" open="(" close=")" separator=",">
             #{employeeId}
         </foreach>
-        order by g.gcid
+        order by g.gcid desc
     </select>
 
     <select id="getCount" resultType="int">
         SELECT count(*) from gcliuyan where index1=1
     </select>
+
     <insert id="addGuangChangLiuYan" parameterType="com.yijiupi.kjjsp.pojo.GcliuyanDTO">
         insert into gcliuyan(uid,infor,time,index1) VALUES (#{uid},#{infor},#{time},1)
+    </insert>
+    <insert id="huifuGuangChangLiuYan" parameterType="com.yijiupi.kjjsp.pojo.HuifuGuangChangLiuYanDTO">
+        insert into gcliuyan(uid,infor,time,index1,beforgcid) VALUES (#{uid},#{infor},#{time},#{index},#{beforid})
     </insert>
 
 </mapper>

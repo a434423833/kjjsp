@@ -347,9 +347,25 @@ public class UserController {
      */
     @RequestMapping(value = "/addGuangChangLiuYan", method = RequestMethod.POST)
     public Result addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
-        LOGGER.info("addGuangChangLiuYan ");
+        LOGGER.info("进入addGuangChangLiuYan ");
         userServer.addGuangChangLiuYan(gcliuyanDTO);
         return ResultUtil.success();
     }
+
+    /**
+     * 回复广场留言
+     *
+     * @return
+     */
+    @RequestMapping(value = "/huifuGuangChangLiuYan", method = RequestMethod.POST)
+    public Result huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO, ModelMap map) {
+        LOGGER.info("进入huifuGuangChangLiuYan ");
+        Object object = map.get("user");
+        LoginVO tmp = (LoginVO) object;
+        huifuGuangChangLiuYanDTO.setUid(tmp.getUid());
+        userServer.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
+        return ResultUtil.success();
+    }
+
 
 }

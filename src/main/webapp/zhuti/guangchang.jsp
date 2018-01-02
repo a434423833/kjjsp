@@ -111,5 +111,9 @@ function echokoto(result) {
 <script type='text/javascript'
         src='https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script type='text/javascript' src='https://www.dreamwings.cn/wp-content/themes/kotha/assets/js/scripts.js'></script>
+<script type="text/javascript">
+    var uid = "${user.uid}";
+</script>
 </body>
+
 </html>

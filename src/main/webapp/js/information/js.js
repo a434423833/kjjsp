@@ -1,7 +1,9 @@
 "use strict";
+
 function _classCallCheck(t, n) {
-    if (!(t instanceof n))throw new TypeError("Cannot call a class as a function")
+    if (!(t instanceof n)) throw new TypeError("Cannot call a class as a function")
 }
+
 var _createClass = function () {
     function t(t, n) {
         for (var e = 0; e < n.length; e++) {
@@ -23,8 +25,8 @@ var _createClass = function () {
         if (!e[u]) {
             if (!n[u]) {
                 var c = "function" == typeof require && require;
-                if (!a && c)return c(u, !0);
-                if (i)return i(u, !0);
+                if (!a && c) return c(u, !0);
+                if (i) return i(u, !0);
                 var f = new Error("Cannot find module '" + u + "'");
                 throw f.code = "MODULE_NOT_FOUND", f
             }
@@ -37,12 +39,12 @@ var _createClass = function () {
         return e[u].exports
     }
 
-    for (var i = "function" == typeof require && require, u = 0; u < r.length; u++)o(r[u]);
+    for (var i = "function" == typeof require && require, u = 0; u < r.length; u++) o(r[u]);
     return o
 }({
     1: [function (t, n, e) {
         (function (n) {
-            if (t(189), t(2), n._babelPolyfill)throw new Error("only one instance of babel-polyfill is allowed");
+            if (t(189), t(2), n._babelPolyfill) throw new Error("only one instance of babel-polyfill is allowed");
             n._babelPolyfill = !0
         }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {})
     }, {189: 189, 2: 2}],
@@ -51,7 +53,7 @@ var _createClass = function () {
     }, {190: 190}],
     3: [function (t, n, e) {
         n.exports = function (t) {
-            if ("function" != typeof t)throw TypeError(t + " is not a function!");
+            if ("function" != typeof t) throw TypeError(t + " is not a function!");
             return t
         }
     }, {}],
@@ -64,25 +66,25 @@ var _createClass = function () {
     5: [function (t, n, e) {
         var r = t(39);
         n.exports = function (t) {
-            if (!r(t))throw TypeError(t + " is not an object!");
+            if (!r(t)) throw TypeError(t + " is not an object!");
             return t
         }
     }, {39: 39}],
     6: [function (t, n, e) {
         var r = t(81), o = t(77), i = t(80);
         n.exports = [].copyWithin || function (t, n) {
-                var e = r(this), u = i(e.length), a = o(t, u), c = o(n, u), f = arguments,
-                    s = f.length > 2 ? f[2] : void 0, l = Math.min((void 0 === s ? u : o(s, u)) - c, u - a), h = 1;
-                for (a > c && c + l > a && (h = -1, c += l - 1, a += l - 1); l-- > 0;)c in e ? e[a] = e[c] : delete e[a], a += h, c += h;
-                return e
-            }
+            var e = r(this), u = i(e.length), a = o(t, u), c = o(n, u), f = arguments,
+                s = f.length > 2 ? f[2] : void 0, l = Math.min((void 0 === s ? u : o(s, u)) - c, u - a), h = 1;
+            for (a > c && c + l > a && (h = -1, c += l - 1, a += l - 1); l-- > 0;) c in e ? e[a] = e[c] : delete e[a], a += h, c += h;
+            return e
+        }
     }, {77: 77, 80: 80, 81: 81}],
     7: [function (t, n, e) {
         var r = t(81), o = t(77), i = t(80);
         n.exports = [].fill || function (t) {
-                for (var n = r(this), e = i(n.length), u = arguments, a = u.length, c = o(a > 1 ? u[1] : void 0, e), f = a > 2 ? u[2] : void 0, s = void 0 === f ? e : o(f, e); s > c;)n[c++] = t;
-                return n
-            }
+            for (var n = r(this), e = i(n.length), u = arguments, a = u.length, c = o(a > 1 ? u[1] : void 0, e), f = a > 2 ? u[2] : void 0, s = void 0 === f ? e : o(f, e); s > c;) n[c++] = t;
+            return n
+        }
     }, {77: 77, 80: 80, 81: 81}],
     8: [function (t, n, e) {
         var r = t(79), o = t(80), i = t(77);
@@ -90,8 +92,8 @@ var _createClass = function () {
             return function (n, e, u) {
                 var a, c = r(n), f = o(c.length), s = i(u, f);
                 if (t && e != e) {
-                    for (; f > s;)if (a = c[s++], a != a)return !0
-                } else for (; f > s; s++)if ((t || s in c) && c[s] === e)return t || s;
+                    for (; f > s;) if (a = c[s++], a != a) return !0
+                } else for (; f > s; s++) if ((t || s in c) && c[s] === e) return t || s;
                 return !t && -1
             }
         }
@@ -101,7 +103,7 @@ var _createClass = function () {
         n.exports = function (t) {
             var n = 1 == t, e = 2 == t, c = 3 == t, f = 4 == t, s = 6 == t, l = 5 == t || s;
             return function (h, v, p) {
-                for (var d, g, y = i(h), m = o(y), w = r(v, p, 3), b = u(m.length), S = 0, x = n ? a(h, b) : e ? a(h, 0) : void 0; b > S; S++)if ((l || S in m) && (d = m[S], g = w(d, S, y), t))if (n) x[S] = g; else if (g)switch (t) {
+                for (var d, g, y = i(h), m = o(y), w = r(v, p, 3), b = u(m.length), S = 0, x = n ? a(h, b) : e ? a(h, 0) : void 0; b > S; S++) if ((l || S in m) && (d = m[S], g = w(d, S, y), t)) if (n) x[S] = g; else if (g) switch (t) {
                     case 3:
                         return !0;
                     case 5:
@@ -110,7 +112,7 @@ var _createClass = function () {
                         return S;
                     case 2:
                         x.push(d)
-                } else if (f)return !1;
+                } else if (f) return !1;
                 return s ? -1 : c || f ? f : x
             }
         }
@@ -124,8 +126,8 @@ var _createClass = function () {
     }, {37: 37, 39: 39, 84: 84}],
     11: [function (t, n, e) {
         var r = t(12), o = t(84)("toStringTag"), i = "Arguments" == r(function () {
-                return arguments
-            }());
+            return arguments
+        }());
         n.exports = function (t) {
             var n, e, u;
             return void 0 === t ? "Undefined" : null === t ? "Null" : "string" == typeof(e = (n = Object(t))[o]) ? e : i ? r(n) : "Object" == (u = r(n)) && "function" == typeof n.callee ? "Arguments" : u
@@ -141,17 +143,17 @@ var _createClass = function () {
         var r = t(47), o = t(32), i = t(61), u = t(18), a = t(70), c = t(19), f = t(28), s = t(43), l = t(45),
             h = t(83)("id"), v = t(31), p = t(39), d = t(66), g = t(20), y = Object.isExtensible || p,
             m = g ? "_s" : "size", w = 0, b = function (t, n) {
-                if (!p(t))return "symbol" == ("undefined" == typeof t ? "undefined" : _typeof(t)) ? t : ("string" == typeof t ? "S" : "P") + t;
+                if (!p(t)) return "symbol" == ("undefined" == typeof t ? "undefined" : _typeof(t)) ? t : ("string" == typeof t ? "S" : "P") + t;
                 if (!v(t, h)) {
-                    if (!y(t))return "F";
-                    if (!n)return "E";
+                    if (!y(t)) return "F";
+                    if (!n) return "E";
                     o(t, h, ++w)
                 }
                 return "O" + t[h]
             }, S = function (t, n) {
                 var e, r = b(n);
-                if ("F" !== r)return t._i[r];
-                for (e = t._f; e; e = e.n)if (e.k == n)return e
+                if ("F" !== r) return t._i[r];
+                for (e = t._f; e; e = e.n) if (e.k == n) return e
             };
         n.exports = {
             getConstructor: function (t, n, e, o) {
@@ -160,7 +162,7 @@ var _createClass = function () {
                 });
                 return i(s.prototype, {
                     clear: function () {
-                        for (var t = this, n = t._i, e = t._f; e; e = e.n)e.r = !0, e.p && (e.p = e.p.n = void 0), delete n[e.i];
+                        for (var t = this, n = t._i, e = t._f; e; e = e.n) e.r = !0, e.p && (e.p = e.p.n = void 0), delete n[e.i];
                         t._f = t._l = void 0, t[m] = 0
                     }, "delete": function (t) {
                         var n = this, e = S(n, t);
@@ -170,7 +172,7 @@ var _createClass = function () {
                         }
                         return !!e
                     }, forEach: function (t) {
-                        for (var n, e = u(t, arguments.length > 1 ? arguments[1] : void 0, 3); n = n ? n.n : this._f;)for (e(n.v, n.k, this); n && n.r;)n = n.p
+                        for (var n, e = u(t, arguments.length > 1 ? arguments[1] : void 0, 3); n = n ? n.n : this._f;) for (e(n.v, n.k, this); n && n.r;) n = n.p
                     }, has: function (t) {
                         return !!S(this, t)
                     }
@@ -193,7 +195,7 @@ var _createClass = function () {
                 s(t, n, function (t, n) {
                     this._t = t, this._k = n, this._l = void 0
                 }, function () {
-                    for (var t = this, n = t._k, e = t._l; e && e.r;)e = e.p;
+                    for (var t = this, n = t._k, e = t._l; e && e.r;) e = e.p;
                     return t._t && (t._l = e = e ? e.n : t._t._f) ? "keys" == n ? l(0, e.k) : "values" == n ? l(0, e.v) : l(0, [e.k, e.v]) : (t._t = void 0, l(1))
                 }, e ? "entries" : "values", !e, !0), d(n)
             }
@@ -218,7 +220,7 @@ var _createClass = function () {
         var r = t(28), o = t(11);
         n.exports = function (t) {
             return function () {
-                if (o(this) != t)throw TypeError(t + "#toJSON isn't generic");
+                if (o(this) != t) throw TypeError(t + "#toJSON isn't generic");
                 var n = [];
                 return r(this, !1, n.push, n), n
             }
@@ -311,7 +313,7 @@ var _createClass = function () {
     18: [function (t, n, e) {
         var r = t(3);
         n.exports = function (t, n, e) {
-            if (r(t), void 0 === n)return t;
+            if (r(t), void 0 === n) return t;
             switch (e) {
                 case 1:
                     return function (e) {
@@ -333,17 +335,17 @@ var _createClass = function () {
     }, {3: 3}],
     19: [function (t, n, e) {
         n.exports = function (t) {
-            if (void 0 == t)throw TypeError("Can't call method on  " + t);
+            if (void 0 == t) throw TypeError("Can't call method on  " + t);
             return t
         }
     }, {}],
     20: [function (t, n, e) {
         n.exports = !t(25)(function () {
             return 7 != Object.defineProperty({}, "a", {
-                    get: function () {
-                        return 7
-                    }
-                }).a
+                get: function () {
+                    return 7
+                }
+            }).a
         })
     }, {25: 25}],
     21: [function (t, n, e) {
@@ -356,7 +358,7 @@ var _createClass = function () {
         var r = t(47);
         n.exports = function (t) {
             var n = r.getKeys(t), e = r.getSymbols;
-            if (e)for (var o, i = e(t), u = r.isEnum, a = 0; i.length > a;)u.call(t, o = i[a++]) && n.push(o);
+            if (e) for (var o, i = e(t), u = r.isEnum, a = 0; i.length > a;) u.call(t, o = i[a++]) && n.push(o);
             return n
         }
     }, {47: 47}],
@@ -366,7 +368,7 @@ var _createClass = function () {
                 w = d ? r : g ? r[n] || (r[n] = {}) : (r[n] || {})[c], b = d ? o : o[n] || (o[n] = {}),
                 S = b[c] || (b[c] = {});
             d && (e = n);
-            for (f in e)l = !p && w && f in w, h = (l ? w : e)[f], v = m && l ? a(h, r) : y && "function" == typeof h ? a(Function.call, h) : h, w && !l && u(w, f, h), b[f] != h && i(b, f, v), y && S[f] != h && (S[f] = h)
+            for (f in e) l = !p && w && f in w, h = (l ? w : e)[f], v = m && l ? a(h, r) : y && "function" == typeof h ? a(Function.call, h) : h, w && !l && u(w, f, h), b[f] != h && i(b, f, v), y && S[f] != h && (S[f] = h)
         };
         r.core = o, f.F = 1, f.G = 2, f.S = 4, f.P = 8, f.B = 16, f.W = 32, n.exports = f
     }, {17: 17, 18: 18, 30: 30, 32: 32, 62: 62}],
@@ -421,8 +423,8 @@ var _createClass = function () {
         var r = t(18), o = t(41), i = t(36), u = t(5), a = t(80), c = t(85);
         n.exports = function (t, n, e, f) {
             var s, l, h, v = c(t), p = r(e, f, n ? 2 : 1), d = 0;
-            if ("function" != typeof v)throw TypeError(t + " is not iterable!");
-            if (i(v))for (s = a(t.length); s > d; d++)n ? p(u(l = t[d])[0], l[1]) : p(t[d]); else for (h = v.call(t); !(l = h.next()).done;)o(h, p, l.value, n)
+            if ("function" != typeof v) throw TypeError(t + " is not iterable!");
+            if (i(v)) for (s = a(t.length); s > d; d++) n ? p(u(l = t[d])[0], l[1]) : p(t[d]); else for (h = v.call(t); !(l = h.next()).done;) o(h, p, l.value, n)
         }
     }, {18: 18, 36: 36, 41: 41, 5: 5, 80: 80, 85: 85}],
     29: [function (t, n, e) {
@@ -493,8 +495,8 @@ var _createClass = function () {
     37: [function (t, n, e) {
         var r = t(12);
         n.exports = Array.isArray || function (t) {
-                return "Array" == r(t)
-            }
+            return "Array" == r(t)
+        }
     }, {12: 12}],
     38: [function (t, n, e) {
         var r = t(39), o = Math.floor;
@@ -542,7 +544,7 @@ var _createClass = function () {
         n.exports = function (t, n, e, m, w, b, S) {
             f(e, n, m);
             var x, _, E = function (t) {
-                if (!v && t in P)return P[t];
+                if (!v && t in P) return P[t];
                 switch (t) {
                     case d:
                         return function () {
@@ -563,11 +565,11 @@ var _createClass = function () {
                     return k.call(this)
                 })
             }
-            if (r && !S || !v && !A && P[h] || u(P, h, j), c[n] = j, c[O] = y, w)if (x = {
+            if (r && !S || !v && !A && P[h] || u(P, h, j), c[n] = j, c[O] = y, w) if (x = {
                     values: M ? j : E(g),
                     keys: b ? j : E(d),
                     entries: M ? E("entries") : j
-                }, S)for (_ in x)_ in P || i(P, _, x[_]); else o(o.P + o.F * (v || A), n, x);
+                }, S) for (_ in x) _ in P || i(P, _, x[_]); else o(o.P + o.F * (v || A), n, x);
             return x
         }
     }, {23: 23, 31: 31, 32: 32, 42: 42, 46: 46, 47: 47, 49: 49, 62: 62, 67: 67, 84: 84}],
@@ -583,7 +585,7 @@ var _createClass = function () {
         } catch (u) {
         }
         n.exports = function (t, n) {
-            if (!n && !o)return !1;
+            if (!n && !o) return !1;
             var e = !1;
             try {
                 var i = [7], u = i[r]();
@@ -623,7 +625,7 @@ var _createClass = function () {
     48: [function (t, n, e) {
         var r = t(47), o = t(79);
         n.exports = function (t, n) {
-            for (var e, i = o(t), u = r.getKeys(i), a = u.length, c = 0; a > c;)if (i[e = u[c++]] === n)return e
+            for (var e, i = o(t), u = r.getKeys(i), a = u.length, c = 0; a > c;) if (i[e = u[c++]] === n) return e
         }
     }, {47: 47, 79: 79}],
     49: [function (t, n, e) {
@@ -631,24 +633,24 @@ var _createClass = function () {
     }, {}],
     50: [function (t, n, e) {
         n.exports = Math.expm1 || function (t) {
-                return 0 == (t = +t) ? t : t > -1e-6 && 1e-6 > t ? t + t * t / 2 : Math.exp(t) - 1
-            }
+            return 0 == (t = +t) ? t : t > -1e-6 && 1e-6 > t ? t + t * t / 2 : Math.exp(t) - 1
+        }
     }, {}],
     51: [function (t, n, e) {
         n.exports = Math.log1p || function (t) {
-                return (t = +t) > -1e-8 && 1e-8 > t ? t - t * t / 2 : Math.log(1 + t)
-            }
+            return (t = +t) > -1e-8 && 1e-8 > t ? t - t * t / 2 : Math.log(1 + t)
+        }
     }, {}],
     52: [function (t, n, e) {
         n.exports = Math.sign || function (t) {
-                return 0 == (t = +t) || t != t ? t : 0 > t ? -1 : 1
-            }
+            return 0 == (t = +t) || t != t ? t : 0 > t ? -1 : 1
+        }
     }, {}],
     53: [function (t, n, e) {
         var r, o, i, u = t(30), a = t(76).set, c = u.MutationObserver || u.WebKitMutationObserver, f = u.process,
             s = u.Promise, l = "process" == t(12)(f), h = function () {
                 var t, n, e;
-                for (l && (t = f.domain) && (f.domain = null, t.exit()); r;)n = r.domain, e = r.fn, n && n.enter(), e(), n && n.exit(), r = r.next;
+                for (l && (t = f.domain) && (f.domain = null, t.exit()); r;) n = r.domain, e = r.fn, n && n.enter(), e(), n && n.exit(), r = r.next;
                 o = void 0, t && t.enter()
             };
         if (l) i = function () {
@@ -676,7 +678,7 @@ var _createClass = function () {
                 e[t] = t
             }), 7 != t({}, n)[r] || Object.keys(t({}, e)).join("") != o
         }) ? function (t, n) {
-            for (var e = o(t), u = arguments, a = u.length, c = 1, f = r.getKeys, s = r.getSymbols, l = r.isEnum; a > c;)for (var h, v = i(u[c++]), p = s ? f(v).concat(s(v)) : f(v), d = p.length, g = 0; d > g;)l.call(v, h = p[g++]) && (e[h] = v[h]);
+            for (var e = o(t), u = arguments, a = u.length, c = 1, f = r.getKeys, s = r.getSymbols, l = r.isEnum; a > c;) for (var h, v = i(u[c++]), p = s ? f(v).concat(s(v)) : f(v), d = p.length, g = 0; d > g;) l.call(v, h = p[g++]) && (e[h] = v[h]);
             return e
         } : Object.assign
     }, {25: 25, 35: 35, 47: 47, 81: 81}],
@@ -685,15 +687,15 @@ var _createClass = function () {
         n.exports = function (t, n) {
             var e = (o.Object || {})[t] || Object[t], u = {};
             u[t] = n(e), r(r.S + r.F * i(function () {
-                    e(1)
-                }), "Object", u)
+                e(1)
+            }), "Object", u)
         }
     }, {17: 17, 23: 23, 25: 25}],
     56: [function (t, n, e) {
         var r = t(47), o = t(79), i = r.isEnum;
         n.exports = function (t) {
             return function (n) {
-                for (var e, u = o(n), a = r.getKeys(u), c = a.length, f = 0, s = []; c > f;)i.call(u, e = a[f++]) && s.push(t ? [e, u[e]] : u[e]);
+                for (var e, u = o(n), a = r.getKeys(u), c = a.length, f = 0, s = []; c > f;) i.call(u, e = a[f++]) && s.push(t ? [e, u[e]] : u[e]);
                 return s
             }
         }
@@ -701,19 +703,19 @@ var _createClass = function () {
     57: [function (t, n, e) {
         var r = t(47), o = t(5), i = t(30).Reflect;
         n.exports = i && i.ownKeys || function (t) {
-                var n = r.getNames(o(t)), e = r.getSymbols;
-                return e ? n.concat(e(t)) : n
-            }
+            var n = r.getNames(o(t)), e = r.getSymbols;
+            return e ? n.concat(e(t)) : n
+        }
     }, {30: 30, 47: 47, 5: 5}],
     58: [function (t, n, e) {
         var r = t(59), o = t(34), i = t(3);
         n.exports = function () {
-            for (var t = i(this), n = arguments.length, e = Array(n), u = 0, a = r._, c = !1; n > u;)(e[u] = arguments[u++]) === a && (c = !0);
+            for (var t = i(this), n = arguments.length, e = Array(n), u = 0, a = r._, c = !1; n > u;) (e[u] = arguments[u++]) === a && (c = !0);
             return function () {
                 var r, i = this, u = arguments, f = u.length, s = 0, l = 0;
-                if (!c && !f)return o(t, e, i);
-                if (r = e.slice(), c)for (; n > s; s++)r[s] === a && (r[s] = u[l++]);
-                for (; f > l;)r.push(u[l++]);
+                if (!c && !f) return o(t, e, i);
+                if (r = e.slice(), c) for (; n > s; s++) r[s] === a && (r[s] = u[l++]);
+                for (; f > l;) r.push(u[l++]);
                 return o(t, r, i)
             }
         }
@@ -729,7 +731,7 @@ var _createClass = function () {
     61: [function (t, n, e) {
         var r = t(62);
         n.exports = function (t, n) {
-            for (var e in n)r(t, e, n[e]);
+            for (var e in n) r(t, e, n[e]);
             return t
         }
     }, {62: 62}],
@@ -755,12 +757,12 @@ var _createClass = function () {
     }, {}],
     64: [function (t, n, e) {
         n.exports = Object.is || function (t, n) {
-                return t === n ? 0 !== t || 1 / t === 1 / n : t != t && n != n
-            }
+            return t === n ? 0 !== t || 1 / t === 1 / n : t != t && n != n
+        }
     }, {}],
     65: [function (t, n, e) {
         var r = t(47).getDesc, o = t(39), i = t(5), u = function (t, n) {
-            if (i(t), !o(n) && null !== n)throw TypeError(n + ": can't set as prototype!")
+            if (i(t), !o(n) && null !== n) throw TypeError(n + ": can't set as prototype!")
         };
         n.exports = {
             set: Object.setPrototypeOf || ("__proto__" in {} ? function (n, e, o) {
@@ -807,7 +809,7 @@ var _createClass = function () {
     }, {3: 3, 5: 5, 84: 84}],
     70: [function (t, n, e) {
         n.exports = function (t, n, e) {
-            if (!(t instanceof n))throw TypeError(e + ": use the 'new' operator!");
+            if (!(t instanceof n)) throw TypeError(e + ": use the 'new' operator!");
             return t
         }
     }, {}],
@@ -823,7 +825,7 @@ var _createClass = function () {
     72: [function (t, n, e) {
         var r = t(40), o = t(19);
         n.exports = function (t, n, e) {
-            if (r(n))throw TypeError("String#" + e + " doesn't accept regex!");
+            if (r(n)) throw TypeError("String#" + e + " doesn't accept regex!");
             return String(o(t))
         }
     }, {19: 19, 40: 40}],
@@ -831,7 +833,7 @@ var _createClass = function () {
         var r = t(80), o = t(74), i = t(19);
         n.exports = function (t, n, e, u) {
             var a = String(i(t)), c = a.length, f = void 0 === e ? " " : String(e), s = r(n);
-            if (c >= s)return a;
+            if (c >= s) return a;
             "" == f && (f = " ");
             var l = s - c, h = o.call(f, Math.ceil(l / f.length));
             return h.length > l && (h = h.slice(0, l)), u ? h + a : a + h
@@ -841,8 +843,8 @@ var _createClass = function () {
         var r = t(78), o = t(19);
         n.exports = function (t) {
             var n = String(o(this)), e = "", i = r(t);
-            if (0 > i || i == 1 / 0)throw RangeError("Count can't be negative");
-            for (; i > 0; (i >>>= 1) && (n += n))1 & i && (e += n);
+            if (0 > i || i == 1 / 0) throw RangeError("Count can't be negative");
+            for (; i > 0; (i >>>= 1) && (n += n)) 1 & i && (e += n);
             return e
         }
     }, {19: 19, 78: 78}],
@@ -851,8 +853,8 @@ var _createClass = function () {
             a = "[" + u + "]", c = "​", f = RegExp("^" + a + a + "*"), s = RegExp(a + a + "*$"), l = function (t, n) {
                 var e = {};
                 e[t] = n(h), r(r.P + r.F * i(function () {
-                        return !!u[t]() || c[t]() != c
-                    }), "String", e)
+                    return !!u[t]() || c[t]() != c
+                }), "String", e)
             }, h = l.trim = function (t, n) {
                 return t = String(o(t)), 1 & n && (t = t.replace(f, "")), 2 & n && (t = t.replace(s, "")), t
             };
@@ -870,7 +872,7 @@ var _createClass = function () {
                 m.call(t.data)
             };
         h && v || (h = function (t) {
-            for (var n = [], e = 1; arguments.length > e;)n.push(arguments[e++]);
+            for (var n = [], e = 1; arguments.length > e;) n.push(arguments[e++]);
             return g[++d] = function () {
                 a("function" == typeof t ? t : Function(t), n)
             }, r(d), d
@@ -921,11 +923,11 @@ var _createClass = function () {
     82: [function (t, n, e) {
         var r = t(39);
         n.exports = function (t, n) {
-            if (!r(t))return t;
+            if (!r(t)) return t;
             var e, o;
-            if (n && "function" == typeof(e = t.toString) && !r(o = e.call(t)))return o;
-            if ("function" == typeof(e = t.valueOf) && !r(o = e.call(t)))return o;
-            if (!n && "function" == typeof(e = t.toString) && !r(o = e.call(t)))return o;
+            if (n && "function" == typeof(e = t.toString) && !r(o = e.call(t))) return o;
+            if ("function" == typeof(e = t.valueOf) && !r(o = e.call(t))) return o;
+            if (!n && "function" == typeof(e = t.toString) && !r(o = e.call(t))) return o;
             throw TypeError("Can't convert object to primitive value")
         }
     }, {39: 39}],
@@ -954,26 +956,26 @@ var _createClass = function () {
             k = A.join, j = o.setDesc, N = o.getDesc, F = o.setDescs, L = {};
         u || (r = !v(function () {
             return 7 != j(f("div"), "a", {
-                    get: function () {
-                        return 7
-                    }
-                }).a
+                get: function () {
+                    return 7
+                }
+            }).a
         }), o.setDesc = function (t, n, e) {
-            if (r)try {
+            if (r) try {
                 return j(t, n, e)
             } catch (o) {
             }
-            if ("get" in e || "set" in e)throw TypeError("Accessors not supported!");
+            if ("get" in e || "set" in e) throw TypeError("Accessors not supported!");
             return "value" in e && (p(t)[n] = e.value), t
         }, o.getDesc = function (t, n) {
-            if (r)try {
+            if (r) try {
                 return N(t, n)
             } catch (e) {
             }
             return s(t, n) ? a(!M.propertyIsEnumerable.call(t, n), t[n]) : void 0
         }, o.setDescs = F = function (t, n) {
             p(t);
-            for (var e, r = o.getKeys(n), i = r.length, u = 0; i > u;)o.setDesc(t, e = r[u++], n[e]);
+            for (var e, r = o.getKeys(n), i = r.length, u = 0; i > u;) o.setDesc(t, e = r[u++], n[e]);
             return t
         }), i(i.S + i.F * !u, "Object", {
             getOwnPropertyDescriptor: o.getDesc,
@@ -983,31 +985,31 @@ var _createClass = function () {
         var C = "constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(","),
             I = C.concat("length", "prototype"), D = C.length, T = function () {
                 var t, n = f("iframe"), e = D, r = ">";
-                for (n.style.display = "none", c.appendChild(n), n.src = "javascript:", t = n.contentWindow.document, t.open(), t.write("<script>document.F=Object</script" + r), t.close(), T = t.F; e--;)delete T.prototype[C[e]];
+                for (n.style.display = "none", c.appendChild(n), n.src = "javascript:", t = n.contentWindow.document, t.open(), t.write("<script>document.F=Object</script" + r), t.close(), T = t.F; e--;) delete T.prototype[C[e]];
                 return T()
             }, R = function (t, n) {
                 return function (e) {
                     var r, o = m(e), i = 0, u = [];
-                    for (r in o)r != _ && s(o, r) && u.push(r);
-                    for (; n > i;)s(o, r = t[i++]) && (~O(u, r) || u.push(r));
+                    for (r in o) r != _ && s(o, r) && u.push(r);
+                    for (; n > i;) s(o, r = t[i++]) && (~O(u, r) || u.push(r));
                     return u
                 }
             }, W = function () {
             };
         i(i.S, "Object", {
             getPrototypeOf: o.getProto = o.getProto || function (t) {
-                    return t = y(t), s(t, _) ? t[_] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? M : null
-                },
+                return t = y(t), s(t, _) ? t[_] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? M : null
+            },
             getOwnPropertyNames: o.getNames = o.getNames || R(I, I.length, !0),
             create: o.create = o.create || function (t, n) {
-                    var e;
-                    return null !== t ? (W.prototype = p(t), e = new W, W.prototype = null, e[_] = t) : e = T(), void 0 === n ? e : F(e, n)
-                },
+                var e;
+                return null !== t ? (W.prototype = p(t), e = new W, W.prototype = null, e[_] = t) : e = T(), void 0 === n ? e : F(e, n)
+            },
             keys: o.getKeys = o.getKeys || R(C, D, !1)
         });
         var G = function (t, n, e) {
             if (!(n in L)) {
-                for (var r = [], o = 0; n > o; o++)r[o] = "a[" + o + "]";
+                for (var r = [], o = 0; n > o; o++) r[o] = "a[" + o + "]";
                 L[n] = Function("F,a", "return new F(" + r.join(",") + ")")
             }
             return L[n](t, e)
@@ -1021,12 +1023,12 @@ var _createClass = function () {
                 return g(n.prototype) && (r.prototype = n.prototype), r
             }
         }), i(i.P + i.F * v(function () {
-                c && P.call(c)
-            }), "Array", {
+            c && P.call(c)
+        }), "Array", {
             slice: function (t, n) {
                 var e = S(this.length), r = l(this);
-                if (n = void 0 === n ? e : n, "Array" == r)return P.call(this, t, n);
-                for (var o = b(t, e), i = b(n, e), u = S(i - o), a = Array(u), c = 0; u > c; c++)a[c] = "String" == r ? this.charAt(o + c) : this[o + c];
+                if (n = void 0 === n ? e : n, "Array" == r) return P.call(this, t, n);
+                for (var o = b(t, e), i = b(n, e), u = S(i - o), a = Array(u), c = 0; u > c; c++) a[c] = "String" == r ? this.charAt(o + c) : this[o + c];
                 return a
             }
         }), i(i.P + i.F * (x != Object), "Array", {
@@ -1038,14 +1040,14 @@ var _createClass = function () {
             return function (n, e) {
                 d(n);
                 var r = x(this), o = S(r.length), i = t ? o - 1 : 0, u = t ? -1 : 1;
-                if (arguments.length < 2)for (; ;) {
+                if (arguments.length < 2) for (; ;) {
                     if (i in r) {
                         e = r[i], i += u;
                         break
                     }
-                    if (i += u, t ? 0 > i : i >= o)throw TypeError("Reduce of empty array with no initial value")
+                    if (i += u, t ? 0 > i : i >= o) throw TypeError("Reduce of empty array with no initial value")
                 }
-                for (; t ? i >= 0 : o > i; i += u)i in r && (e = n(e, r[i], i, this));
+                for (; t ? i >= 0 : o > i; i += u) i in r && (e = n(e, r[i], i, this));
                 return e
             }
         }, U = function (t) {
@@ -1064,7 +1066,7 @@ var _createClass = function () {
             indexOf: U(O),
             lastIndexOf: function (t, n) {
                 var e = m(this), r = S(e.length), o = r - 1;
-                for (arguments.length > 1 && (o = Math.min(o, w(n))), 0 > o && (o = S(r + o)); o >= 0; o--)if (o in e && e[o] === t)return o;
+                for (arguments.length > 1 && (o = Math.min(o, w(n))), 0 > o && (o = S(r + o)); o >= 0; o--) if (o in e && e[o] === t) return o;
                 return -1
             }
         }), i(i.S, "Date", {
@@ -1076,12 +1078,12 @@ var _createClass = function () {
             return t > 9 ? t : "0" + t
         };
         i(i.P + i.F * (v(function () {
-                return "0385-07-25T07:06:39.999Z" != new Date(-5e13 - 1).toISOString()
-            }) || !v(function () {
-                new Date(NaN).toISOString()
-            })), "Date", {
+            return "0385-07-25T07:06:39.999Z" != new Date(-5e13 - 1).toISOString()
+        }) || !v(function () {
+            new Date(NaN).toISOString()
+        })), "Date", {
             toISOString: function () {
-                if (!isFinite(this))throw RangeError("Invalid time value");
+                if (!isFinite(this)) throw RangeError("Invalid time value");
                 var t = this, n = t.getUTCFullYear(), e = t.getUTCMilliseconds(), r = 0 > n ? "-" : n > 9999 ? "+" : "";
                 return r + ("00000" + Math.abs(n)).slice(r ? -6 : -4) + "-" + B(t.getUTCMonth() + 1) + "-" + B(t.getUTCDate()) + "T" + B(t.getUTCHours()) + ":" + B(t.getUTCMinutes()) + ":" + B(t.getUTCSeconds()) + "." + (e > 99 ? e : "0" + B(e)) + "Z"
             }
@@ -1142,12 +1144,12 @@ var _createClass = function () {
     91: [function (t, n, e) {
         var r = t(18), o = t(23), i = t(81), u = t(41), a = t(36), c = t(80), f = t(85);
         o(o.S + o.F * !t(44)(function (t) {
-                Array.from(t)
-            }), "Array", {
+            Array.from(t)
+        }), "Array", {
             from: function (t) {
                 var n, e, o, s, l = i(t), h = "function" == typeof this ? this : Array, v = arguments, p = v.length,
                     d = p > 1 ? v[1] : void 0, g = void 0 !== d, y = 0, m = f(l);
-                if (g && (d = r(d, p > 2 ? v[2] : void 0, 2)), void 0 == m || h == Array && a(m))for (n = c(l.length), e = new h(n); n > y; y++)e[y] = g ? d(l[y], y) : l[y]; else for (s = m.call(l), e = new h; !(o = s.next()).done; y++)e[y] = g ? u(s, d, [o.value, y], !0) : o.value;
+                if (g && (d = r(d, p > 2 ? v[2] : void 0, 2)), void 0 == m || h == Array && a(m)) for (n = c(l.length), e = new h(n); n > y; y++) e[y] = g ? d(l[y], y) : l[y]; else for (s = m.call(l), e = new h; !(o = s.next()).done; y++) e[y] = g ? u(s, d, [o.value, y], !0) : o.value;
                 return e.length = y, e
             }
         })
@@ -1164,13 +1166,13 @@ var _createClass = function () {
     93: [function (t, n, e) {
         var r = t(23);
         r(r.S + r.F * t(25)(function () {
-                function t() {
-                }
+            function t() {
+            }
 
-                return !(Array.of.call(t) instanceof t)
-            }), "Array", {
+            return !(Array.of.call(t) instanceof t)
+        }), "Array", {
             of: function () {
-                for (var t = 0, n = arguments, e = n.length, r = new ("function" == typeof this ? this : Array)(e); e > t;)r[t] = n[t++];
+                for (var t = 0, n = arguments, e = n.length, r = new ("function" == typeof this ? this : Array)(e); e > t;) r[t] = n[t++];
                 return r.length = e, r
             }
         })
@@ -1182,9 +1184,9 @@ var _createClass = function () {
         var r = t(47), o = t(39), i = t(84)("hasInstance"), u = Function.prototype;
         i in u || r.setDesc(u, i, {
             value: function (t) {
-                if ("function" != typeof this || !o(t))return !1;
-                if (!o(this.prototype))return t instanceof this;
-                for (; t = r.getProto(t);)if (this.prototype === t)return !0;
+                if ("function" != typeof this || !o(t)) return !1;
+                if (!o(this.prototype)) return t instanceof this;
+                for (; t = r.getProto(t);) if (this.prototype === t) return !0;
                 return !1
             }
         })
@@ -1281,7 +1283,7 @@ var _createClass = function () {
         var r = t(23), o = Math.abs;
         r(r.S, "Math", {
             hypot: function (t, n) {
-                for (var e, r, i = 0, u = 0, a = arguments, c = a.length, f = 0; c > u;)e = o(a[u++]), e > f ? (r = f / e, i = i * r * r + 1, f = e) : e > 0 ? (r = e / f, i += r * r) : i += e;
+                for (var e, r, i = 0, u = 0, a = arguments, c = a.length, f = 0; c > u;) e = o(a[u++]), e > f ? (r = f / e, i = i * r * r + 1, f = e) : e > 0 ? (r = e / f, i += r * r) : i += e;
                 return f === 1 / 0 ? 1 / 0 : f * Math.sqrt(i)
             }
         })
@@ -1289,8 +1291,8 @@ var _createClass = function () {
     107: [function (t, n, e) {
         var r = t(23), o = Math.imul;
         r(r.S + r.F * t(25)(function () {
-                return -5 != o(4294967295, 5) || 2 != o.length
-            }), "Math", {
+            return -5 != o(4294967295, 5) || 2 != o.length
+        }), "Math", {
             imul: function (t, n) {
                 var e = 65535, r = +t, o = +n, i = e & r, u = e & o;
                 return 0 | i * u + ((e & r >>> 16) * u + i * (e & o >>> 16) << 16 >>> 0)
@@ -1324,8 +1326,8 @@ var _createClass = function () {
     112: [function (t, n, e) {
         var r = t(23), o = t(50), i = Math.exp;
         r(r.S + r.F * t(25)(function () {
-                return -2e-17 != !Math.sinh(-2e-17)
-            }), "Math", {
+            return -2e-17 != !Math.sinh(-2e-17)
+        }), "Math", {
             sinh: function (t) {
                 return Math.abs(t = +t) < 1 ? (o(t) - o(-t)) / 2 : (i(t - 1) - i(-t - 1)) * (Math.E / 2)
             }
@@ -1356,7 +1358,7 @@ var _createClass = function () {
                     n = d ? n.trim() : f(n, 3);
                     var e, r, o, i = n.charCodeAt(0);
                     if (43 === i || 45 === i) {
-                        if (e = n.charCodeAt(2), 88 === e || 120 === e)return NaN
+                        if (e = n.charCodeAt(2), 88 === e || 120 === e) return NaN
                     } else if (48 === i) {
                         switch (n.charCodeAt(1)) {
                             case 66:
@@ -1370,7 +1372,7 @@ var _createClass = function () {
                             default:
                                 return +n
                         }
-                        for (var u, c = n.slice(2), s = 0, l = c.length; l > s; s++)if (u = c.charCodeAt(s), 48 > u || u > o)return NaN;
+                        for (var u, c = n.slice(2), s = 0, l = c.length; l > s; s++) if (u = c.charCodeAt(s), 48 > u || u > o) return NaN;
                         return parseInt(c, r)
                     }
                 }
@@ -1567,7 +1569,7 @@ var _createClass = function () {
             }, k = function (t) {
                 var n, e;
                 this.promise = new t(function (t, r) {
-                    if (void 0 !== n || void 0 !== e)throw TypeError("Bad Promise constructor");
+                    if (void 0 !== n || void 0 !== e) throw TypeError("Bad Promise constructor");
                     n = t, e = r
                 }), this.resolve = h(n), this.reject = h(e)
             }, j = function (t) {
@@ -1588,7 +1590,7 @@ var _createClass = function () {
                             } catch (f) {
                                 c(f)
                             }
-                        }; e.length > i;)a(e[i++]);
+                        }; e.length > i;) a(e[i++]);
                         e.length = 0, t.n = !1, n && setTimeout(function () {
                             var n, e, o = t.p;
                             F(o) && (x ? S.emit("unhandledRejection", r, o) : (n = u.onunhandledrejection) ? n({
@@ -1600,8 +1602,8 @@ var _createClass = function () {
                 }
             }, F = function I(t) {
                 var n, e = t._d, r = e.a || e.c, o = 0;
-                if (e.h)return !1;
-                for (; r.length > o;)if (n = r[o++], n.fail || !I(n.promise))return !1;
+                if (e.h) return !1;
+                for (; r.length > o;) if (n = r[o++], n.fail || !I(n.promise)) return !1;
                 return !0
             }, L = function (t) {
                 var n = this;
@@ -1611,7 +1613,7 @@ var _createClass = function () {
                 if (!e.d) {
                     e.d = !0, e = e.r || e;
                     try {
-                        if (e.p === t)throw TypeError("Promise can't be resolved itself");
+                        if (e.p === t) throw TypeError("Promise can't be resolved itself");
                         (n = P(t)) ? w(function () {
                             var r = {r: e, d: !1};
                             try {
@@ -1647,14 +1649,14 @@ var _createClass = function () {
             }
         }), f(f.S + f.F * (!O || E(!0)), b, {
             resolve: function (t) {
-                if (t instanceof _ && M(t.constructor, this))return t;
+                if (t instanceof _ && M(t.constructor, this)) return t;
                 var n = new k(this), e = n.resolve;
                 return e(t), n.promise
             }
         }), f(f.S + f.F * !(O && t(44)(function (t) {
-                _.all(t)["catch"](function () {
-                })
-            })), b, {
+            _.all(t)["catch"](function () {
+            })
+        })), b, {
             all: function (t) {
                 var n = A(this), e = new k(n), r = e.resolve, i = e.reject, u = [], a = j(function () {
                     p(t, !1, u.push, u);
@@ -1711,17 +1713,17 @@ var _createClass = function () {
     141: [function (t, n, e) {
         var r = t(47), o = t(23), i = t(3), u = t(5), a = t(39), c = Function.bind || t(17).Function.prototype.bind;
         o(o.S + o.F * t(25)(function () {
-                function t() {
-                }
+            function t() {
+            }
 
-                return !(Reflect.construct(function () {
-                }, [], t) instanceof t)
-            }), "Reflect", {
+            return !(Reflect.construct(function () {
+            }, [], t) instanceof t)
+        }), "Reflect", {
             construct: function (t, n) {
                 i(t);
                 var e = arguments.length < 3 ? t : i(arguments[2]);
                 if (t == e) {
-                    if (void 0 != n)switch (u(n).length) {
+                    if (void 0 != n) switch (u(n).length) {
                         case 0:
                             return new t;
                         case 1:
@@ -1744,8 +1746,8 @@ var _createClass = function () {
     142: [function (t, n, e) {
         var r = t(47), o = t(23), i = t(5);
         o(o.S + o.F * t(25)(function () {
-                Reflect.defineProperty(r.setDesc({}, 1, {value: 1}), 1, {value: 2})
-            }), "Reflect", {
+            Reflect.defineProperty(r.setDesc({}, 1, {value: 1}), 1, {value: 2})
+        }), "Reflect", {
             defineProperty: function (t, n, e) {
                 i(t);
                 try {
@@ -1769,11 +1771,11 @@ var _createClass = function () {
         var r = t(23), o = t(5), i = function (t) {
             this._t = o(t), this._i = 0;
             var n, e = this._k = [];
-            for (n in t)e.push(n)
+            for (n in t) e.push(n)
         };
         t(42)(i, "Object", function () {
             var t, n = this, e = n._k;
-            do if (n._i >= e.length)return {value: void 0, done: !0}; while (!((t = e[n._i++]) in n._t));
+            do if (n._i >= e.length) return {value: void 0, done: !0}; while (!((t = e[n._i++]) in n._t));
             return {value: t, done: !1}
         }), r(r.S, "Reflect", {
             enumerate: function (t) {
@@ -1856,7 +1858,7 @@ var _createClass = function () {
         function r(t, n, e) {
             var u, s, l = arguments.length < 4 ? t : arguments[3], h = o.getDesc(c(t), n);
             if (!h) {
-                if (f(s = o.getProto(t)))return r(s, n, e, l);
+                if (f(s = o.getProto(t))) return r(s, n, e, l);
                 h = a(0)
             }
             return i(h, "value") ? h.writable !== !1 && f(l) ? (u = o.getDesc(l, n) || a(0), u.value = e, o.setDesc(l, n, u), !0) : !1 : void 0 === h.set ? !1 : (h.set.call(l, e), !0)
@@ -1954,7 +1956,7 @@ var _createClass = function () {
         r(r.S + r.F * (!!u && 1 != u.length), "String", {
             fromCodePoint: function (t) {
                 for (var n, e = [], r = arguments, u = r.length, a = 0; u > a;) {
-                    if (n = +r[a++], o(n, 1114111) !== n)throw RangeError(n + " is not a valid code point");
+                    if (n = +r[a++], o(n, 1114111) !== n) throw RangeError(n + " is not a valid code point");
                     e.push(65536 > n ? i(n) : i(((n -= 65536) >> 10) + 55296, n % 1024 + 56320))
                 }
                 return e.join("")
@@ -1982,7 +1984,7 @@ var _createClass = function () {
         var r = t(23), o = t(79), i = t(80);
         r(r.S, "String", {
             raw: function (t) {
-                for (var n = o(t.raw), e = i(n.length), r = arguments, u = r.length, a = [], c = 0; e > c;)a.push(String(n[c++])), u > c && a.push(String(r[c]));
+                for (var n = o(t.raw), e = i(n.length), r = arguments, u = r.length, a = [], c = 0; e > c;) a.push(String(n[c++])), u > c && a.push(String(r[c]));
                 return a.join("")
             }
         })
@@ -2015,10 +2017,10 @@ var _createClass = function () {
             P = !1, k = v("_hidden"), j = r.isEnum, N = s("symbol-registry"), F = s("symbols"),
             L = "function" == typeof O, C = Object.prototype, I = u && f(function () {
                 return 7 != _(x({}, "a", {
-                        get: function () {
-                            return x(this, "a", {value: 7}).a
-                        }
-                    })).a
+                    get: function () {
+                        return x(this, "a", {value: 7}).a
+                    }
+                })).a
             }) ? function (t, n, e) {
                 var r = S(C, n);
                 r && delete C[n], x(t, n, e), r && t !== C && x(C, n, r)
@@ -2035,7 +2037,7 @@ var _createClass = function () {
                 return e && i(F, n) ? (e.enumerable ? (i(t, k) && t[k][n] && (t[k][n] = !1), e = _(e, {enumerable: b(0, !1)})) : (i(t, k) || x(t, k, b(1, {})), t[k][n] = !0), I(t, n, e)) : x(t, n, e)
             }, W = function (t, n) {
                 m(t);
-                for (var e, r = g(n = w(n)), o = 0, i = r.length; i > o;)R(t, e = r[o++], n[e]);
+                for (var e, r = g(n = w(n)), o = 0, i = r.length; i > o;) R(t, e = r[o++], n[e]);
                 return t
             }, G = function (t, n) {
                 return void 0 === n ? _(t) : W(_(t), n)
@@ -2046,14 +2048,14 @@ var _createClass = function () {
                 var e = S(t = w(t), n);
                 return !e || !i(F, n) || i(t, k) && t[k][n] || (e.enumerable = !0), e
             }, B = function (t) {
-                for (var n, e = E(w(t)), r = [], o = 0; e.length > o;)i(F, n = e[o++]) || n == k || r.push(n);
+                for (var n, e = E(w(t)), r = [], o = 0; e.length > o;) i(F, n = e[o++]) || n == k || r.push(n);
                 return r
             }, K = function (t) {
-                for (var n, e = E(w(t)), r = [], o = 0; e.length > o;)i(F, n = e[o++]) && r.push(F[n]);
+                for (var n, e = E(w(t)), r = [], o = 0; e.length > o;) i(F, n = e[o++]) && r.push(F[n]);
                 return r
             }, q = function (t) {
                 if (void 0 !== t && !T(t)) {
-                    for (var n, e, r = [t], o = 1, i = arguments; i.length > o;)r.push(i[o++]);
+                    for (var n, e, r = [t], o = 1, i = arguments; i.length > o;) r.push(i[o++]);
                     return n = r[1], "function" == typeof n && (e = n), (e || !y(n)) && (n = function (t, n) {
                         return e && (n = e.call(this, t, n)), T(n) ? void 0 : n
                     }), r[1] = n, A.apply(M, r)
@@ -2063,7 +2065,7 @@ var _createClass = function () {
                 return "[null]" != A([t]) || "{}" != A({a: t}) || "{}" != A(Object(t))
             });
         L || (O = function () {
-            if (T(this))throw TypeError("Symbol is not a constructor");
+            if (T(this)) throw TypeError("Symbol is not a constructor");
             return D(h(arguments.length > 0 ? arguments[0] : void 0))
         }, c(O.prototype, "toString", function () {
             return this._k
@@ -2122,8 +2124,8 @@ var _createClass = function () {
             }, {
                 get: function (t) {
                     if (u(t)) {
-                        if (!s(t))return c(this).get(t);
-                        if (a(t, f))return t[f][this._i]
+                        if (!s(t)) return c(this).get(t);
+                        if (a(t, f)) return t[f][this._i]
                     }
                 }, set: function (t, n) {
                     return i.def(this, t, n)
@@ -2176,7 +2178,7 @@ var _createClass = function () {
         var r = t(47), o = t(23), i = t(57), u = t(79), a = t(60);
         o(o.S, "Object", {
             getOwnPropertyDescriptors: function (t) {
-                for (var n, e, o = u(t), c = r.setDesc, f = r.getDesc, s = i(o), l = {}, h = 0; s.length > h;)e = f(o, n = s[h++]), n in l ? c(l, n, a(0, e)) : l[n] = e;
+                for (var n, e, o = u(t), c = r.setDesc, f = r.getDesc, s = i(o), l = {}, h = 0; s.length > h;) e = f(o, n = s[h++]), n in l ? c(l, n, a(0, e)) : l[n] = e;
                 return l
             }
         })
@@ -2438,9 +2440,9 @@ var _createClass = function () {
                 function s(t, n, e) {
                     var o = S;
                     return function (i, u) {
-                        if (o === _)throw new Error("Generator is already running");
+                        if (o === _) throw new Error("Generator is already running");
                         if (o === E) {
-                            if ("throw" === i)throw u;
+                            if ("throw" === i) throw u;
                             return d()
                         }
                         for (; ;) {
@@ -2456,7 +2458,7 @@ var _createClass = function () {
                                             continue
                                         }
                                     }
-                                    if ("return" === i)continue
+                                    if ("return" === i) continue
                                 }
                                 var f = r(a.iterator[i], a.iterator, u);
                                 if ("throw" === f.type) {
@@ -2465,21 +2467,21 @@ var _createClass = function () {
                                 }
                                 i = "next", u = g;
                                 var s = f.arg;
-                                if (!s.done)return o = x, s;
+                                if (!s.done) return o = x, s;
                                 e[a.resultName] = s.value, e.next = a.nextLoc, e.delegate = null
                             }
                             if ("next" === i) e._sent = u, o === x ? e.sent = u : e.sent = g; else if ("throw" === i) {
-                                if (o === S)throw o = E, u;
+                                if (o === S) throw o = E, u;
                                 e.dispatchException(u) && (i = "next", u = g)
-                            } else"return" === i && e.abrupt("return", u);
+                            } else "return" === i && e.abrupt("return", u);
                             o = _;
                             var f = r(t, n, e);
                             if ("normal" === f.type) {
                                 o = e.done ? E : x;
                                 var s = {value: f.arg, done: e.done};
-                                if (f.arg !== O)return s;
+                                if (f.arg !== O) return s;
                                 e.delegate && "next" === i && (u = g)
-                            } else"throw" === f.type && (o = E, i = "throw", u = f.arg)
+                            } else "throw" === f.type && (o = E, i = "throw", u = f.arg)
                         }
                     }
                 }
@@ -2501,11 +2503,11 @@ var _createClass = function () {
                 function p(t) {
                     if (t) {
                         var n = t[m];
-                        if (n)return n.call(t);
-                        if ("function" == typeof t.next)return t;
+                        if (n) return n.call(t);
+                        if ("function" == typeof t.next) return t;
                         if (!isNaN(t.length)) {
                             var e = -1, r = function o() {
-                                for (; ++e < t.length;)if (y.call(t, e))return o.value = t[e], o.done = !1, o;
+                                for (; ++e < t.length;) if (y.call(t, e)) return o.value = t[e], o.done = !1, o;
                                 return o.value = g, o.done = !0, o
                             };
                             return r.next = r
@@ -2521,7 +2523,7 @@ var _createClass = function () {
                 var g, y = Object.prototype.hasOwnProperty,
                     m = "function" == typeof Symbol && Symbol.iterator || "@@iterator",
                     w = "object" === ("undefined" == typeof n ? "undefined" : _typeof(n)), b = t.regeneratorRuntime;
-                if (b)return void(w && (n.exports = b));
+                if (b) return void(w && (n.exports = b));
                 b = t.regeneratorRuntime = w ? n.exports : {}, b.wrap = e;
                 var S = "suspendedStart", x = "suspendedYield", _ = "executing", E = "completed", O = {},
                     M = u.prototype = o.prototype;
@@ -2543,41 +2545,41 @@ var _createClass = function () {
                     return "[object Generator]"
                 }, b.keys = function (t) {
                     var n = [];
-                    for (var e in t)n.push(e);
+                    for (var e in t) n.push(e);
                     return n.reverse(), function r() {
                         for (; n.length;) {
                             var e = n.pop();
-                            if (e in t)return r.value = e, r.done = !1, r
+                            if (e in t) return r.value = e, r.done = !1, r
                         }
                         return r.done = !0, r
                     }
                 }, b.values = p, v.prototype = {
                     constructor: v, reset: function (t) {
-                        if (this.prev = 0, this.next = 0, this.sent = g, this.done = !1, this.delegate = null, this.tryEntries.forEach(h), !t)for (var n in this)"t" === n.charAt(0) && y.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = g)
+                        if (this.prev = 0, this.next = 0, this.sent = g, this.done = !1, this.delegate = null, this.tryEntries.forEach(h), !t) for (var n in this) "t" === n.charAt(0) && y.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = g)
                     }, stop: function () {
                         this.done = !0;
                         var t = this.tryEntries[0], n = t.completion;
-                        if ("throw" === n.type)throw n.arg;
+                        if ("throw" === n.type) throw n.arg;
                         return this.rval
                     }, dispatchException: function (t) {
                         function n(n, r) {
                             return i.type = "throw", i.arg = t, e.next = n, !!r
                         }
 
-                        if (this.done)throw t;
+                        if (this.done) throw t;
                         for (var e = this, r = this.tryEntries.length - 1; r >= 0; --r) {
                             var o = this.tryEntries[r], i = o.completion;
-                            if ("root" === o.tryLoc)return n("end");
+                            if ("root" === o.tryLoc) return n("end");
                             if (o.tryLoc <= this.prev) {
                                 var u = y.call(o, "catchLoc"), a = y.call(o, "finallyLoc");
                                 if (u && a) {
-                                    if (this.prev < o.catchLoc)return n(o.catchLoc, !0);
-                                    if (this.prev < o.finallyLoc)return n(o.finallyLoc)
+                                    if (this.prev < o.catchLoc) return n(o.catchLoc, !0);
+                                    if (this.prev < o.finallyLoc) return n(o.finallyLoc)
                                 } else if (u) {
-                                    if (this.prev < o.catchLoc)return n(o.catchLoc, !0)
+                                    if (this.prev < o.catchLoc) return n(o.catchLoc, !0)
                                 } else {
-                                    if (!a)throw new Error("try statement without catch or finally");
-                                    if (this.prev < o.finallyLoc)return n(o.finallyLoc)
+                                    if (!a) throw new Error("try statement without catch or finally");
+                                    if (this.prev < o.finallyLoc) return n(o.finallyLoc)
                                 }
                             }
                         }
@@ -2593,12 +2595,12 @@ var _createClass = function () {
                         var i = o ? o.completion : {};
                         return i.type = t, i.arg = n, o ? this.next = o.finallyLoc : this.complete(i), O
                     }, complete: function (t, n) {
-                        if ("throw" === t.type)throw t.arg;
+                        if ("throw" === t.type) throw t.arg;
                         "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = t.arg, this.next = "end") : "normal" === t.type && n && (this.next = n)
                     }, finish: function (t) {
                         for (var n = this.tryEntries.length - 1; n >= 0; --n) {
                             var e = this.tryEntries[n];
-                            if (e.finallyLoc === t)return this.complete(e.completion, e.afterLoc), h(e), O
+                            if (e.finallyLoc === t) return this.complete(e.completion, e.afterLoc), h(e), O
                         }
                     }, "catch": function (t) {
                         for (var n = this.tryEntries.length - 1; n >= 0; --n) {
@@ -2645,7 +2647,7 @@ var Misaka = function () {
                     try {
                         for (var i, u = e[Symbol.iterator](); !(t = (i = u.next()).done); t = !0) {
                             var a = i.value;
-                            if (void 0 !== n[a])return a
+                            if (void 0 !== n[a]) return a
                         }
                     } catch (c) {
                         r = !0, o = c
@@ -2653,7 +2655,7 @@ var Misaka = function () {
                         try {
                             !t && u["return"] && u["return"]()
                         } finally {
-                            if (r)throw o
+                            if (r) throw o
                         }
                     }
                     return !1
@@ -2679,14 +2681,14 @@ var Misaka = function () {
                         t.classList.remove("fade-out-animation"), t.style.display = "none", t.removeEventListener(n.getAnimationed(), o), r()
                     };
                     t.addEventListener(n.getAnimationed(), e)
-                }, f = this[0][Symbol.iterator](); !(o = (a = f.next()).done); o = !0)c()
+                }, f = this[0][Symbol.iterator](); !(o = (a = f.next()).done); o = !0) c()
             } catch (s) {
                 i = !0, u = s
             } finally {
                 try {
                     !o && f["return"] && f["return"]()
                 } finally {
-                    if (i)throw u
+                    if (i) throw u
                 }
             }
             return this
@@ -2704,14 +2706,14 @@ var Misaka = function () {
                         t.classList.remove("fade-in-animation"), t.removeEventListener(n.getAnimationed(), o), r()
                     };
                     t.addEventListener(n.getAnimationed(), e)
-                }, f = this[0][Symbol.iterator](); !(o = (a = f.next()).done); o = !0)c()
+                }, f = this[0][Symbol.iterator](); !(o = (a = f.next()).done); o = !0) c()
             } catch (s) {
                 i = !0, u = s
             } finally {
                 try {
                     !o && f["return"] && f["return"]()
                 } finally {
-                    if (i)throw u
+                    if (i) throw u
                 }
             }
             return this
@@ -2725,14 +2727,14 @@ var Misaka = function () {
                     t ? n.addEventListener("click", function (e) {
                         e.clicked = n, t(e)
                     }) : n.click()
-                }, u = this[0][Symbol.iterator](); !(n = (o = u.next()).done); n = !0)i()
+                }, u = this[0][Symbol.iterator](); !(n = (o = u.next()).done); n = !0) i()
             } catch (a) {
                 e = !0, r = a
             } finally {
                 try {
                     !n && u["return"] && u["return"]()
                 } finally {
-                    if (e)throw r
+                    if (e) throw r
                 }
             }
             return this
@@ -2751,7 +2753,7 @@ var Misaka = function () {
                 try {
                     !n && i["return"] && i["return"]()
                 } finally {
-                    if (e)throw r
+                    if (e) throw r
                 }
             }
             return this
@@ -2770,7 +2772,7 @@ var Misaka = function () {
                 try {
                     !n && i["return"] && i["return"]()
                 } finally {
-                    if (e)throw r
+                    if (e) throw r
                 }
             }
             return this
@@ -2789,7 +2791,7 @@ var Misaka = function () {
                 try {
                     !n && i["return"] && i["return"]()
                 } finally {
-                    if (e)throw r
+                    if (e) throw r
                 }
             }
             return this
@@ -2808,7 +2810,7 @@ var Misaka = function () {
                 try {
                     !t && o["return"] && o["return"]()
                 } finally {
-                    if (n)throw e
+                    if (n) throw e
                 }
             }
             return this
@@ -2829,7 +2831,7 @@ var Misaka = function () {
                     try {
                         !r && a["return"] && a["return"]()
                     } finally {
-                        if (o)throw i
+                        if (o) throw i
                     }
                 }
             })
@@ -2933,6 +2935,61 @@ function click_information_submit() {
     ;
 }
 
+
 function click_information_head() {
     $("#head1").fadeIn(200);
+}
+
+var size = 0;
+
+/*图片预览
+前段：onchange="previewImg(this, 'img1')
+
+function previewImg(file, imgId){
+    if(file.value==""){
+        return;
+    }
+    var img = document.getElementById(imgId);
+    if (file.files && file.files[0]) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file.files[0]);
+        reader.onload = function(evt){
+            var reg = /^data:base64,/;
+            var res = evt.target.result;
+            if(reg.test(res)){
+                res = res.replace(reg, "data:"+file.files[0].type+";base64,");
+            }
+            img.src = res;
+            s = res;
+        };
+    } else {
+        img.src = file.value;
+    }
+}*/
+function checkImgSize(file) {
+
+    if (file.files && file.files[0]) {
+        size = file.files[0].size;
+    } else {
+        var img = document.createElement("IMG");
+        img.src = file.value;
+        var timer = setInterval(function () {
+            if (img.fileSize > 0) {
+                clearInterval(timer);
+            }
+            size = img.fileSize;
+        }, 100);
+    }
+    if (size > 100000) {
+        $("#tupiandaxiao").html("头像不要超过100k");
+    } else {
+        $("#tupiandaxiao").html("");
+    }
+
+}
+
+function clicktp() {
+    if (size > 100000) {
+        event.returnValue = false;
+    }
 }

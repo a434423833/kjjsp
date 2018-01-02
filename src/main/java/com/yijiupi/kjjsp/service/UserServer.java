@@ -135,5 +135,12 @@ public interface UserServer {
      * @param gcliuyanDTO
      */
     void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO);
+
+    /**
+     * 回复广场留言
+     *
+     * @param huifuGuangChangLiuYanDTO
+     */
+    void huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO);
 }
 

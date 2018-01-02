@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -218,18 +219,22 @@ public class UserServerImpl implements UserServer {
         List<GcliuyanDTO> gcliuyanDTOList = gcliuyanMapper.getGuangChangLiuYanList(begin, pageSize);//拿到第一层数据
 
         List<Integer> list1 = gcliuyanDTOList.stream().map(GcliuyanDTO::getGcid).collect(Collectors.toList());
-        List<GcliuyanDTO1> gcliuyanDTO1List1 = gcliuyanMapper.getGuangChangLiuYan1List1(list1);          //拿到第二层数据
-
+        List<GcliuyanDTO1> gcliuyanDTO1List1 = new ArrayList<>();
+        List<GcliuyanDTO2> gcliuyanDTO1List2 = new ArrayList<>();
+        if (list1 != null && list1.size() > 0) {
+            gcliuyanDTO1List1 = gcliuyanMapper.getGuangChangLiuYan1List1(list1);          //拿到第二层数据
+        }
         List<Integer> list2 = gcliuyanDTO1List1.stream().map(GcliuyanDTO1::getGcid).collect(Collectors.toList());
-        List<GcliuyanDTO2> gcliuyanDTO1List2 = gcliuyanMapper.getGuangChangLiuYan1List2(list2);          //拿到第三层数据
-
+        if (list2 != null && list2.size() > 0) {
+            gcliuyanDTO1List2 = gcliuyanMapper.getGuangChangLiuYan1List2(list2);          //拿到第三层数据
+        }
         GuangChangLiuYanVO guangChangLiuYanVO = getGuangChangLiuYanVO(page, gcliuyanDTOList, gcliuyanDTO1List1, gcliuyanDTO1List2);
 
         return guangChangLiuYanVO;
 
     }
 
-   
+
     private GuangChangLiuYanVO getGuangChangLiuYanVO(Page page, List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         GuangChangLiuYanVO guangChangLiuYanVO = new GuangChangLiuYanVO();
         guangChangLiuYanVO.setPage(page);
@@ -251,6 +256,12 @@ public class UserServerImpl implements UserServer {
     public void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
         gcliuyanDTO.setTime(GetTimeUtil.getTime());
         gcliuyanMapper.addGuangChangLiuYan(gcliuyanDTO);
+    }
+
+    @Override
+    public void huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO) {
+        huifuGuangChangLiuYanDTO.setTime(GetTimeUtil.getTime());
+        gcliuyanMapper.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {

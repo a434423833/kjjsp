@@ -2,7 +2,7 @@
 <div class="padding-content white-color">
     <div id="comments" class="comments-area comments">
         <div id="respond" class="comment-respond">
-            <h3 id="reply-title" class="comment-reply-title">我想大声说~</h3>
+            <h3 id="reply-title" class="comment-reply-title" style="color: #3EC3A5">我想大声说~</h3>
             <form action="" method="post"
                   id="commentform" class="comment-form row" novalidate>
                 <div class="col-md-12"><textarea id="comment" class="OwO-textarea"
@@ -11,7 +11,7 @@
                     <div style="float: left;margin-top: -20px;color: red;font-size: 5px" id="tixing_liuyan"></div>
                 </div>
                 <p class="form-submit col-md-12" style="margin-top: -15px">
-                    <input name="submit" type="button" id="submit" class="submit" onclick="click_gcly(${user.uid})"
+                    <input name="submit" type="button" id="submit" class="submit" onclick="click_gcly()"
                            value="发表(●&#039;◡&#039;●)ﾉ"/>
                 </p></form>
         </div><!-- #respond -->
