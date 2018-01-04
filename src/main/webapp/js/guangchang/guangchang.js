@@ -166,3 +166,8 @@ function huifuclick1(beforgcid, index) {
     })
     ;
 }
+
+function biaoqingclick() {
+    $("#biaoqing").fadeToggle("500");
+
+}

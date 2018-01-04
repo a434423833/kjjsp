@@ -5,9 +5,12 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8"/>
-    <title>千千 | Dreamwings</title>
-    <link rel="icon" href="assets/favicon.png" type="im/image/x-png"/>
-    <link rel="shortcut icon" href="assets/favicon.png" type="im/image/x-png"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://www.dreamwings.cn/xmlrpc.php">
+    <link rel="shortcut icon" href="https://static.dreamwings.cn/wp-content/uploads/2016/08/favicon32.ico">
+    <link rel="apple-touch-icon"
+          href="../img/Headphones.png">
+    <title>个人信息</title>
     <meta name="author" content="Dreamwings"/>
     <meta name="description" content="站在回忆的河边看着摇晃的渡船终年无声地摆渡,它们就这样安静地画下黄昏画下清晨......"/>
     <meta name="keywords" content="dreamwings,im0qianqian,千千,小坏蛋_千千,夢の彼方は千千,千与梦随"/>

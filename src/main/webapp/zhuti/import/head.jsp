@@ -2,7 +2,7 @@
 <header id="header" class="head-animated">
     <div class="container">
         <div class="text-logo pull-left">
-            <a href="/zhuti/index.jsp" title="Dreamwings">木东驿站</a>
+            <a href="/" title="Dreamwings">木东驿站</a>
             <p>在这里重新踏上旅途……<i class="fa fa-heart" style="color: #d43f57;"></i></p>
         </div>
         <div id="navigation-wrapper" class="pull-right">
@@ -34,7 +34,7 @@
                 <li id="menu-item-1855" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855">
                     <a href="information.jsp"><i class="fa fa-pencil"></i> 个人信息</a></li>
                 <li id="menu-item-2066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2066">
-                    <a href="/about"><i class="fa fa-rocket"></i>关于</a></li>
+                    <a href="guanyu.jsp"><i class="fa fa-rocket"></i>关于</a></li>
                 <li id="menu-item-2066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2066">
                     <a href="../exit"><i class="fa fa-rocket"></i> 退出驿站</a></li>
             </ul>

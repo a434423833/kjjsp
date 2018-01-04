@@ -5,7 +5,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <link rel="icon" href="img/logo.ico" type="image/x-icon"/>
+    <link rel="shortcut icon"
+          href="../img/Headphones.png"
+          type="image/x-icon"/>
+    <title>欢迎来到木东驿站</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/jquery-2.1.0.js"></script>
@@ -52,7 +56,7 @@
             欢迎来到木东驿站
         </div>
         <div style="height: 50px;display: none"></div>
-        <div id="div1"><a id="div2" href="zhuye.jsp">点击这里</a>，我们畅所欲言。</div>
+        <div id="div1"><a id="div2" href="zhuti/guangchang.jsp">点击这里</a>，我们畅所欲言。</div>
     </div>
     <div id="div5" style="margin-left: -1000px"><img src="../img/index_bg2.png"></div>
     <div id="div3" style="margin-left: -10px">
