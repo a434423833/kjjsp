@@ -5,13 +5,14 @@ function click_gq(qianming) {
         if (qianming != null || qianming != "") {
             $("#gexingqianming").html(beginqianm);
         }
+        $("#gexingqianming").html("");
         $("#updategq").css("display", "block");
+        $("#updategq").value(beginqianm);
     }
 }
 
 function blur_gq() {
     var qianming = $("#updategq").val();
-
     $("#updategq").css("display", "none");
     $.ajax({
             type: "POST",      //传输方式

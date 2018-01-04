@@ -1,4 +1,5 @@
 var pageIndex = 1;
+
 function load_liuyan(index, count) {
 
     if (count == "" || count == null) {
@@ -38,8 +39,8 @@ function load_liuyan(index, count) {
                             + "  <p>" + data.infor + "</p></div>"
                             + " <div class='comment-footer'>"
                             + "<span class='comment-date'>" + data.time + "</span>"
-                            + " <span class='comment-reply'><a href='###' onclick='huifuclick1(" + data.gcid + "," + 1 + ")'>回复</a></span>"
-                            + " </div></div></div>";
+                            + " <span class='comment-reply'><a href='###' onclick='huifuclick1(" + data.gcid + "," + 2 + ")'>回复</a></span>"
+                            + " </div>" + "<div id='aa" + data.gcid + "'></div>" + " </div></div>";
                         var gcliuyanDTO1List = gcliuyanDTOList[i].gcliuyanDTO1List;
                         if (gcliuyanDTO1List == null || gcliuyanDTO1List.length == 0) {
                             str += "</li>";
@@ -64,8 +65,8 @@ function load_liuyan(index, count) {
                                     + "<p>" + "<tag style='font-size: 5px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
                                     + " <div class='comment-footer'>"
                                     + "<span class='comment-date'>" + data1.time + "</span>"
-                                    + " <span class='comment-reply'><a href='###' onclick='huifuclick1(" + data1.gcid + "," + 2 + ")'>回复</a></span>"
-                                    + " </div></div></div>";
+                                    + " <span class='comment-reply'><a href='###' onclick='huifuclick1(" + data1.gcid + "," + 3 + " )'>回复</a></span>"
+                                    + " </div>" + "<div id='aa" + data1.gcid + "'></div>" + "</div></div>";
                                 var gcliuyanDTO2List = gcliuyanDTO1List[j].gcliuyanDTO2List;
                                 if (gcliuyanDTO2List == null || gcliuyanDTO2List.length == 0) {
                                     str += "</li>";
@@ -74,7 +75,7 @@ function load_liuyan(index, count) {
                                     for (var z = 0; z < gcliuyanDTO2List.length; z++) {
                                         var data2 = gcliuyanDTO2List[z];
                                         var sex3 = "<spanclass='ua'><span class='os_8_1'>♂</span></span>";
-                                        if (data1.sex == '3') {
+                                        if (data2.sex == '2') {
                                             sex3 = "<span class='ua'><span class='ua_chrome'></i>♀</span></span>";
                                         }
                                         str += " <li class='comment even depth-3' id='li-comment-2954'>"
@@ -87,7 +88,7 @@ function load_liuyan(index, count) {
                                             + sex3 + "<span></span>"
                                             + " </div>"
                                             + "<div class='comment-content'>"
-                                            + " <p>" + "<tag style='font-size: 5px;'>&nbsp;回复" + data1.username + ":&nbsp;</tag>" + data2.infor + "</p></div>"
+                                            + " <p>" + "<tag style='font-size: 5px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
                                             + " <div class='comment-footer'>"
                                             + "<span class='comment-date'>" + data2.time + "</span>"
                                             + " </div></div></div></li>";
@@ -118,7 +119,7 @@ function load_liuyan(index, count) {
 
 }
 
-function click_gcly(uid) {
+function click_gcly() {
     var comment = $("#comment").val();
     if (uid == null || uid == "") {
         $("#tixing_liuyan").html("请先登录才能留言哦！");
@@ -147,12 +148,45 @@ function click_gcly(uid) {
 
 }
 
+
 function huifuclick1(beforgcid, index) {
+
+    if (uid == "" || uid == null) {
+        $("#aa" + beforgcid).css("color", "red");
+        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).html("请先登录！");
+        return;
+    }
+    $("#aa" + beforgcid).html("  <div id='respond' class='comment-respond' >" +
+        "            <h3 id='reply-title' class='comment-reply-title' style='color: #3EC3A5;'>我想小声说~</h3>" +
+        "            <form  style='height: 200px' action='' method='post'" +
+        "                  id='commentform' class='comment-form row' novalidate>\n" +
+        "                <div class='col-md-12'><textarea id='comment" + beforgcid + "' class='OwO-textarea'" +
+        "                                                 placeholder='有什么想回复的就说吧！'" +
+        "                                                 name='comment' aria-required='true'></textarea>" +
+        "                    <div style='float: left;margin-top: -20px;color: red;font-size: 5px' id='tixing_liuyan'></div>" +
+        "                </div>" +
+        "                <p class='form-submit col-md-12' style='margin-top: -15px;margin-left: -20px'>" +
+        "<input type='button'  onclick='closehuifu(" + beforgcid + ")' value='关闭' style='margin-left: 400px;background-color: #75baff;height: 33px'>" +
+        "                    <input name='submit' type='button' id='submit' class='submit' onclick='huifuclick2(" + beforgcid + "," + index + ")'" +
+        "                           value='发表(●&#039;◡&#039;●)ﾉ'/>\n" +
+        "                </p></form>" +
+        "        </div>");
+}
+
+function huifuclick2(beforgcid, index) {
+    var infor = $("#comment" + beforgcid).val();
+    if (infor == null || infor.length < 6) {
+        $("#aa" + beforgcid).css("color", "red");
+        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).html("不能少于6个字哦!");
+        return;
+    }
     $.ajax({
         type: "POST",      //传输方式
-        url: "../addGuangChangLiuYan",           //地址
+        url: "../huifuGuangChangLiuYan",           //地址
         data: {
-            beforgcid: beforgcid,//传递的参数
+            beforid: beforgcid,//传递的参数
             index: index,
             infor: infor
         },
@@ -165,4 +199,12 @@ function huifuclick1(beforgcid, index) {
         }
     })
     ;
+}
+
+function closehuifu(beforgcid) {
+    $("#aa" + beforgcid).html("");
+}
+
+function biaoqingclick() {
+    $("#biaoqing").fadeToggle(200);
 }

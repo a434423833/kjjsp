@@ -251,7 +251,7 @@ public class UserController {
      */
     @RequestMapping(value = "upLoad", method = RequestMethod.POST)
     public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String pathRoot = request.getSession().getServletContext().getRealPath("");
+        String pathRoot = "c:";
         String path = "";
         if (!file.isEmpty()) {
             //生成uuid作为文件名称
