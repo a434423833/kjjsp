@@ -9,7 +9,7 @@
     <link rel="pingback" href="https://www.dreamwings.cn/xmlrpc.php">
     <link rel="shortcut icon" href="https://static.dreamwings.cn/wp-content/uploads/2016/08/favicon32.ico">
     <link rel="apple-touch-icon"
-          href="https://static.dreamwings.cn/wp-content/uploads/2016/08/Headphones_102px_1197694_easyicon.net_.png">
+          href="../img/Headphones.png">
     <title>木东驿站</title>
     <link rel='dns-prefetch' href='//www.dreamwings.cn'/>
     <link rel='dns-prefetch' href='//cdn.bootcss.com'/>
