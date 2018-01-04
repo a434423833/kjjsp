@@ -25,3 +25,9 @@ body.custom-background {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+/*设置评论中图片的样式*/
+#plbiaoqing {
+    height: 30px;
+    width: 30px;
+}
