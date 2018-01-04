@@ -5,7 +5,7 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8"/>
-    <title>信息完善</title>
+    <title>千千 | Dreamwings</title>
     <link rel="icon" href="assets/favicon.png" type="im/image/x-png"/>
     <link rel="shortcut icon" href="assets/favicon.png" type="im/image/x-png"/>
     <meta name="author" content="Dreamwings"/>
@@ -39,12 +39,9 @@
                         onclick="click_information_head()"/></a>
                 <div style="display: none" id="head1">
                     <form action="../upLoad" method="post" enctype="multipart/form-data">
-                        <input type="file" id="file1" name="studentPhoto"
-                               accept="image/*" onchange="checkImgSize(this)"/></br>
-                        <input type="submit" onclick="clicktp()" value="点击上传"
-                               style="margin-left: -180px;margin-top: 10px"/>
+                        <input type="file" name="studentPhoto"/></br>
+                        <input type="submit" value="点击上传" style="margin-left: -180px;margin-top: 10px">
                     </form>
-                    <span id="tupiandaxiao" style="margin-left: -160px;color: red;font-size: 5px;"></span>
                 </div>
                 <h1>
                     <i18n data-i18n="Hello, I am" id="">

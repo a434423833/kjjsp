@@ -9,7 +9,7 @@
     <link rel="pingback" href="https://www.dreamwings.cn/xmlrpc.php">
     <link rel="shortcut icon" href="https://static.dreamwings.cn/wp-content/uploads/2016/08/favicon32.ico">
     <link rel="apple-touch-icon"
-          href="https://static.dreamwings.cn/wp-content/uploads/2016/08/Headphones_102px_1197694_easyicon.net_.png">
+          href="../img/Headphones.png">
     <title>木东驿站</title>
     <link rel='dns-prefetch' href='//www.dreamwings.cn'/>
     <link rel='dns-prefetch' href='//cdn.bootcss.com'/>
@@ -34,7 +34,7 @@
     <script type='text/javascript' src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
     <script type='text/javascript'
             src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <link rel="stylesheet" href="../css/zhuti.css">
+    <link rel="stylesheet" href="../css/guangchang/zhuti.css">
     <link rel="stylesheet" href="../css/zhuye/zhuye.css">
     <script type="text/javascript" src="https://api.dreamwings.cn/siyue/?encode=js"></script>
     <script type='text/javascript' src='../js/zhuye/zhuye.js'></script>
@@ -48,7 +48,7 @@
 </head>
 <body class="home blog custom-background">
 <!--头部-->
-<%@ include file="import/head.jsp" %>
+<%@ include file="import/head_zhuye.jsp" %>
 
 <div class="st-content">
     <div class="container">

@@ -43,8 +43,8 @@ public class UserController {
     private UserServer userServer;
 
     @RequestMapping(value = "/")
-    public ModelAndView text() {
-        return new ModelAndView("forward:index.jsp");
+    public ModelAndView index() {
+        return new ModelAndView("forward:zhuti/index.jsp");
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
