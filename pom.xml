@@ -69,14 +69,6 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.2.0.Final</version>
         </dependency>
-        <!-- 验证码 -->
-        <dependency>
-            <groupId>lib</groupId>
-            <artifactId>ValidateCode</artifactId>
-            <version>0.1</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ValidateCode.jar</systemPath>
-        </dependency>
         <!--mvn install:install-file -Dfile=C:\Users\caohao\Desktop\ValidateCode.jar -DgroupId=com.import -DartifactId=valicode -Dversion=1.0.0.RELEASE -Dpackaging=jar-->
         <dependency>
             <groupId>com.import</groupId>
