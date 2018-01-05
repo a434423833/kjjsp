@@ -5,7 +5,9 @@ import com.yijiupi.kjjsp.pojo.UserPO;
 import com.yijiupi.kjjsp.utile.Md5;
 
 /**
- * Created by caohao on 2017/12/27.
+ * 转换类
+ *
+ * @author caohao 2018/1/5
  */
 
 public class LoginConver {
