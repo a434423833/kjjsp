@@ -5,7 +5,7 @@ import com.yijiupi.kjjsp.mapper.*;
 import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
-import com.yijiupi.kjjsp.utile.GetTimeUtil;
+import com.yijiupi.kjjsp.utile.GetObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -167,7 +167,7 @@ public class UserServerImpl implements UserServer {
     @Override
     public void addVisitor(Object object, String fw_id, String fw_name) {
         Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        String time = GetTimeUtil.getTime();
+        String time = GetObjectUtil.getTime();
         VisitorPO visitorPO = getVisitorPO((LoginVO) object, fw_id, fw_name, time);
         String id = visitorMapper.getFwTime(visitorPO);
         System.out.println(id);
@@ -254,13 +254,13 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public void addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
-        gcliuyanDTO.setTime(GetTimeUtil.getTime());
+        gcliuyanDTO.setTime(GetObjectUtil.getTime());
         gcliuyanMapper.addGuangChangLiuYan(gcliuyanDTO);
     }
 
     @Override
     public void huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO) {
-        huifuGuangChangLiuYanDTO.setTime(GetTimeUtil.getTime());
+        huifuGuangChangLiuYanDTO.setTime(GetObjectUtil.getTime());
         gcliuyanMapper.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
     }
 
@@ -270,7 +270,7 @@ public class UserServerImpl implements UserServer {
         talkPO.setUid(loginVO.getUid());
         talkPO.setUsname(loginVO.getUsername());
         talkPO.setInfor(infor);
-        talkPO.setTime(GetTimeUtil.getTime());
+        talkPO.setTime(GetObjectUtil.getTime());
         return talkPO;
     }
 

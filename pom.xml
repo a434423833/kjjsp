@@ -75,6 +75,11 @@
             <artifactId>valicode</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.lispcast</groupId>
+            <artifactId>org.apache.commons.lang</artifactId>
+            <version>2.5.0</version>
+        </dependency>
 
     </dependencies>
     <build>

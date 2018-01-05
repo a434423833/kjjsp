@@ -61,6 +61,7 @@ public class UserController {
         LoginVO tmp = userServer.userLogin(loginVO);
         if (tmp != null) {
             map.put("user", tmp);
+            LOGGER.info("账号:" + tmp.getAccount() + " 名称" + tmp.getUsername() + "登陆了");
             return ResultUtil.success(tmp);
         }
         return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE3, null);
@@ -322,6 +323,8 @@ public class UserController {
         tmp.setAge(loginVO.getAge());
         tmp.setUsername(loginVO.getUsername());
         map.put("user", tmp);
+        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "完善信息");
+
         return ResultUtil.success();
     }
 
@@ -334,6 +337,7 @@ public class UserController {
      */
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public ModelAndView exit(HttpSession session, SessionStatus sessionStatus) {
+        LOGGER.info("账号:" + ((LoginVO) session.getAttribute("user")).getAccount() + " 名称:" + ((LoginVO) session.getAttribute("user")).getUsername() + "退出驿站了");
         sessionStatus.setComplete();
         session.invalidate();
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
@@ -354,6 +358,7 @@ public class UserController {
         userServer.updategq(loginVO);
         tmp.setQianming(loginVO.getQianming());
         map.put("user", tmp);
+        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "修改个性签名");
         return ResultUtil.success(loginVO.getQianming());
     }
 
@@ -375,9 +380,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/addGuangChangLiuYan", method = RequestMethod.POST)
-    public Result addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO) {
+    public Result addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO, ModelMap map) {
         LOGGER.info("进入addGuangChangLiuYan ");
+        Object object = map.get("user");
+        LoginVO tmp = (LoginVO) object;
         userServer.addGuangChangLiuYan(gcliuyanDTO);
+        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "添加广场留言");
         return ResultUtil.success();
     }
 
@@ -393,8 +401,8 @@ public class UserController {
         LoginVO tmp = (LoginVO) object;
         huifuGuangChangLiuYanDTO.setUid(tmp.getUid());
         userServer.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
+        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "回复广场留言了");
         return ResultUtil.success();
     }
-
 
 }
