@@ -12,7 +12,7 @@
           href="../img/Headphones.png"
           type="image/x-icon"/>
     <meta charset="utf-8">
-    <title>html5 svg太空人404动画模板 - 站长素材</title>
+    <title>页面404咯</title>
 
     <style>
         html {

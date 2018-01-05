@@ -82,20 +82,20 @@
                             preload: "auto",
                             mode: "circulation",
                             music: [{
-                                title: "君だったら",
-                                author: "HAPPY BIRTHDAY",
-                                url: "https://static.dreamwings.cn/wp-content/uploads/2017/07/HAPPY-BIRTHDAY.mp3",
-                                pic: "https://static.dreamwings.cn/wp-content/uploads/2017/07/HAPPY-BIRTHDAY-mp3-image.png"
+                                title: "伟大的渺小",
+                                author: "林俊杰JJ-偶像！",
+                                url: "../music/林俊杰 - 伟大的渺小.mp3",
+                                pic: "../music/伟大的渺小.png"
                             }, {
-                                title: "小尾巴",
-                                author: "葛雨晴/电流妹",
-                                url: "https://static.dreamwings.cn/wp-content/uploads/2017/07/xiaoweiba.mp3",
-                                pic: "https://static.dreamwings.cn/wp-content/uploads/2017/07/xiaoweiba-mp3-image.jpg"
+                                title: "光年之外",
+                                author: "G.E.M鄧紫棋",
+                                url: "../music/光年之外_g.e.m.邓紫棋.mp3",
+                                pic: "../music/光年之外.png"
                             }, {
-                                title: "ハロ/ハワユ",
-                                author: "ナノウ/鹿乃",
-                                url: "https://static.dreamwings.cn/wp-content/uploads/2017/07/yizhoudepengyou.mp3",
-                                pic: "https://static.dreamwings.cn/wp-content/uploads/2017/07/yizhoudepengyou-mp3-image.png",
+                                title: "身为风帆",
+                                author: "林俊杰JJ",
+                                url: "../music/林俊杰 - 身为风帆.mp3",
+                                pic: "../music/伟大的渺小.png",
                             }]
                         })
                     });</script>

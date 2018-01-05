@@ -1,43 +1,40 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost/zhuti/zhuye.jsp -->
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="https://www.dreamwings.cn/xmlrpc.php">
-    <link rel="shortcut icon" href="https://static.dreamwings.cn/wp-content/uploads/2016/08/favicon32.ico">
-    <link rel="apple-touch-icon"
-          href="../img/Headphones.png">
-    <title>木东驿站</title>
-    <link rel='dns-prefetch' href='//www.dreamwings.cn'/>
-    <link rel='dns-prefetch' href='//cdn.bootcss.com'/>
-    <link rel="alternate" type="application/rss+xml" title="Dreamwings &raquo; Feed"
-          href="https://www.dreamwings.cn/feed"/>
-    <link rel="alternate" type="application/rss+xml" title="Dreamwings &raquo; 评论Feed"
-          href="https://www.dreamwings.cn/comments/feed"/>
-    <link rel='stylesheet' id='bootstrap-css-css'
-          href='https://www.dreamwings.cn/wp-content/themes/kotha/assets/css/bootstrap.min.css?ver=3.3.6'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='font-awesome-css-css'
-          href='https://www.dreamwings.cn/wp-content/themes/kotha/assets/css/font-awesome.min.css?ver=4.4.0'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='slicknav-css-css'
-          href='https://www.dreamwings.cn/wp-content/themes/kotha/assets/css/slicknav.min.css' type='text/css'
-          media='all'/>
-    <link rel='stylesheet' id='kotha-stylesheet-css'
-          href='https://www.dreamwings.cn/wp-content/themes/kotha/style.css?ver=4.8.3' type='text/css' media='all'/>
-    <link rel='stylesheet' id='kotha-responsive-css'
-          href='https://www.dreamwings.cn/wp-content/themes/kotha/assets/css/responsive.min.css' type='text/css'
-          media='all'/>
-    <script type='text/javascript' src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
-    <script type='text/javascript'
-            src='https://www.dreamwings.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <link rel="stylesheet" href="../css/guangchang/zhuti.css">
-    <link rel="stylesheet" href="../css/zhuye/zhuye.css">
-    <script type="text/javascript" src="https://api.dreamwings.cn/siyue/?encode=js"></script>
-    <script type='text/javascript' src='../js/zhuye/zhuye.js'></script>
+    <link rel="shortcut icon" href="http://www.dreamwings.cn/wp-content/uploads/2016/05/fail.ico">
+    <link rel="apple-touch-icon" href="http://localhost/img/Headphones.png">
+    <title>(●—●)喔哟，崩溃啦！</title>
+    <link rel="dns-prefetch" href="http://www.dreamwings.cn/">
+    <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
+    <link rel="alternate" type="application/rss+xml" title="Dreamwings » Feed" href="https://www.dreamwings.cn/feed">
+    <link rel="alternate" type="application/rss+xml" title="Dreamwings » 评论Feed"
+          href="https://www.dreamwings.cn/comments/feed">
+    <link rel="stylesheet" id="bootstrap-css-css" href="../css/zhuye/zhuye_files/bootstrap.min.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="font-awesome-css-css" href="../css/zhuye/zhuye_files/font-awesome.min.css"
+          type="text/css"
+          media="all">
+    <link rel="stylesheet" id="slicknav-css-css" href="../css/zhuye/zhuye_files/slicknav.min.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="kotha-stylesheet-css" href="../css/zhuye/zhuye_files/style.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="kotha-responsive-css" href="../css/zhuye/zhuye_files/responsive.min.css" type="text/css"
+          media="all">
+    <script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js.下载"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js.下载"></script>
+    <link rel="stylesheet" href="../css/zhuye/zhuye_files/zhuti.css">
+    <link rel="stylesheet" href="../css/zhuye/zhuye_files/zhuye.css">
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/saved_resource"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/zhuye.js.下载"></script>
     <script>var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
@@ -45,7 +42,19 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s)
     })();</script>
-</head>
+    <link rel="stylesheet" id="font-awesome-css-css_6" href="../css/zhuye/zhuye_files/zhuye_6s.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="font-awesome-css-css_5" href="../css/zhuye/zhuye_files/zhuye_5.css" type="text/css"
+          media="all">
+
+    <link rel="stylesheet" id="font-awesome-css-css_4" href="../css/zhuye/zhuye_files/zhuye_4.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="font-awesome-css-css_3" href="../css/zhuye/zhuye_files/zhuye_3.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="font-awesome-css-css_2" href="../css/zhuye/zhuye_files/zhuye_2.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="font-awesome-css-css_1" href="../css/zhuye/zhuye_files/zhuye_1.css" type="text/css"
+          media="all">
 <body class="home blog custom-background">
 <!--头部-->
 <%@ include file="import/head_zhuye.jsp" %>
@@ -103,6 +112,7 @@
 <div id='hjsbox' style='display:none'></div>
 <script>setTimeout("getkoto()", 1000);
 var t;
+
 function getkoto() {
     var hjs = document.createElement("script");
     hjs.setAttribute("id", "hjs");
@@ -110,6 +120,7 @@ function getkoto() {
     document.getElementById("hjsbox").appendChild(hjs);
     t = setTimeout("getkoto()", 10000)
 }
+
 function echokoto(result) {
     document.getElementById("hitokoto").innerHTML = eval(result).hitokoto;
 }</script>
@@ -232,15 +243,11 @@ function echokoto(result) {
 <div class="scroll-up">
     <a href="#"><i class="fa fa-angle-up"></i></a>
 </div>
-<script type='text/javascript'
-        src='https://www.dreamwings.cn/wp-content/themes/kotha/assets/js/bootstrap.min.js?ver=3.3.6'></script>
-<script type='text/javascript'
-        src='https://www.dreamwings.cn/wp-content/themes/kotha/assets/js/jquery.slicknav.min.js'></script>
-<script type='text/javascript'
-        src='https://www.dreamwings.cn/wp-content/themes/kotha/assets/js/jquery.fitvids.min.js?ver=1.1'></script>
-<script type='text/javascript'
-        src='https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-<script type='text/javascript' src='https://www.dreamwings.cn/wp-content/themes/kotha/assets/js/scripts.js'></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js.下载"></script>
 </body>
 </html>
 

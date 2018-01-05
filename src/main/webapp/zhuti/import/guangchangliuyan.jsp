@@ -16,24 +16,19 @@
             </form>
         </div><!-- #respond -->
         <%@ include file="guangchangbiaoqing.jsp" %>
-        <script>$(document).ready(function () {
-            document.getElementById("respond").innerHTML += '<div class="OwO"></div>';
-            var OwO_demo = new OwO({
-                logo: "OωO表情",
-                container: document.getElementsByClassName("OwO")[0],
-                target: document.getElementsByClassName("OwO-textarea")[0],
-                position: "down",
-                width: "100%",
-                maxHeight: "250px"
-            })
-        });</script>
-
+        
 
         <h3 class="common-title comments-title">
             <li>已经有了<span style="color: #1abc9c;" id="span_count"></span>个大吼的声音</li>
         </h3>
 
         <!--留言-->
+        <style>
+            #biaoqingdaxiao {
+                height: 25px;
+                width: 25px;
+            }
+        </style>
         <ul class="comment-list" id="guangchang_liuyan">
 
         </ul><!-- .comment-list -->

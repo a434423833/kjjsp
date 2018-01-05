@@ -228,8 +228,8 @@ public class UserServerImpl implements UserServer {
         if (list2 != null && list2.size() > 0) {
             gcliuyanDTO1List2 = gcliuyanMapper.getGuangChangLiuYan1List2(list2);          //拿到第三层数据
         }
+        converLiuyanPhoto(gcliuyanDTOList, gcliuyanDTO1List1, gcliuyanDTO1List2);
         GuangChangLiuYanVO guangChangLiuYanVO = getGuangChangLiuYanVO(page, gcliuyanDTOList, gcliuyanDTO1List1, gcliuyanDTO1List2);
-
         return guangChangLiuYanVO;
 
     }
@@ -300,6 +300,86 @@ public class UserServerImpl implements UserServer {
         friendPO.setFid(userPO.getUid());
         friendPO.setFrienduname(userPO.getUsername());
         return friendPO;
+    }
+
+    private static void converLiuyanPhoto(List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
+        String path = "<img id='biaoqingdaxiao' src='../css/guangchang/木东驿站_files/";
+        for (GcliuyanDTO gcliuyanDTO : gcliuyanDTOList) {
+            String infor = gcliuyanDTO.getInfor();
+            String newInfor = "";
+            int z = 0;
+            for (int i = 0, j; i < infor.length(); i++) {
+                if (infor.charAt(i) == '$') {
+                    int begin1 = i;
+                    int begin2 = i + 2;
+                    int end2 = 0;
+                    int end1 = 0;
+                    for (j = begin2 + 1; j < infor.length(); j++) {
+                        if (infor.charAt(j) == ':') {
+                            end2 = j;
+                            end1 = j + 2;
+                            break;
+                        }
+                    }
+                    newInfor += infor.substring(z, begin1) + path + infor.substring(begin2 + 1, end2) + ".gif'>";
+                    z = end1;
+                }
+            }
+            newInfor += infor.substring(z, infor.length());
+            gcliuyanDTO.setInfor(newInfor);
+        }
+        if (gcliuyanDTO1List1 != null) {
+            for (GcliuyanDTO1 gcliuyanDTO : gcliuyanDTO1List1) {
+                String infor = gcliuyanDTO.getInfor();
+                String newInfor = "";
+                int z = 0;
+                for (int i = 0, j; i < infor.length(); i++) {
+                    if (infor.charAt(i) == '$') {
+                        int begin1 = i;
+                        int begin2 = i + 2;
+                        int end2 = 0;
+                        int end1 = 0;
+                        for (j = begin2 + 1; j < infor.length(); j++) {
+                            if (infor.charAt(j) == ':') {
+                                end2 = j;
+                                end1 = j + 2;
+                                break;
+                            }
+                        }
+                        newInfor += infor.substring(z, begin1) + path + infor.substring(begin2 + 1, end2) + ".gif'>";
+                        z = end1;
+                    }
+                }
+                newInfor += infor.substring(z, infor.length());
+                gcliuyanDTO.setInfor(newInfor);
+            }
+        }
+        if (gcliuyanDTO1List2 != null) {
+            for (GcliuyanDTO2 gcliuyanDTO : gcliuyanDTO1List2) {
+                String infor = gcliuyanDTO.getInfor();
+                String newInfor = "";
+                int z = 0;
+                for (int i = 0, j; i < infor.length(); i++) {
+                    if (infor.charAt(i) == '$') {
+                        int begin1 = i;
+                        int begin2 = i + 2;
+                        int end2 = 0;
+                        int end1 = 0;
+                        for (j = begin2 + 1; j < infor.length(); j++) {
+                            if (infor.charAt(j) == ':') {
+                                end2 = j;
+                                end1 = j + 2;
+                                break;
+                            }
+                        }
+                        newInfor += infor.substring(z, begin1) + path + infor.substring(begin2 + 1, end2) + ".gif'>";
+                        z = end1;
+                    }
+                }
+                newInfor += infor.substring(z, infor.length());
+                gcliuyanDTO.setInfor(newInfor);
+            }
+        }
     }
 
 }

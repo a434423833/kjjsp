@@ -18,6 +18,7 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
         // excludePathPatterns 用户排除拦截
         InterceptorRegistration ir = registry.addInterceptor(new UserInterceptor());
         ir.excludePathPatterns("/getGuangChangLiuYanList");
+        ir.excludePathPatterns("/imgPathActionDownLoad");
         ir.excludePathPatterns("/getCode");
         ir.excludePathPatterns("/error");
         ir.excludePathPatterns("/userLogin");

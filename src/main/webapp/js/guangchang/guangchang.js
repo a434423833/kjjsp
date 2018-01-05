@@ -150,15 +150,15 @@ function click_gcly() {
 
 
 function huifuclick1(beforgcid, index) {
-
+    thisId = beforgcid;
     if (uid == "" || uid == null) {
         $("#aa" + beforgcid).css("color", "red");
         $("#aa" + beforgcid).css("font-size", "5px");
         $("#aa" + beforgcid).html("请先登录！");
         return;
     }
-    $("#aa" + beforgcid).html("  <div id='respond' class='comment-respond' >" +
-        "            <h3 id='reply-title' class='comment-reply-title' style='color: #3EC3A5;'>我想小声说~</h3>" +
+    $("#aa" + beforgcid).html(" <div id='respond' class='comment-respond' >" +
+        "            <h3 id='reply-title' class='comment-reply-title' style='color: #3EC3A5;'>我想小声DE说~</h3>" +
         "            <form  style='height: 200px' action='' method='post'" +
         "                  id='commentform' class='comment-form row' novalidate>\n" +
         "                <div class='col-md-12'><textarea id='comment" + beforgcid + "' class='OwO-textarea'" +
@@ -171,7 +171,7 @@ function huifuclick1(beforgcid, index) {
         "                    <input name='submit' type='button' id='submit' class='submit' onclick='huifuclick2(" + beforgcid + "," + index + ")'" +
         "                           value='发表(●&#039;◡&#039;●)ﾉ'/>\n" +
         "                </p></form>" +
-        "        </div>");
+        "        </div>" + huifubq);
 }
 
 function huifuclick2(beforgcid, index) {
@@ -208,3 +208,5 @@ function closehuifu(beforgcid) {
 function biaoqingclick() {
     $("#biaoqing").fadeToggle(200);
 }
+
+
