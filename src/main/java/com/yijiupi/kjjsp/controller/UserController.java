@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -251,7 +253,6 @@ public class UserController {
      */
     @RequestMapping(value = "upLoad", method = RequestMethod.POST)
     public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String pathRoot = "c:";
         String path = "";
         if (!file.isEmpty()) {
             //生成uuid作为文件名称
@@ -261,7 +262,7 @@ public class UserController {
             //获得文件后缀名称
             String imageName = contentType.substring(contentType.indexOf("/") + 1);
             path = "/img/head/" + uuid + "." + imageName;
-            file.transferTo(new File(pathRoot + path));
+            file.transferTo(new File("c:" + path));
             LOGGER.info("图片上传成功");
         }
         System.out.println(path);
@@ -273,6 +274,34 @@ public class UserController {
         userServer.updateUser(tmp);
         map.put("user", tmp);
         return new ModelAndView("redirect:zhuti/information.jsp");
+    }
+
+    /**
+     * 头像输出流
+     */
+    @RequestMapping(value = "/imgPathActionDownLoad", method = RequestMethod.GET)
+    public void show(String url, HttpServletRequest request, HttpServletResponse response) {
+        try {
+            FileInputStream inputStream = new FileInputStream("c:" + url);
+            int i = inputStream.available();
+            //byte数组用于存放图片字节数据
+            byte[] buff = new byte[i];
+            inputStream.read(buff);
+            //记得关闭输入流
+            inputStream.close();
+            //设置发送到客户端的响应内容类型
+            response.setContentType("image/*");
+            ServletOutputStream fw = response.getOutputStream();
+            fw.write(buff);
+            //关闭响应输出流
+            fw.close();
+        } catch (FileNotFoundException e) {
+            LOGGER.info("没有设置头像，所以异常了，找不到文件");
+            return;
+        } catch (IOException e) {
+            LOGGER.error("IO异常了");
+            return;
+        }
     }
 
     /**

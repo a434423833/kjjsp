@@ -12,7 +12,7 @@
                         <figure>
                             <div>
                                 <img class="img-responsive"
-                                     src="..${user.file}"
+                                     src="../imgPathActionDownLoad?url=${user.file}"
                                      alt="还没有设置头像哦"/>
                             </div>
                         </figure>

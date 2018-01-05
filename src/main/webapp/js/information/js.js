@@ -2892,8 +2892,8 @@ function click_information_submit() {
     var sex = $("input[name='sex']:checked").val();
     var phone = $("#phone").val();
     $("#age1").html("");
-    if (age <= 0) {
-        $("#age1").html("年龄要大于0");
+    if (age <= 0 || age > 130) {
+        $("#age1").html("年龄不合法吧");
         return;
     }
     $("#nicheng1").html("");

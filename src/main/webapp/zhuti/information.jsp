@@ -35,7 +35,8 @@
     <section id="section1">
         <div class="headline">
             <div style="margin-top: -150px;">
-                <a><img class="avatar-animation" src="../${user.file==null?null:user.file}" alt="点击上传头像"
+                <a><img class="avatar-animation" src="../imgPathActionDownLoad?url=${user.file==null?null:user.file}"
+                        alt="点击上传头像"
                         onclick="click_information_head()"/></a>
                 <div style="display: none" id="head1">
                     <form action="../upLoad" method="post" enctype="multipart/form-data">

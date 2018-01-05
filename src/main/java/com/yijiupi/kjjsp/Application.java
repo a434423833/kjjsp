@@ -15,8 +15,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @ServletComponentScan
 @MapperScan("com.yijiupi.kjjsp.mapper") // 扫描包
 public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class);// 启动
 
     }
+
 }
