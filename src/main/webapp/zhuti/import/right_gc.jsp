@@ -105,6 +105,7 @@
         <aside id="kotha_blog_posts_widget-3" class="widget widget_kotha_blog_posts_widget">
             <div class="latest-posts comments">
                 <div class="media">
+                    XXXXXXXXX注册成会员了
                     <div class="pull-left"><a href="/addsmilies_qq/3430.html"><img width="60" height="60"
                                                                                    src="https://static.dreamwings.cn/wp-content/uploads/2016/07/timg-1-60x60.jpg"
                                                                                    class="img-responsive wp-post-image"

@@ -57,73 +57,13 @@
           media="all">
 <body class="home blog custom-background">
 <!--头部-->
-<%@ include file="import/head_zhuye.jsp" %>
+<%@ include file="import/head_friend.jsp" %>
 
 <div class="st-content">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main" role="main">
-                        <article id="post-5080"
-                                 class="post-5080 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-                            <div class="thumbnails">
-                                <a href="/icpc2017/5080.html" title="2017 ICPC 西安/青岛 站"><img width="700" height="374"
-                                                                                             src="../img/rizhi/2.jpg"
-                                                                                             class="post-thumbnail img-responsive wp-post-image"
-                                                                                             alt=""/></a>
-                            </div>
-                            <div class="padding-content text-center">
-                                <header class="entry-header">
-                                    <h1 class="entry-title"><a href="/icpc2017/5080.html" rel="bookmark"
-                                                               title="2017 ICPC 西安/青岛 站">2017 ICPC 西安/青岛 站</a></h1>
-                                </header>
-                                <div class="entry-meta">
-                                    <ul class="list-inline">
-                                        <li><span class="author vcard">
-                        @ <a class="url fn n" href="https://www.dreamwings.cn/author/dreamwings">千千</a>                    </span>
-                                        </li>
-                                        <li>/</li>
-                                        <li><span class="posted-on"><i
-                                                class="fa fa-star"></i> 发表于 2017 年 11 月 22 日</span></li>
-                                        <li>/</li>
-                                        <li><span class="posted-in"><i class="fa fa-tags"></i><a
-                                                href="/stack/classification/remember-idealism"
-                                                rel="category tag">唯心记</a></span></li>
-                                        <li>/</li>
-                                        <i class="fa fa-eye"></i> 337 次围观
-                                    </ul>
-                                </div>
-                                <div class="entry-excerpt">
-                                    <p>满月的天空🌕，皎洁的光芒，冷冷清清</p>
-                                    <p>时有的路人，走过……</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article id="post-5080"
-                                 class="post-5080 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-5046"
-                                 class="post-5046 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-4996"
-                                 class="post-4996 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-63 tag-55">
-
-                        </article>
-                        <article id="post-4976"
-                                 class="post-4976 post type-post status-publish format-standard has-post-thumbnail hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-                        <article id="post-4918"
-                                 class="post-4918 post type-post status-publish format-standard post-password-required hentry category-remember-idealism tag-90 tag-55">
-
-                        </article>
-
-                    </main>
-                </div>
+                <div id="primary" class="content-area"></div>
             </div>
             <!--右侧-->
             <%@ include file="import/right_zhuye.jsp" %>

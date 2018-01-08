@@ -125,6 +125,10 @@ function click_gcly() {
         $("#tixing_liuyan").html("请先登录才能留言哦！");
         return;
     }
+    if (username == null || username == "") {
+        $("#tixing_liuyan").html("请先完善信息！");
+        return;
+    }
     if (comment == null || comment == "") {
         $("#tixing_liuyan").html("啥也不说想发表啥！");
         return;
@@ -155,6 +159,12 @@ function huifuclick1(beforgcid, index) {
         $("#aa" + beforgcid).css("color", "red");
         $("#aa" + beforgcid).css("font-size", "5px");
         $("#aa" + beforgcid).html("请先登录！");
+        return;
+    }
+    if (username == "" || username == null) {
+        $("#aa" + beforgcid).css("color", "red");
+        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).html("请先完善信息！");
         return;
     }
     $("#aa" + beforgcid).html("<div id='respond' class='comment-respond' >" +

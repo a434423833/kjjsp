@@ -24,17 +24,16 @@
     <link rel="stylesheet" href="../css/guangchang/木东驿站_files/zhuti.css">
     <script type="text/javascript">
         var uid = "${user.uid}";
+        var username = "${user.username}";
         var thisId;
     </script>
     <script type="text/javascript" src="../js/guangchang/guangchang.js"></script>
     <script type="text/javascript" src="../js/guangchang/guangchang_gcbiaoqing.js"></script>
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
-    <%--<style type="text/css">   鼠标样式
-        * {
-            cursor: url(''), auto;
-        }
-    </style>--%>
+    <style type="text/css">   鼠标样式
+
+    </style>
 </head>
 <body class="home blog custom-background" onload="load_liuyan()">
 <!--头部-->

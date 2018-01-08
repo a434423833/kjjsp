@@ -9,7 +9,7 @@
         <div id="navigation-wrapper" class="pull-right">
             <ul id="menu-main" class="menu">
                 <li id="menu-item-1857"
-                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2065">
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855">
                     <a href="guangchang.jsp"><i class="iconfont">&#xe662;</i> 广场</a></li>
 
                 <li id="menu-item-2065"
@@ -32,7 +32,7 @@
 
                 </li>
                 <li id="menu-item-2356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2356">
-                    <a href="/links"><i class="fa fa-mars"></i> 友人 · A</a></li>
+                    <a href="friend.jsp"><i class="fa fa-mars"></i> 友人</a></li>
                 <li id="menu-item-1855" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855">
                     <a href="information.jsp"><i class="iconfont">&#xe620;</i> 个人信息</a></li>
                 <li id="menu-item-2066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2066">
