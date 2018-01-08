@@ -31,7 +31,11 @@
     <script type="text/javascript" src="../js/guangchang/guangchang_gcbiaoqing.js"></script>
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
-    <style type="text/css">   鼠标样式
+    <style type="text/css">
+        * {
+            cursor: url("../img/cur/1.cur"), auto;
+        }
+
 
     </style>
 </head>

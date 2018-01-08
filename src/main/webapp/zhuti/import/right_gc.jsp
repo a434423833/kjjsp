@@ -82,15 +82,15 @@
                             preload: "auto",
                             mode: "circulation",
                             music: [{
-                                title: "伟大的渺小",
+                                title: "我继续",
                                 author: "林俊杰JJ-偶像！",
-                                url: "../music/林俊杰 - 伟大的渺小.mp3",
+                                url: "../music/林俊杰 - 我继续.mp3",
                                 pic: "../music/伟大的渺小.png"
                             }, {
-                                title: "光年之外",
-                                author: "G.E.M鄧紫棋",
-                                url: "../music/光年之外_g.e.m.邓紫棋.mp3",
-                                pic: "../music/光年之外.png"
+                                title: "体面",
+                                author: "于文文",
+                                url: "../music/体面-于文文.mp3",
+                                pic: "../music/体面.png"
                             }, {
                                 title: "身为风帆",
                                 author: "林俊杰JJ",

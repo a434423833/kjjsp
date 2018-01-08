@@ -55,6 +55,13 @@
           media="all">
     <link rel="stylesheet" id="font-awesome-css-css_1" href="../css/zhuye/zhuye_files/zhuye_1.css" type="text/css"
           media="all">
+    <style type="text/css">
+        * {
+            cursor: url("../img/cur/1.cur"), auto;
+        }
+
+
+    </style>
 <body class="home blog custom-background">
 <!--头部-->
 <%@ include file="import/head_zhuye.jsp" %>
