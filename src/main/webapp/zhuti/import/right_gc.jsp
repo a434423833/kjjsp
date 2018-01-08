@@ -8,7 +8,7 @@
         <aside id="kotha_about_widget-3" class="widget kotha_about_widget">
             <h1 class="widget-title" id="h1_head">
                 <c:if test="${user.uid>0?false:true}" var="result">
-                    <a href="###" onclick="click_login_head()">登陆</a>
+                    <a href="javascript:void(0);" onclick="click_login_head()">登陆</a>
                     可以发现隐藏世界！</c:if>
                 <c:if test="${!result}">
                     欢迎来到木东驿站</br>
@@ -50,7 +50,7 @@
                         <div id="div4">
                             <a href="xiugai.jsp">修改密码</a>|
                             <a href="reg.jsp">注册账号</a>|
-                            <a href="###" style="margin-left: 80px" onclick="click_login_sq()">拒绝登陆</a>
+                            <a href="javascript:void(0);" style="margin-left: 80px" onclick="click_login_sq()">拒绝登陆</a>
                         </div>
                     </div>
                 </div>

@@ -317,13 +317,5 @@
                         style="vertical-align: inherit;">QQ2017</font></font></span></li>
             </ul>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $(".OwO-item").click(function () {
-                    var val = $("#comment").val();
-                    $("#comment").val(val + $(this).attr("title"));
-                });
-            });
-        </script>
     </div>
 </div>

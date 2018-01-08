@@ -23,7 +23,7 @@
                 </div>
                 <h1 class="widget-title"
                     style="font-size: 5px;margin-top: 10px">
-                    <a href="###">寄语:</a>
+                    <a href="javascript:void(0);">寄语:</a>
 
                     <a id="gexingqianming"
                        onclick="click_gq('+${user.qianming}+')"> ${user.qianming==""||user.qianming==null?"还没有设置个性签名":user.qianming}
