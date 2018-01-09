@@ -28,4 +28,7 @@
     <update id="updategq" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
         UPDATE user set qianming=#{qianming} where uid=#{uid}
     </update>
+    <select id="getFile" resultType="String">
+        select file from user where uid=18
+    </select>
 </mapper>

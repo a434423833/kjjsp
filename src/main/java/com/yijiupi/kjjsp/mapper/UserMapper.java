@@ -15,4 +15,6 @@ public interface UserMapper {
     void updateUser1(UserPO userPO);
 
     void updategq(UserPO userPO);
+
+    String getFile();
 }

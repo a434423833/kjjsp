@@ -262,6 +262,11 @@ public class UserServerImpl implements UserServer {
         yiZhanDaShiJiMapper.addYiZhanDaShiJi(yiZhanDaShiJiPO);
     }
 
+    @Override
+    public String getFile() {
+        return userMapper.getFile();
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;

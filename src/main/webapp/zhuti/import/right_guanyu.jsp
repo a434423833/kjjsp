@@ -12,7 +12,7 @@
                         <figure>
                             <div>
                                 <img class="img-responsive"
-                                     src="../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png}"
+                                     src="../imgPathActionDownLoad_zhuren"
                                      alt="还没有设置头像哦"/>
                             </div>
                         </figure>

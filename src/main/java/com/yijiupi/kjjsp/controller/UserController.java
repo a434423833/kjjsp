@@ -235,6 +235,13 @@ public class UserController {
         return new ModelAndView("redirect:zhuti/information.jsp");
     }
 
+    @RequestMapping(value = "/imgPathActionDownLoad_zhuren", method = RequestMethod.GET)
+    public void imgPathActionDownLoad_zhuren(HttpServletRequest request, HttpServletResponse response) {
+        String url = userServer.getFile();
+        System.out.println(url);
+        show(url, request, response);
+    }
+
     /**
      * 头像输出流
      */

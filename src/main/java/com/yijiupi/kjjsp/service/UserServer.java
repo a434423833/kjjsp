@@ -122,5 +122,7 @@ public interface UserServer {
     List getYiZhanShiJi();
 
     void addYiZhanShiJi(String infor);
+
+    String getFile();
 }
 
