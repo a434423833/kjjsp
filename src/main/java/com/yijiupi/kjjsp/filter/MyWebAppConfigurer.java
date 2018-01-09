@@ -23,6 +23,7 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
         ir.excludePathPatterns("/error");
         ir.excludePathPatterns("/userLogin");
         ir.excludePathPatterns("/exit");
+        ir.excludePathPatterns("/getYiZhanShiJi");
         ir.excludePathPatterns("/");
         ir.addPathPatterns("/*");
         //   registry.addInterceptor(new UserInterceptor()).addPathPatterns("/*");//  registry.addInterceptor(new UserInterceptor()).excludePathPatterns("/getGuangChangLiuYanList");

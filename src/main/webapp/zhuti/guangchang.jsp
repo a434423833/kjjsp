@@ -19,8 +19,8 @@
           media="all">
     <link rel="stylesheet" id="kotha-responsive-css" href="../css/guangchang/木东驿站_files/responsive.min.css"
           type="text/css" media="all">
-    <script type="text/javascript" src="../css/guangchang/木东驿站_files/jquery.js.下载"></script>
-    <script type="text/javascript" src="../css/guangchang/木东驿站_files/jquery-migrate.min.js.下载"></script>
+    <script type="text/javascript" src="../css/guangchang/木东驿站_files/jquery.js"></script>
+    <script type="text/javascript" src="../css/guangchang/木东驿站_files/jquery-migrate.min.js"></script>
     <link rel="stylesheet" href="../css/guangchang/木东驿站_files/zhuti.css">
     <script type="text/javascript">
         var uid = "${user.uid}";
@@ -28,7 +28,6 @@
         var thisId;
     </script>
     <script type="text/javascript" src="../js/guangchang/guangchang.js"></script>
-    <script type="text/javascript" src="../js/guangchang/guangchang_gcbiaoqing.js"></script>
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
     <style type="text/css">
@@ -36,6 +35,13 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
+        a:hover, font:hover, p:hover, li:hover {
+            cursor: url("../img/cur/15.cur"), auto;
+        }
+
+        #mumu:hover {
+            cursor: url("../img/cur/05.cur"), auto;
+        }
 
     </style>
 </head>
@@ -67,26 +73,29 @@
     var visitor = "游客";
 </script>
 
-<%--
-<div class="copy-right-text text-center">礼物和点击数字
+<%--礼物和点击
+<div class="copy-right-text text-center">
     <p><span id="span_dt_dt" style="display: none"></span>　</p>
 </div>
-
 <div class="scroll-up">
     <a href="#"><i class="fa fa-angle-up"></i></a>
 </div>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js.下载"></script>--%>
+<script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js"></script>--%>
+
 
 <div id="spig" class="spig">
     <div id="message">加载中……</div>
     <div id="mumu" class="mumu"></div>
 </div>
 <script type="text/javascript" src="../css/guangchang/木东驿站_files/spig.js.下载"></script>
-<script type="text/javascript" src="../css/guangchang/木东驿站_files/scripts.js.下载"></script>
+<script type="text/javascript" src="../css/guangchang/木东驿站_files/scripts.js"></script>
 
 
 </body>

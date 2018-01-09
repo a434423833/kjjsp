@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
+
 <link rel="stylesheet" href="../css/zhuye/zhuye.css">
 <div class="col-md-4 blog_sidebar">
     <div id="secondary" class="primary-sidebar widget-area" role="complementary">
@@ -11,25 +12,41 @@
                         <figure>
                             <div>
                                 <img class="img-responsive"
-                                     src="../imgPathActionDownLoad?url=${user.file}"
+                                     src="../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png}"
                                      alt="还没有设置头像哦"/>
                             </div>
                         </figure>
                     </div>
                 </div>
-                <div class="about-me-content" align="center">${user.username}&nbsp;&nbsp;${user.age}&nbsp;&nbsp;
-                    <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}">
+                <div class="about-me-content" align="center" style="height: 200px">
+                    <table style="margin-top: -100px">
+                        <tr>
+                            <td>昵称：</td>
+                            <td>一页书啊&nbsp;&nbsp;<img src="../img/nan.png"></td>
+                        </tr>
+                        </br>
+                        <tr>
+                            <td>年齡：</td>
+                            <td>22&nbsp;&nbsp;</td>
+                        </tr>
+                        </br>
+                        <tr>
+                            <td>坐标:</td>
+                            <td>皇家大东湖</td>
+                        </tr>
+                        </br>
+                        <tr>
+                            <td>简介:</td>
+                            <td>点击此处</td>
+                        </tr>
+                    </table>
                 </div>
                 <h1 class="widget-title"
                     style="font-size: 5px;margin-top: 10px">
-                    <a href="javascript:void(0);">寄语:</a>
-
-                    <a id="gexingqianming"
-                       onclick="click_gq('+${dangqianquanxian}+')"> ${user.qianming==""||user.qianming==null?"还没有设置个性签名":user.qianming}
-                    </a>
-                    <input type="text" id="updategq" onblur="blur_gq()"
-                           style="display: none;margin-left: 80px;height: 18px" placeholder="点击修改您的个性签名">
+                    <a href="../zhuti/zhuye.jsp?fw_id=18">点击进入作者主页</a>
                 </h1>
+
+
             </div>
 
         </aside>

@@ -31,13 +31,11 @@ public class UserServerImpl implements UserServer {
     @Autowired
     ChatFriendMapper chatFriendMapper;
     @Autowired
-    TalkMapper talkMapper;
-    @Autowired
-    DianZanMapper dianZanMapper;
-    @Autowired
     VisitorMapper visitorMapper;
     @Autowired
-    GcliuyanMapper gcliuyanMapper;
+    private GcliuyanMapper gcliuyanMapper;
+    @Autowired
+    private YiZhanDaShiJiMapper yiZhanDaShiJiMapper;
 
     @Override
     public LoginVO userLogin(LoginVO loginVO) {
@@ -84,24 +82,6 @@ public class UserServerImpl implements UserServer {
             return 0;
         }
         return chatFriendMapper.insertAddChat(friendName, ((LoginVO) object).getUsername(), infor);
-    }
-
-    @Override
-    public List listUserTalk(String id) {
-        return talkMapper.listUserTalk(id);
-    }
-
-    @Override
-    public int clickDianZan(String tid, String username, String index) {
-        if ("0".equals(index)) {
-            return dianZanMapper.addDianZan(tid, username);
-        }
-        return dianZanMapper.delectDianZan(tid, username);
-    }
-
-    @Override
-    public List getDianZan(String tid) {
-        return dianZanMapper.ListGetDianZan(tid);
     }
 
     @Override
@@ -165,27 +145,6 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public void addVisitor(Object object, String fw_id, String fw_name) {
-        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        String time = GetObjectUtil.getTime();
-        VisitorPO visitorPO = getVisitorPO((LoginVO) object, fw_id, fw_name, time);
-        String id = visitorMapper.getFwTime(visitorPO);
-        System.out.println(id);
-        if (null == id) {
-            visitorMapper.insertVisitor(visitorPO);
-            return;
-        }
-        visitorPO.setId(Integer.parseInt(id));
-        visitorMapper.updateVisitor(visitorPO);
-    }
-
-    @Override
-    public void insertInfor(String infor, Object object) {
-        TalkPO talkPO = getTalkPO(infor, (LoginVO) object);
-        talkMapper.insertInfor(talkPO);
-    }
-
-    @Override
     public void updateUser(LoginVO tmp) {
         UserPO userPO = LoginConver.converTOLoginVO(tmp);
         userMapper.updateUser(userPO);
@@ -234,7 +193,6 @@ public class UserServerImpl implements UserServer {
 
     }
 
-
     private GuangChangLiuYanVO getGuangChangLiuYanVO(Page page, List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         GuangChangLiuYanVO guangChangLiuYanVO = new GuangChangLiuYanVO();
         guangChangLiuYanVO.setPage(page);
@@ -262,6 +220,46 @@ public class UserServerImpl implements UserServer {
     public void huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO) {
         huifuGuangChangLiuYanDTO.setTime(GetObjectUtil.getTime());
         gcliuyanMapper.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
+    }
+
+    @Override
+    public List<YiZhanShiJiYearVO> getYiZhanShiJi() {
+        Integer maxyear = yiZhanDaShiJiMapper.getMaxYear();
+        Integer minyear = yiZhanDaShiJiMapper.getMinYear();
+        List<YiZhanDaShiJiPO> list = yiZhanDaShiJiMapper.listYiZhanShiJi();
+        List<YiZhanShiJiYearVO> listYearList = new ArrayList<>();
+        for (int i = maxyear; i >= minyear; i--) {
+            int year = i;
+            List<YiZhanDaShiJiPO> listYear = list.stream().filter(p -> p.getYear() == year).collect(Collectors.toList());//得到当前年份的list集合
+            YiZhanShiJiYearVO yiZhanShiJiYearVO = new YiZhanShiJiYearVO();       //添加到第一层list
+            List<YiZhanShiJiMonthVO> listMonthList = new ArrayList<>();          //存入第一层list中
+            for (int j = 12; j > 0; j--) {
+                int month = j;
+                //得到当前年份的对应月份集合,
+                YiZhanShiJiMonthVO yiZhanShiJiMonthVO = new YiZhanShiJiMonthVO();
+                List<YiZhanDaShiJiPO> listMonth = listYear.stream().filter(p -> p.getMonth() == month).collect(Collectors.toList());
+                if (listMonth != null && listMonth.size() > 0) {
+                    yiZhanShiJiMonthVO.setMonth(month);
+                    yiZhanShiJiMonthVO.setList(listMonth);
+                    listMonthList.add(yiZhanShiJiMonthVO);
+                }
+            }
+            yiZhanShiJiYearVO.setYear(year);
+            yiZhanShiJiYearVO.setListYear(listMonthList);
+            listYearList.add(yiZhanShiJiYearVO);
+        }
+        return listYearList;
+    }
+
+    @Override
+    public void addYiZhanShiJi(String infor) {
+        YiZhanDaShiJiPO yiZhanDaShiJiPO = new YiZhanDaShiJiPO();
+        yiZhanDaShiJiPO.setInfor(infor);
+        String time = GetObjectUtil.getTime();
+        yiZhanDaShiJiPO.setYear(Integer.parseInt(time.substring(0, 4)));
+        yiZhanDaShiJiPO.setMonth(Integer.parseInt(time.substring(5, 7)));
+        yiZhanDaShiJiPO.setDay(Integer.parseInt(time.substring(8, 10)));
+        yiZhanDaShiJiMapper.addYiZhanDaShiJi(yiZhanDaShiJiPO);
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {

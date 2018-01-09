@@ -116,37 +116,6 @@ public class UserController {
         return ResultUtil.success(i);
     }
 
-    @RequestMapping(value = "userTalk", method = RequestMethod.POST)
-    public Result userTalk(String id) {
-        System.out.println(id);
-        if (null == id) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
-        }
-        List list = userServer.listUserTalk(id);
-        return ResultUtil.success(list);
-    }
-
-    @RequestMapping(value = "clickDianZan", method = RequestMethod.POST)
-    public Result clickDianZan(String tid, String username, String index) {
-        if (null == tid || null == username) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
-        }
-        int i = userServer.clickDianZan(tid, username, index);
-        if (i == 0) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE1, null);
-        }
-        return clickDianZan(tid);
-    }
-
-    @RequestMapping(value = "getDianZan", method = RequestMethod.POST)
-    public Result clickDianZan(String tid) {
-        if (null == tid) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
-        }
-        List list = userServer.getDianZan(tid);
-        return ResultUtil.success(list);
-    }
-
     @RequestMapping(value = "findFriend", method = RequestMethod.POST)
     public Result findFriend(String friendName) {
         if (null == friendName) {
@@ -207,17 +176,6 @@ public class UserController {
         map.put("list1", list1);
         map.put("list2", list2);
         return ResultUtil.success();
-    }
-
-    @RequestMapping(value = "talkPosted", method = RequestMethod.POST)
-    public Result talkPosted(String infor, ModelMap map) {
-        Assert.notNull(infor, ConstantsUtil.ERROR_MESSAGE5);
-        Object object = map.get("user");
-        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        LoginVO loginVO = (LoginVO) object;
-        userServer.insertInfor(infor, object);
-        List list = userServer.listUserTalk(loginVO.getUid().toString());
-        return ResultUtil.success(list);
     }
 
     @RequestMapping(value = "getCode", method = RequestMethod.GET)
@@ -402,6 +360,35 @@ public class UserController {
         huifuGuangChangLiuYanDTO.setUid(tmp.getUid());
         userServer.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
         LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "回复广场留言了");
+        return ResultUtil.success();
+    }
+
+    /**
+     * 得到驿站大事记
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getYiZhanShiJi", method = RequestMethod.POST)
+    public Result getYiZhanShiJi() {
+        LOGGER.info("进入getYiZhanShiJi");
+        List list = userServer.getYiZhanShiJi();
+        return ResultUtil.success(list);
+    }
+
+    /**
+     * 添加驿站大事记
+     *
+     * @return
+     */
+    @RequestMapping(value = "/addYiZhanShiJi", method = RequestMethod.POST)
+    public Result addYiZhanShiJi(String infor, ModelMap map) {
+        LOGGER.info("进入addYiZhanShiJi");
+        Object object = map.get("user");
+        LoginVO tmp = (LoginVO) object;
+        if (tmp.getUid() != 18) {
+            return null;
+        }
+        userServer.addYiZhanShiJi(infor);
         return ResultUtil.success();
     }
 

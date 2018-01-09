@@ -45,34 +45,9 @@ public interface UserServer {
     int addChat(String friendName, Object object, String infor);
 
     /**
-     * 获得说说
-     *
-     * @param id
-     * @return
-     */
-    List listUserTalk(String id);
-
-    /**
-     * 点赞
-     *
-     * @param tid
-     * @param username
-     * @return
-     */
-    int clickDianZan(String tid, String username, String index);
-
-    /**
-     * 获得点赞人
-     *
-     * @param tid
-     * @return
-     */
-    List getDianZan(String tid);
-
-    /**
      * 判断是否有此人
      *
-     * @param object
+     * @param
      * @param friendname
      * @return
      */
@@ -100,10 +75,6 @@ public interface UserServer {
     List listByUidAndToday(String uid);
 
     List listByUidAndYesday(String uid);
-
-    void addVisitor(Object object, String fw_id, String fw_name);
-
-    void insertInfor(String infor, Object object);
 
     void updateUser(LoginVO tmp);
 
@@ -142,5 +113,14 @@ public interface UserServer {
      * @param huifuGuangChangLiuYanDTO
      */
     void huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO);
+
+    /**
+     * 得到驿站大事记
+     *
+     * @return
+     */
+    List getYiZhanShiJi();
+
+    void addYiZhanShiJi(String infor);
 }
 

@@ -29,12 +29,12 @@
     <link rel="stylesheet" id="kotha-responsive-css" href="../css/zhuye/zhuye_files/responsive.min.css" type="text/css"
           media="all">
     <script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
-    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js.下载"></script>
-    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js.下载"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
     <link rel="stylesheet" href="../css/zhuye/zhuye_files/zhuti.css">
     <link rel="stylesheet" href="../css/zhuye/zhuye_files/zhuye.css">
     <script type="text/javascript" src="../css/zhuye/zhuye_files/saved_resource"></script>
-    <script type="text/javascript" src="../css/zhuye/zhuye_files/zhuye.js.下载"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/zhuye.js"></script>
     <script>var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
@@ -91,11 +91,11 @@
 <div class="scroll-up">
     <a href="#"><i class="fa fa-angle-up"></i></a>
 </div>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js"></script>
 </body>
 </html>
 

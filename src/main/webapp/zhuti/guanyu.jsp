@@ -25,20 +25,50 @@
 
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
-    <%--<style type="text/css">   鼠标样式
+    <style type="text/css">
         * {
-            cursor: url(''), auto;
+            cursor: url("../img/cur/1.cur"), auto;
         }
-    </style>--%>
+
+        a:hover, font:hover, p:hover, li:hover, h4:hover {
+            cursor: url("../img/cur/15.cur"), auto;
+        }
+
+        #mumu:hover {
+            cursor: url("../img/cur/05.cur"), auto;
+        }
+    </style>
 </head>
-<body class="home blog custom-background">
+<body class="home blog custom-background" onload="yizhanload()">
 <!--头部-->
 <%@ include file="import/head_guanyu.jsp" %>
-
 <div class="st-content">
     <div class="container">
         <div class="row">
-            asdsa
+            <div class="col-md-8">
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main" role="main">
+                        <div class="padding-content white-color">
+                            <ul>
+                                <li onclick="fabiaoshiji()"><strong><font size="5px">驿站事记</font></strong>【记录一下开发的进度和问题】
+                                </li>
+                                <div id="fabiaoshiji" style="display: none">
+                                    <textarea class="OwO-textarea"
+                                              id="dashijiwenbenyu"></textarea>
+                                    <button onclick="fabuclick()">发布</button>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="padding-content white-color margin-top-40">
+                            <div class="archives" id="yizhanxianshi">
+
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <!--右侧-->
+            <%@ include file="import/right_guanyu.jsp" %>
         </div>
     </div>
 </div>
@@ -47,16 +77,17 @@
 <div class="copy-right-text text-center">
     <p><span id="span_dt_dt" style="display: none"></span>　</p>
 </div>
+<script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js"></script>
+<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js"></script>
 
-<%--<div class="scroll-up">  礼物和点击数字
-    <a href="#"><i class="fa fa-angle-up"></i></a>
-</div>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js.下载"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js.下载"></script>--%>
 
+<script type="text/javascript" src="../js/guanyu/guanyu.js"></script>
 
 </body>
 

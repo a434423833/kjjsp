@@ -1,19 +1,27 @@
 var beginqianm = null;
-function click_gq(qianming) {
-    if ("${fw_id}" == null || "${fw_id==user.uid?true:false}") {
+function click_gq() {
+    alert("${dangqianquanxian}");
+    if ("${dangqianquanxian}" == 0) {
         beginqianm = $("#gexingqianming").html();
-        if (qianming != null || qianming != "") {
-            $("#gexingqianming").html(beginqianm);
-        }
         $("#gexingqianming").html("");
+        if (beginqianm == null || beginqianm == "") {
+            $("#updategq").val("");
+            $("#updategq").css("display", "block");
+            return;
+        }
         $("#updategq").css("display", "block");
-        $("#updategq").value(beginqianm);
+        $("#updategq").val(beginqianm);
     }
 }
 
 function blur_gq() {
     var qianming = $("#updategq").val();
     $("#updategq").css("display", "none");
+    if (qianming == beginqianm) {
+        $("#updategq").css("display", "none");
+        $("#gexingqianming").html(beginqianm);
+        return;
+    }
     $.ajax({
             type: "POST",      //传输方式
             url: "../updategq",           //地址
