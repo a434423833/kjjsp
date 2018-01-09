@@ -298,13 +298,13 @@ public class UserController {
         Object object = session.getAttribute("user");
         if (object == null) {
             LOGGER.info("未登录退出驿站了");
-            return new ModelAndView("redirect:http://localhost/zhuti/guangchang.jsp");
+            return new ModelAndView("redirect:zhuti/guangchang.jsp");
         }
         LoginVO tmp = (LoginVO) object;
         LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + "退出驿站了");
         sessionStatus.setComplete();
         session.invalidate();
-        return new ModelAndView("redirect:http://localhost/zhuti/guangchang.jsp");
+        return new ModelAndView("redirect:zhuti/guangchang.jsp");
     }
 
     /**
