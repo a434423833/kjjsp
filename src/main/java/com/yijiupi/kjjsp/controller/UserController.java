@@ -281,7 +281,7 @@ public class UserController {
         tmp.setAge(loginVO.getAge());
         tmp.setUsername(loginVO.getUsername());
         map.put("user", tmp);
-        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "完善信息");
+        LOGGER.info("账号:" + tmp.getAccount() + "完善信息");
 
         return ResultUtil.success();
     }
@@ -295,10 +295,16 @@ public class UserController {
      */
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
     public ModelAndView exit(HttpSession session, SessionStatus sessionStatus) {
-        LOGGER.info("账号:" + ((LoginVO) session.getAttribute("user")).getAccount() + " 名称:" + ((LoginVO) session.getAttribute("user")).getUsername() + "退出驿站了");
+        Object object = session.getAttribute("user");
+        if (object == null) {
+            LOGGER.info("未登录退出驿站了");
+            return new ModelAndView("redirect:http://localhost/zhuti/guangchang.jsp");
+        }
+        LoginVO tmp = (LoginVO) object;
+        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + "退出驿站了");
         sessionStatus.setComplete();
         session.invalidate();
-        return new ModelAndView("redirect:zhuti/guangchang.jsp");
+        return new ModelAndView("redirect:http://localhost/zhuti/guangchang.jsp");
     }
 
     /**

@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../css/guangchang/木东驿站_files/jquery-migrate.min.js"></script>
     <link rel="stylesheet" href="../css/guangchang/木东驿站_files/zhuti.css">
     <script type="text/javascript">
-        var uid = "${user.uid}";
-        var username = "${user.username}";
+        var uid = "${sessionScope.user.uid}";
+        var username = "${sessionScope.user.username}";
         var thisId;
     </script>
     <script type="text/javascript" src="../js/guangchang/guangchang.js"></script>

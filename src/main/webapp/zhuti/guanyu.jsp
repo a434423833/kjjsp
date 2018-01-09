@@ -25,6 +25,9 @@
 
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
+    <script type="text/javascript">
+        var uid = "${sessionScope.user.uid}";
+    </script>
     <style type="text/css">
         * {
             cursor: url("../img/cur/1.cur"), auto;

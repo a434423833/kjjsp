@@ -46,7 +46,7 @@ function dashijiclick(year, month) {
     $("#dashiji" + year + "" + month).fadeToggle(300);
 }
 function fabiaoshiji() {
-    if ("${user.uid==18?true:flase}") {
+    if (uid == 18) {
         $("#fabiaoshiji").fadeToggle(300);
     } else {
         alert("你并不是管理员,无法添加事记");
