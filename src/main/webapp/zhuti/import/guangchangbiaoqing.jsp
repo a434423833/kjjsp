@@ -3,7 +3,7 @@
     <div class="OwO-logo"><span><font style="vertical-align: inherit;"><font
             style="vertical-align: inherit;" onclick="biaoqingclick()">OωO表情</font></font>
          </span></div>
-    <span id="tixing_liuyan" style="color: red;font-size: 5px;margin-left: 20px"></span>
+    <span id="tixing_liuyan" style="color: red;font-size: 13px;margin-left: 20px"></span>
     <div class="OwO-body" style="width: 100%;display: none" id="biaoqing">
         <ul class="OwO-items OwO-items-image OwO-items-show" style="max-height: 197px;">
             <li class="OwO-item" title="$[:微笑:]" data="$[:微笑:]"><img

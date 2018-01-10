@@ -263,8 +263,8 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public String getFile() {
-        return userMapper.getFile();
+    public LoginVO getFwInfor(Integer fwId) {
+        return LoginConver.converVOUserPO(userMapper.getFwInfor(fwId));
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {

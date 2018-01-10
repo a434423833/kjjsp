@@ -40,6 +40,25 @@ function yizhanload() {
         }
     )
     ;
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../getAuthorInfor",           //地址
+        data: {
+            fwId: 18
+        },
+        success: function (obj) {
+            if (obj.code == 0) {
+                obj = obj.data;
+                $("#gyhead").attr('src', "../imgPathActionDownLoad?url=" + obj.file);
+                if (obj.sex == 1) {
+                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nan.png'>");
+                } else {
+                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nv.png'>");
+                }
+                $("#gyage").html(obj.age + "&nbsp;&nbsp;");
+            }
+        }
+    });
 
 }
 function dashijiclick(year, month) {

@@ -21,7 +21,7 @@
                     <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}">
                 </div>
                 <h1 class="widget-title"
-                    style="font-size: 5px;margin-top: 10px">
+                    style="font-size: 12px;margin-top: 10px">
                     <a href="javascript:void(0);">寄语:</a>
 
                     <a id="gexingqianming"

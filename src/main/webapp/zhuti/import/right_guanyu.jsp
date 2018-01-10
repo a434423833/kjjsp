@@ -11,8 +11,8 @@
                     <div class="imgtest">
                         <figure>
                             <div>
-                                <img class="img-responsive"
-                                     src="../imgPathActionDownLoad_zhuren"
+                                <img class="img-responsive" id="gyhead"
+                                     src=""
                                      alt="还没有设置头像哦"/>
                             </div>
                         </figure>
@@ -22,12 +22,12 @@
                     <table style="margin-top: -100px">
                         <tr>
                             <td>昵称：</td>
-                            <td>一页书啊&nbsp;&nbsp;<img src="../img/nan.png"></td>
+                            <td id="gyname"></td>
                         </tr>
                         </br>
                         <tr>
                             <td>年齡：</td>
-                            <td>22&nbsp;&nbsp;</td>
+                            <td id="gyage"></td>
                         </tr>
                         </br>
                         <tr>
@@ -42,7 +42,7 @@
                     </table>
                 </div>
                 <h1 class="widget-title"
-                    style="font-size: 5px;margin-top: 10px">
+                    style="font-size: 12px;margin-top: 10px">
                     <a href="../zhuti/zhuye.jsp?fw_id=18">点击进入作者主页</a>
                 </h1>
 

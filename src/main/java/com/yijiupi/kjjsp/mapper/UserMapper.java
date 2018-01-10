@@ -1,6 +1,8 @@
 package com.yijiupi.kjjsp.mapper;
 
+import com.yijiupi.kjjsp.pojo.LoginVO;
 import com.yijiupi.kjjsp.pojo.UserPO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,5 +18,5 @@ public interface UserMapper {
 
     void updategq(UserPO userPO);
 
-    String getFile();
+    UserPO getFwInfor(@Param(("fwId")) Integer fwId);
 }

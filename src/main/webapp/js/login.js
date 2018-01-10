@@ -10,6 +10,16 @@ function click_login_sq() {
     $("#h1_head").css("display", "block");
 }
 function click2() {
+    var username = $("#exampleInputEmail3").val();
+    var password = $("#exampleInputPassword3").val();
+    if (username.length == 0) {
+        $("#login_msg").html("请输入用户名");
+        return;
+    }
+    if (password.length == 0) {
+        $("#login_msg").html("请输入密码");
+        return;
+    }
     $.ajax({
             type: "POST",      //传输方式
             url: "../userLogin",           //地址

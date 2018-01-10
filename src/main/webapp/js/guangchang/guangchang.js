@@ -62,7 +62,7 @@ function load_liuyan(index, count) {
                                     + sex2
                                     + " </div>"
                                     + "<div class='comment-content'>"
-                                    + "<p>" + "<tag style='font-size: 5px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
+                                    + "<p>" + "<tag style='font-size: 12px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
                                     + " <div class='comment-footer'>"
                                     + "<span class='comment-date'>" + data1.time + "</span>"
                                     + " <span class='comment-reply'><a href='javascript:void(0);' onclick='huifuclick1(" + data1.gcid + "," + 3 + " )'>回复</a></span>"
@@ -88,7 +88,7 @@ function load_liuyan(index, count) {
                                             + sex3 + "<span></span>"
                                             + " </div>"
                                             + "<div class='comment-content'>"
-                                            + " <p>" + "<tag style='font-size: 5px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
+                                            + " <p>" + "<tag style='font-size: 12px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
                                             + " <div class='comment-footer'>"
                                             + "<span class='comment-date'>" + data2.time + "</span>"
                                             + " </div></div></div></li>";
@@ -157,13 +157,13 @@ function huifuclick1(beforgcid, index) {
     thisId = beforgcid;
     if (uid == "" || uid == null) {
         $("#aa" + beforgcid).css("color", "red");
-        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).css("font-size", "12px");
         $("#aa" + beforgcid).html("请先登录！");
         return;
     }
     if (username == "" || username == null) {
         $("#aa" + beforgcid).css("color", "red");
-        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).css("font-size", "12px");
         $("#aa" + beforgcid).html("请先完善信息！");
         return;
     }
@@ -174,7 +174,7 @@ function huifuclick1(beforgcid, index) {
         "                <div class='col-md-12'><textarea id='comment" + beforgcid + "' class='OwO-textarea'" +
         "                                                 placeholder='有什么想回复的就说吧！'" +
         "                                                 name='comment' aria-required='true'></textarea>" +
-        "                    <div style='float: left;margin-top: -20px;color: red;font-size: 5px' id='tixing_liuyan'></div>" +
+        "                    <div style='float: left;margin-top: -20px;color: red;font-size: 12px' id='tixing_liuyan'></div>" +
         "                </div>" +
         "                <p class='form-submit col-md-12' style='margin-top: -15px;margin-left: -20px'>" +
         "<input type='button'  onclick='closehuifu(" + beforgcid + ")' value='关闭' style='margin-left: 400px;background-color: #75baff;height: 33px'>" +
@@ -186,7 +186,7 @@ function huifuclick1(beforgcid, index) {
         "    <div class='OwO-logo'><span><font style='vertical-align: inherit;'><font\n" +
         "            style='vertical-align: inherit;' onclick='biaoqingclick(" + thisId + ")'>OωO表情</font></font>\n" +
         "         </span></div>\n" +
-        "    <span id='tixing_liuyan' style='color: red;font-size: 5px;margin-left: 20px'></span>\n" +
+        "    <span id='tixing_liuyan' style='color: red;font-size: 12px;margin-left: 20px'></span>\n" +
         "    <div class='OwO-body' style='width: 100%;display: none' id='biaoqing" + thisId + "'>\n" +
         "        <ul class='OwO-items OwO-items-image OwO-items-show' style='max-height: 197px;'>\n" +
         "            <li class='OwO-item' title='$[:微笑:]' data='$[:微笑:]' value='123'  onclick='biaoqinglist(this," + thisId + ")'><img\n" +
@@ -510,7 +510,7 @@ function huifuclick2(beforgcid, index) {
     var infor = $("#comment" + beforgcid).val();
     if (infor == null || infor.length < 6) {
         $("#aa" + beforgcid).css("color", "red");
-        $("#aa" + beforgcid).css("font-size", "5px");
+        $("#aa" + beforgcid).css("font-size", "12px");
         $("#aa" + beforgcid).html("不能少于6个字哦!");
         return;
     }

@@ -45,14 +45,14 @@
                         <input type="submit" onclick="clicktp()" value="点击上传"
                                style="margin-left: -180px;margin-top: 10px"/>
                     </form>
-                    <span id="tupiandaxiao" style="margin-left: -160px;color: red;font-size: 5px;"></span>
+                    <span id="tupiandaxiao" style="margin-left: -160px;color: red;font-size: 12px;"></span>
                 </div>
                 <h1>
                     <i18n data-i18n="Hello, I am" id="">
                         <c:if test="${msg==null?true:flase}">请尽量将下列信息补充完整！</c:if>
                         <c:if test="${msg!=null?true:flase}">${msg}</c:if>
                         </br></br>
-                        <form action="" style="font-size: 10px;margin-left: 850px">
+                        <form action="" style="font-size: 12px;margin-left: 850px">
                             <table>
                                 <tr style="height: 40px">
                                     <td>昵称：

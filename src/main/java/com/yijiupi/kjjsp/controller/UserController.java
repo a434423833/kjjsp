@@ -235,13 +235,6 @@ public class UserController {
         return new ModelAndView("redirect:zhuti/information.jsp");
     }
 
-    @RequestMapping(value = "/imgPathActionDownLoad_zhuren", method = RequestMethod.GET)
-    public void imgPathActionDownLoad_zhuren(HttpServletRequest request, HttpServletResponse response) {
-        String url = userServer.getFile();
-        System.out.println(url);
-        show(url, request, response);
-    }
-
     /**
      * 头像输出流
      */
@@ -403,6 +396,18 @@ public class UserController {
         }
         userServer.addYiZhanShiJi(infor);
         return ResultUtil.success();
+    }
+
+    /**
+     * 获得作者信息
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getAuthorInfor", method = RequestMethod.POST)
+    public Result getAuthorInfor(Integer fwId) {
+        LOGGER.info("进入getAuthorInfor");
+        LoginVO loginVO = userServer.getFwInfor(fwId);
+        return ResultUtil.success(loginVO);
     }
 
 }

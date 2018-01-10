@@ -121,8 +121,16 @@ public interface UserServer {
      */
     List getYiZhanShiJi();
 
+    /**
+     * 添加驿站大事记
+     *
+     * @param infor
+     */
     void addYiZhanShiJi(String infor);
 
-    String getFile();
+    /**
+     * 获得作者信息
+     */
+    LoginVO getFwInfor(Integer fwId);
 }
 

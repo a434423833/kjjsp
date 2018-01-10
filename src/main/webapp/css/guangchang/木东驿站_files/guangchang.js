@@ -62,7 +62,7 @@ function load_liuyan(index, count) {
                                     + sex2
                                     + " </div>"
                                     + "<div class='comment-content'>"
-                                    + "<p>" + "<tag style='font-size: 5px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
+                                    + "<p>" + "<tag style='font-size: 12px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
                                     + " <div class='comment-footer'>"
                                     + "<span class='comment-date'>" + data1.time + "</span>"
                                     + " <span class='comment-reply'><a href='javascript:void(0);' onclick='huifuclick1(" + data1.gcid + "," + 3 + " )'>回复</a></span>"
@@ -88,7 +88,7 @@ function load_liuyan(index, count) {
                                             + sex3 + "<span></span>"
                                             + " </div>"
                                             + "<div class='comment-content'>"
-                                            + " <p>" + "<tag style='font-size: 5px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
+                                            + " <p>" + "<tag style='font-size: 12px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
                                             + " <div class='comment-footer'>"
                                             + "<span class='comment-date'>" + data2.time + "</span>"
                                             + " </div></div></div></li>";
