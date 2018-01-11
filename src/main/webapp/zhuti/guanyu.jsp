@@ -80,7 +80,7 @@
 <div class="copy-right-text text-center">
     <p><span id="span_dt_dt" style="display: none"></span>　</p>
 </div>
-<script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+<script src="../css/zhuye/zhuye_files/hm.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yijiupi.kjjsp.mapper.UserMapper">
-    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.UserPO">
+    <resultMap id="BaseResultMap" type="com.yijiupi.kjjsp.pojo.LoginVO">
         <id column="uid" property="uid" jdbcType="INTEGER"/>
         <result column="username" property="username" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -13,22 +13,25 @@
         <result column="qianming" property="qianming" jdbcType="VARCHAR"/>
         <result column="admin" property="admin" jdbcType="INTEGER"/>
     </resultMap>
-    <select id="getUser" parameterType="com.yijiupi.kjjsp.pojo.UserPO" resultMap="BaseResultMap">
+    <select id="getUser" parameterType="com.yijiupi.kjjsp.pojo.LoginVO" resultMap="BaseResultMap">
         select uid,account,username,age,sex,phone,file ,qianming,admin from user where account=#{account} and password =#{password}
  </select>
-    <select id="getUserByFriendName" parameterType="String" resultMap="BaseResultMap">
-         select uid,account,username,age,sex,phone,file,qianming,adminfrom from user where username=#{1}
+    <select id="getUserByFriendName" parameterType="string" resultMap="BaseResultMap">
+         select uid,account,username,age,sex,phone,file,qianming,admin from user where username=#{1}
     </select>
-    <update id="updateUser" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+    <update id="updateUser" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
         UPDATE user set file=#{file} where uid=#{uid}
     </update>
-    <update id="updateUser1" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+    <update id="updateUser1" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
         UPDATE user set username=#{username},age=#{age},sex=#{sex},phone=#{phone} where uid=#{uid}
     </update>
-    <update id="updategq" parameterType="com.yijiupi.kjjsp.pojo.UserPO">
+    <update id="updategq" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
         UPDATE user set qianming=#{qianming} where uid=#{uid}
     </update>
-    <select id="getFwInfor" parameterType="Integer" resultMap="BaseResultMap">
+    <select id="getFwInfor" parameterType="integer" resultMap="BaseResultMap">
         select uid,username,age,sex,file,qianming,admin from user where uid=#{fwId}
+    </select>
+    <select id="listUser" resultMap="BaseResultMap">
+          select uid,username,file,admin from user
     </select>
 </mapper>

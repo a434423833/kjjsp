@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * 拦截器配置
  */
 @Configuration
-public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
+public class MyWebAppInterceptor extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -25,6 +25,7 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
         ir.excludePathPatterns("/userLogin");
         ir.excludePathPatterns("/exit");
         ir.excludePathPatterns("/getYiZhanShiJi");
+        ir.excludePathPatterns("/getFriendInfor");
         ir.excludePathPatterns("/");
         ir.addPathPatterns("/*");
         //   registry.addInterceptor(new UserInterceptor()).addPathPatterns("/*");//  registry.addInterceptor(new UserInterceptor()).excludePathPatterns("/getGuangChangLiuYanList");

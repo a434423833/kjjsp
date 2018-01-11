@@ -80,7 +80,7 @@
 <div class="scroll-up">
     <a href="#"><i class="fa fa-angle-up"></i></a>
 </div>
-<script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+<script src="../css/zhuye/zhuye_files/hm.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
@@ -94,7 +94,7 @@
     <div id="message">加载中……</div>
     <div id="mumu" class="mumu"></div>
 </div>
-<script type="text/javascript" src="../css/guangchang/木东驿站_files/spig.js.下载"></script>
+<script type="text/javascript" src="../css/guangchang/木东驿站_files/spig.js"></script>
 <script type="text/javascript" src="../css/guangchang/木东驿站_files/scripts.js"></script>
 
 

@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -40,6 +41,7 @@ import java.util.UUID;
 @SessionAttributes(value = {"v_code", "user", "list1", "list2"})
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    public static List<LoginVO> LOGINACCOUNTS = new ArrayList<>();
 
     @Autowired
     private UserServer userServer;
@@ -60,6 +62,16 @@ public class UserController {
         }
         LoginVO tmp = userServer.userLogin(loginVO);
         if (tmp != null) {
+            int status = 0;
+            for (LoginVO loginStatus : LOGINACCOUNTS) {
+                if (loginStatus.getUid() == tmp.getUid())
+                    status = 1;         //已经登录
+            }
+            if (status == 0) {
+                LOGINACCOUNTS.add(tmp);
+            } else {
+                return ResultUtil.error(100, "账号已经被登录", null);
+            }
             map.put("user", tmp);
             LOGGER.info("账号:" + tmp.getAccount() + " 名称" + tmp.getUsername() + "登陆了");
             return ResultUtil.success(tmp);
@@ -301,7 +313,12 @@ public class UserController {
             return new ModelAndView("redirect:zhuti/guangchang.jsp");
         }
         LoginVO tmp = (LoginVO) object;
-        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + "退出驿站了");
+        for (int i = 0; i < LOGINACCOUNTS.size(); i++) {
+            if (tmp.getUid() == LOGINACCOUNTS.get(i).getUid()) {
+                LOGINACCOUNTS.remove(i);     //移除登录信息
+            }
+        }
+        LOGGER.info("账号:" + tmp.getAccount() + "退出驿站了");
         sessionStatus.setComplete();
         session.invalidate();
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
@@ -322,7 +339,7 @@ public class UserController {
         userServer.updategq(loginVO);
         tmp.setQianming(loginVO.getQianming());
         map.put("user", tmp);
-        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "修改个性签名");
+        LOGGER.info("账号:" + tmp.getAccount() + "修改个性签名");
         return ResultUtil.success(loginVO.getQianming());
     }
 
@@ -349,7 +366,7 @@ public class UserController {
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
         userServer.addGuangChangLiuYan(gcliuyanDTO);
-        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "添加广场留言");
+        LOGGER.info("账号:" + tmp.getAccount() + "添加广场留言");
         return ResultUtil.success();
     }
 
@@ -365,7 +382,7 @@ public class UserController {
         LoginVO tmp = (LoginVO) object;
         huifuGuangChangLiuYanDTO.setUid(tmp.getUid());
         userServer.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
-        LOGGER.info("账号:" + tmp.getAccount() + " 名称:" + tmp.getUsername() + "回复广场留言了");
+        LOGGER.info("账号:" + tmp.getAccount() + "回复广场留言了");
         return ResultUtil.success();
     }
 
@@ -375,8 +392,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getYiZhanShiJi", method = RequestMethod.POST)
-    public Result getYiZhanShiJi() {
-        LOGGER.info("进入getYiZhanShiJi");
+    public Result getYiZhanShiJi(ModelMap map) {
+        Object object = map.get("user");
+        if (object != null) {
+            LoginVO tmp = (LoginVO) object;
+            LOGGER.info("账号:" + tmp.getAccount() + "得到驿站大事记");
+        }
         List list = userServer.getYiZhanShiJi();
         return ResultUtil.success(list);
     }
@@ -388,12 +409,12 @@ public class UserController {
      */
     @RequestMapping(value = "/addYiZhanShiJi", method = RequestMethod.POST)
     public Result addYiZhanShiJi(String infor, ModelMap map) {
-        LOGGER.info("进入addYiZhanShiJi");
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
         if (tmp.getUid() != 18) {
             return null;
         }
+        LOGGER.info("账号:" + tmp.getAccount() + "添加驿站大事记");
         userServer.addYiZhanShiJi(infor);
         return ResultUtil.success();
     }
@@ -404,10 +425,31 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getAuthorInfor", method = RequestMethod.POST)
-    public Result getAuthorInfor(Integer fwId) {
-        LOGGER.info("进入getAuthorInfor");
+    public Result getAuthorInfor(Integer fwId, ModelMap map) {
+        Object object = map.get("user");
+        if (object != null) {
+            LoginVO tmp = (LoginVO) object;
+            LOGGER.info("账号:" + tmp.getAccount() + "获得作者信息");
+        }
         LoginVO loginVO = userServer.getFwInfor(fwId);
         return ResultUtil.success(loginVO);
     }
 
+    /**
+     * 得到会员信息
+     *
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/getFriendInfor", method = RequestMethod.POST)
+    public Result getFriendInfor(ModelMap map) {
+        Object object = map.get("user");
+        if (object != null) {
+            LoginVO tmp = (LoginVO) object;
+            LOGGER.info("账号:" + tmp.getAccount() + "获得会员信息");
+        }
+        FriendInforVO friendInforVO = userServer.listUser();
+        friendInforVO.setLoginUserList(LOGINACCOUNTS);
+        return ResultUtil.success(friendInforVO);
+    }
 }

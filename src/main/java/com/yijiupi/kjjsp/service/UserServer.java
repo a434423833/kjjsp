@@ -132,5 +132,12 @@ public interface UserServer {
      * 获得作者信息
      */
     LoginVO getFwInfor(Integer fwId);
+
+    /**
+     * 得到会员信息
+     *
+     * @return
+     */
+    FriendInforVO listUser();
 }
 

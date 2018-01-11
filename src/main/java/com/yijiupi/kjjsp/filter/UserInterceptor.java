@@ -22,10 +22,6 @@ public class UserInterceptor implements HandlerInterceptor {
         //在请求处理之前进行调用,（Controller)方法调用之前, 只有返回true才会继续向下执行，返回false取消当前请求
         Object obj = request.getSession().getAttribute("user");
         if (obj != null) {
-            LoginVO tmp = (LoginVO) obj;
-            if (tmp.getUsername() == null) {
-                return false;
-            }
             return true;
         }
         String url = request.getRequestURI();

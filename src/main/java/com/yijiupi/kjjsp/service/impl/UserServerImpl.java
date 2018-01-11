@@ -1,6 +1,5 @@
 package com.yijiupi.kjjsp.service.impl;
 
-import com.yijiupi.kjjsp.conver.login.LoginConver;
 import com.yijiupi.kjjsp.mapper.*;
 import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
@@ -39,9 +38,8 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public LoginVO userLogin(LoginVO loginVO) {
-        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
-        userPO = userMapper.getUser(userPO);
-        return LoginConver.converVOUserPO(userPO);
+        LoginVO tmp = userMapper.getUser(loginVO);
+        return tmp;
     }
 
     @Override
@@ -86,8 +84,8 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public boolean findUser(String friendName) {
-        UserPO userPO = userMapper.getUserByFriendName(friendName);
-        if (null == userPO) {
+        LoginVO loginVO = userMapper.getUserByFriendName(friendName);
+        if (null == loginVO) {
             return false;
         }
         return true;
@@ -106,8 +104,8 @@ public class UserServerImpl implements UserServer {
             //好友请求已经发送过
             return 1;
         }
-        UserPO userPO = userMapper.getUserByFriendName(friendName);
-        FriendPO friendPO = convertTOUserPOAndVO(userPO, loginVO);
+        LoginVO loginVOfriend = userMapper.getUserByFriendName(friendName);
+        FriendPO friendPO = convertTOUserPOAndVO(loginVOfriend, loginVO);
         return friendMapper.insertByFriendName(friendPO);
     }
 
@@ -146,21 +144,17 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public void updateUser(LoginVO tmp) {
-        UserPO userPO = LoginConver.converTOLoginVO(tmp);
-        userMapper.updateUser(userPO);
+        userMapper.updateUser(tmp);
     }
 
     @Override
     public void updateUser1(LoginVO loginVO) {
-        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
-        userMapper.updateUser1(userPO);
-
+        userMapper.updateUser1(loginVO);
     }
 
     @Override
     public void updategq(LoginVO loginVO) {
-        UserPO userPO = LoginConver.converTOLoginVO(loginVO);
-        userMapper.updategq(userPO);
+        userMapper.updategq(loginVO);
     }
 
     @Override
@@ -264,7 +258,22 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public LoginVO getFwInfor(Integer fwId) {
-        return LoginConver.converVOUserPO(userMapper.getFwInfor(fwId));
+        return userMapper.getFwInfor(fwId);
+    }
+
+    @Override
+    public FriendInforVO listUser() {
+        FriendInforVO friendInforVO = new FriendInforVO();
+        List<LoginVO> allUserList = userMapper.listUser();
+        //管理员
+        List<LoginVO> adminUserList = allUserList.stream().filter(p -> p.getAdmin() != null && p.getAdmin() == 1).collect(Collectors.toList());
+        //不是管理员并且头像上传的会员
+        List<LoginVO> userList = allUserList.stream().filter(p -> p.getFile() != null && p.getAdmin() == null).collect(Collectors.toList());
+        List<LoginVO> noFileUserList = allUserList.stream().filter(p -> p.getFile() == null && p.getAdmin() == null).collect(Collectors.toList());
+        friendInforVO.setAdminUserList(adminUserList);
+        friendInforVO.setUserList(userList);
+        friendInforVO.setNoFileUserList(noFileUserList);
+        return friendInforVO;
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {
@@ -296,12 +305,12 @@ public class UserServerImpl implements UserServer {
         return friendPO;
     }
 
-    private FriendPO convertTOUserPOAndVO(UserPO userPO, LoginVO loginVO) {
+    private FriendPO convertTOUserPOAndVO(LoginVO loginVOfriend, LoginVO loginVO) {
         FriendPO friendPO = new FriendPO();
         friendPO.setUid(loginVO.getUid());
         friendPO.setQzoneuname(loginVO.getUsername());
-        friendPO.setFid(userPO.getUid());
-        friendPO.setFrienduname(userPO.getUsername());
+        friendPO.setFid(loginVOfriend.getUid());
+        friendPO.setFrienduname(loginVOfriend.getUsername());
         return friendPO;
     }
 

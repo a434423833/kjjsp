@@ -28,7 +28,7 @@
           media="all">
     <link rel="stylesheet" id="kotha-responsive-css" href="../css/zhuye/zhuye_files/responsive.min.css" type="text/css"
           media="all">
-    <script src="../css/zhuye/zhuye_files/hm.js.下载"></script>
+    <script src="../css/zhuye/zhuye_files/hm.js"></script>
     <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
     <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
     <link rel="stylesheet" href="../css/zhuye/zhuye_files/zhuti.css">
