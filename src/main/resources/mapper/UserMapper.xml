@@ -34,4 +34,10 @@
     <select id="listUser" resultMap="BaseResultMap">
           select uid,username,file,admin from user
     </select>
+    <select id="checkAccount" parameterType="string" resultType="integer">
+        SELECT count(uid) from user where account=#{account}
+    </select>
+    <insert id="inserUser" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
+        INSERT INTO user(account,password,username)  VALUES (#{account},#{password},#{account})
+    </insert>
 </mapper>

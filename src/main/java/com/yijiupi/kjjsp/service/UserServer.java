@@ -139,5 +139,13 @@ public interface UserServer {
      * @return
      */
     FriendInforVO listUser();
+
+    /**
+     * 用户注册
+     *
+     * @param loginVO
+     * @return
+     */
+    LoginVO userReg(LoginVO loginVO);
 }
 

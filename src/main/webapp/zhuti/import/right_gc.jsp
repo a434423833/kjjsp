@@ -12,7 +12,7 @@
                     可以发现隐藏世界！</c:if>
                 <c:if test="${!result}">
                     欢迎来到木东驿站</br>
-                    ${user.username}</br>
+                    <span style="color: #00acdf">${user.username}</span></br>
                     <c:if test="${user.username!=null?false:true}">
                         请先<a href="information.jsp">完善信息</a>
                     </c:if>
@@ -20,8 +20,7 @@
             </h1>
             <div class="about-widget" style="display: none" id="login_zhuti">
                 <div id="yangshi3">
-                    <div style="height: 280px;width: 300px">
-                        <div id="div3"><a href="login.html"></a></div>
+                    <div style="height: 280px;width: 300px" id="showlogin">
                         <form class="form-inline" action="" method="post">
                             <input type="hidden" name="task" value="login">
                             <div class="form-group">
@@ -42,17 +41,60 @@
                                        placeholder="验证码" style="width: 150px ; height: 43px;display: inline-block">
                                 <img alt="" src="../getCode" style="margin-top:0px" onclick="chick1(this)">
                             </div>
-                            <div id="login_msg" style="height: 20px"></div>
-                            <span style="color:red;margin-left:120px">${msg}</span></br>
+                            <div id="login_msg" style="height: 20px;font-size: 12px;color: red"></div>
+                            </br>
                             <input type="button" onclick="click2()" class="btn btn-success" value="登录"
                                    style="width: 272px ; height: 43px;color: #75baff;margin-top: -25px">
                         </form>
                         <div id="div4">
-                            <a href="xiugai.jsp">修改密码</a>|
-                            <a href="reg.jsp">注册账号</a>|
-                            <a href="javascript:void(0);" style="margin-left: 80px" onclick="click_login_sq()">拒绝登陆</a>
+                            <a href="javascript:void(0);">修改密码</a>|
+                            <a href="javascript:void(0);" onclick="showside(1)">注册账号</a>|
+                            <a href="javascript:void(0);" style="margin-left: 80px" onclick="click_login_sq()">点击收起</a>
                         </div>
                     </div>
+
+                    <%--注册--%>
+                    <div style="height: 320px;width: 300px;display: none" id="showreg">
+                        <form class="form-inline" action="" method="post">
+                            <input type="hidden" name="task" value="login">
+                            <div class="form-group" style="height: 60px">
+                                <label class="sr-only" for="exampleInputEmail3">UserName</label>
+                                <input type="text" name="account" class="form-control" id="exampleInputEmail3_reg"
+                                       placeholder="请输入登录名" style="width: 272px ; height: 43px;">
+                            </div>
+                            </br>
+                            <div class="form-group" style="height: 60px">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" name="password" class="form-control"
+                                       id="exampleInputPassword3_reg"
+                                       placeholder="请输入密码" style="width: 272px ; height: 43px;">
+                            </div>
+                            </br>
+                            <div class="form-group" style="height: 60px">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" name="password" class="form-control"
+                                       id="exampleInputPassword3_reg1"
+                                       placeholder=请确认密码" style="width: 272px ; height: 43px;">
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <input type="text" name="code" class="form-control" id="code1" value=""
+                                       placeholder="验证码" style="width: 150px ; height: 43px;display: inline-block">
+                                <img alt="" src="../getCode" style="margin-top:0px" onclick="chick1(this)">
+                            </div>
+                            <div id="reg_msg" style="height: 20px;font-size: 12px;color: red"></div>
+                            </br>
+                            <input type="button" onclick="click2_reg()" class="btn btn-success" value="注册"
+                                   style="width: 272px ; height: 43px;color: #75baff;margin-top: -45px">
+                        </form>
+                        <div id="div4_reg" style="margin-top: -15px">
+                            <a href="javascript:void(0);">修改密码</a>|
+                            <a href="javascript:void(0);" onclick="showside(2)">立即登录</a>|
+                            <a href="javascript:void(0);" style="margin-left: 80px" onclick="click_login_sq()">点击收起</a>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 

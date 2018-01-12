@@ -1,3 +1,8 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
@@ -1370,7 +1375,6 @@ a:focus, a:hover {
 }
 
 a:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -2911,7 +2915,6 @@ select[multiple], select[size] {
 }
 
 input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -3397,7 +3400,6 @@ select[multiple].input-lg, textarea.input-lg {
 }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -7205,3 +7207,5 @@ button.close {
         display: none !important
     }
 }
+
+/*# sourceMappingURL=bootstrap.min.css.map */

@@ -73,18 +73,18 @@ var _createClass = function () {
     6: [function (t, n, e) {
         var r = t(81), o = t(77), i = t(80);
         n.exports = [].copyWithin || function (t, n) {
-            var e = r(this), u = i(e.length), a = o(t, u), c = o(n, u), f = arguments,
-                s = f.length > 2 ? f[2] : void 0, l = Math.min((void 0 === s ? u : o(s, u)) - c, u - a), h = 1;
-            for (a > c && c + l > a && (h = -1, c += l - 1, a += l - 1); l-- > 0;) c in e ? e[a] = e[c] : delete e[a], a += h, c += h;
-            return e
-        }
+                var e = r(this), u = i(e.length), a = o(t, u), c = o(n, u), f = arguments,
+                    s = f.length > 2 ? f[2] : void 0, l = Math.min((void 0 === s ? u : o(s, u)) - c, u - a), h = 1;
+                for (a > c && c + l > a && (h = -1, c += l - 1, a += l - 1); l-- > 0;) c in e ? e[a] = e[c] : delete e[a], a += h, c += h;
+                return e
+            }
     }, {77: 77, 80: 80, 81: 81}],
     7: [function (t, n, e) {
         var r = t(81), o = t(77), i = t(80);
         n.exports = [].fill || function (t) {
-            for (var n = r(this), e = i(n.length), u = arguments, a = u.length, c = o(a > 1 ? u[1] : void 0, e), f = a > 2 ? u[2] : void 0, s = void 0 === f ? e : o(f, e); s > c;) n[c++] = t;
-            return n
-        }
+                for (var n = r(this), e = i(n.length), u = arguments, a = u.length, c = o(a > 1 ? u[1] : void 0, e), f = a > 2 ? u[2] : void 0, s = void 0 === f ? e : o(f, e); s > c;) n[c++] = t;
+                return n
+            }
     }, {77: 77, 80: 80, 81: 81}],
     8: [function (t, n, e) {
         var r = t(79), o = t(80), i = t(77);
@@ -126,8 +126,8 @@ var _createClass = function () {
     }, {37: 37, 39: 39, 84: 84}],
     11: [function (t, n, e) {
         var r = t(12), o = t(84)("toStringTag"), i = "Arguments" == r(function () {
-            return arguments
-        }());
+                return arguments
+            }());
         n.exports = function (t) {
             var n, e, u;
             return void 0 === t ? "Undefined" : null === t ? "Null" : "string" == typeof(e = (n = Object(t))[o]) ? e : i ? r(n) : "Object" == (u = r(n)) && "function" == typeof n.callee ? "Arguments" : u
@@ -342,10 +342,10 @@ var _createClass = function () {
     20: [function (t, n, e) {
         n.exports = !t(25)(function () {
             return 7 != Object.defineProperty({}, "a", {
-                get: function () {
-                    return 7
-                }
-            }).a
+                    get: function () {
+                        return 7
+                    }
+                }).a
         })
     }, {25: 25}],
     21: [function (t, n, e) {
@@ -495,8 +495,8 @@ var _createClass = function () {
     37: [function (t, n, e) {
         var r = t(12);
         n.exports = Array.isArray || function (t) {
-            return "Array" == r(t)
-        }
+                return "Array" == r(t)
+            }
     }, {12: 12}],
     38: [function (t, n, e) {
         var r = t(39), o = Math.floor;
@@ -633,18 +633,18 @@ var _createClass = function () {
     }, {}],
     50: [function (t, n, e) {
         n.exports = Math.expm1 || function (t) {
-            return 0 == (t = +t) ? t : t > -1e-6 && 1e-6 > t ? t + t * t / 2 : Math.exp(t) - 1
-        }
+                return 0 == (t = +t) ? t : t > -1e-6 && 1e-6 > t ? t + t * t / 2 : Math.exp(t) - 1
+            }
     }, {}],
     51: [function (t, n, e) {
         n.exports = Math.log1p || function (t) {
-            return (t = +t) > -1e-8 && 1e-8 > t ? t - t * t / 2 : Math.log(1 + t)
-        }
+                return (t = +t) > -1e-8 && 1e-8 > t ? t - t * t / 2 : Math.log(1 + t)
+            }
     }, {}],
     52: [function (t, n, e) {
         n.exports = Math.sign || function (t) {
-            return 0 == (t = +t) || t != t ? t : 0 > t ? -1 : 1
-        }
+                return 0 == (t = +t) || t != t ? t : 0 > t ? -1 : 1
+            }
     }, {}],
     53: [function (t, n, e) {
         var r, o, i, u = t(30), a = t(76).set, c = u.MutationObserver || u.WebKitMutationObserver, f = u.process,
@@ -687,8 +687,8 @@ var _createClass = function () {
         n.exports = function (t, n) {
             var e = (o.Object || {})[t] || Object[t], u = {};
             u[t] = n(e), r(r.S + r.F * i(function () {
-                e(1)
-            }), "Object", u)
+                    e(1)
+                }), "Object", u)
         }
     }, {17: 17, 23: 23, 25: 25}],
     56: [function (t, n, e) {
@@ -703,9 +703,9 @@ var _createClass = function () {
     57: [function (t, n, e) {
         var r = t(47), o = t(5), i = t(30).Reflect;
         n.exports = i && i.ownKeys || function (t) {
-            var n = r.getNames(o(t)), e = r.getSymbols;
-            return e ? n.concat(e(t)) : n
-        }
+                var n = r.getNames(o(t)), e = r.getSymbols;
+                return e ? n.concat(e(t)) : n
+            }
     }, {30: 30, 47: 47, 5: 5}],
     58: [function (t, n, e) {
         var r = t(59), o = t(34), i = t(3);
@@ -757,8 +757,8 @@ var _createClass = function () {
     }, {}],
     64: [function (t, n, e) {
         n.exports = Object.is || function (t, n) {
-            return t === n ? 0 !== t || 1 / t === 1 / n : t != t && n != n
-        }
+                return t === n ? 0 !== t || 1 / t === 1 / n : t != t && n != n
+            }
     }, {}],
     65: [function (t, n, e) {
         var r = t(47).getDesc, o = t(39), i = t(5), u = function (t, n) {
@@ -853,8 +853,8 @@ var _createClass = function () {
             a = "[" + u + "]", c = "​", f = RegExp("^" + a + a + "*"), s = RegExp(a + a + "*$"), l = function (t, n) {
                 var e = {};
                 e[t] = n(h), r(r.P + r.F * i(function () {
-                    return !!u[t]() || c[t]() != c
-                }), "String", e)
+                        return !!u[t]() || c[t]() != c
+                    }), "String", e)
             }, h = l.trim = function (t, n) {
                 return t = String(o(t)), 1 & n && (t = t.replace(f, "")), 2 & n && (t = t.replace(s, "")), t
             };
@@ -956,10 +956,10 @@ var _createClass = function () {
             k = A.join, j = o.setDesc, N = o.getDesc, F = o.setDescs, L = {};
         u || (r = !v(function () {
             return 7 != j(f("div"), "a", {
-                get: function () {
-                    return 7
-                }
-            }).a
+                    get: function () {
+                        return 7
+                    }
+                }).a
         }), o.setDesc = function (t, n, e) {
             if (r) try {
                 return j(t, n, e)
@@ -998,13 +998,13 @@ var _createClass = function () {
             };
         i(i.S, "Object", {
             getPrototypeOf: o.getProto = o.getProto || function (t) {
-                return t = y(t), s(t, _) ? t[_] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? M : null
-            },
+                    return t = y(t), s(t, _) ? t[_] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? M : null
+                },
             getOwnPropertyNames: o.getNames = o.getNames || R(I, I.length, !0),
             create: o.create = o.create || function (t, n) {
-                var e;
-                return null !== t ? (W.prototype = p(t), e = new W, W.prototype = null, e[_] = t) : e = T(), void 0 === n ? e : F(e, n)
-            },
+                    var e;
+                    return null !== t ? (W.prototype = p(t), e = new W, W.prototype = null, e[_] = t) : e = T(), void 0 === n ? e : F(e, n)
+                },
             keys: o.getKeys = o.getKeys || R(C, D, !1)
         });
         var G = function (t, n, e) {
@@ -1023,8 +1023,8 @@ var _createClass = function () {
                 return g(n.prototype) && (r.prototype = n.prototype), r
             }
         }), i(i.P + i.F * v(function () {
-            c && P.call(c)
-        }), "Array", {
+                c && P.call(c)
+            }), "Array", {
             slice: function (t, n) {
                 var e = S(this.length), r = l(this);
                 if (n = void 0 === n ? e : n, "Array" == r) return P.call(this, t, n);
@@ -1078,10 +1078,10 @@ var _createClass = function () {
             return t > 9 ? t : "0" + t
         };
         i(i.P + i.F * (v(function () {
-            return "0385-07-25T07:06:39.999Z" != new Date(-5e13 - 1).toISOString()
-        }) || !v(function () {
-            new Date(NaN).toISOString()
-        })), "Date", {
+                return "0385-07-25T07:06:39.999Z" != new Date(-5e13 - 1).toISOString()
+            }) || !v(function () {
+                new Date(NaN).toISOString()
+            })), "Date", {
             toISOString: function () {
                 if (!isFinite(this)) throw RangeError("Invalid time value");
                 var t = this, n = t.getUTCFullYear(), e = t.getUTCMilliseconds(), r = 0 > n ? "-" : n > 9999 ? "+" : "";
@@ -1144,8 +1144,8 @@ var _createClass = function () {
     91: [function (t, n, e) {
         var r = t(18), o = t(23), i = t(81), u = t(41), a = t(36), c = t(80), f = t(85);
         o(o.S + o.F * !t(44)(function (t) {
-            Array.from(t)
-        }), "Array", {
+                Array.from(t)
+            }), "Array", {
             from: function (t) {
                 var n, e, o, s, l = i(t), h = "function" == typeof this ? this : Array, v = arguments, p = v.length,
                     d = p > 1 ? v[1] : void 0, g = void 0 !== d, y = 0, m = f(l);
@@ -1166,11 +1166,11 @@ var _createClass = function () {
     93: [function (t, n, e) {
         var r = t(23);
         r(r.S + r.F * t(25)(function () {
-            function t() {
-            }
+                function t() {
+                }
 
-            return !(Array.of.call(t) instanceof t)
-        }), "Array", {
+                return !(Array.of.call(t) instanceof t)
+            }), "Array", {
             of: function () {
                 for (var t = 0, n = arguments, e = n.length, r = new ("function" == typeof this ? this : Array)(e); e > t;) r[t] = n[t++];
                 return r.length = e, r
@@ -1291,8 +1291,8 @@ var _createClass = function () {
     107: [function (t, n, e) {
         var r = t(23), o = Math.imul;
         r(r.S + r.F * t(25)(function () {
-            return -5 != o(4294967295, 5) || 2 != o.length
-        }), "Math", {
+                return -5 != o(4294967295, 5) || 2 != o.length
+            }), "Math", {
             imul: function (t, n) {
                 var e = 65535, r = +t, o = +n, i = e & r, u = e & o;
                 return 0 | i * u + ((e & r >>> 16) * u + i * (e & o >>> 16) << 16 >>> 0)
@@ -1326,8 +1326,8 @@ var _createClass = function () {
     112: [function (t, n, e) {
         var r = t(23), o = t(50), i = Math.exp;
         r(r.S + r.F * t(25)(function () {
-            return -2e-17 != !Math.sinh(-2e-17)
-        }), "Math", {
+                return -2e-17 != !Math.sinh(-2e-17)
+            }), "Math", {
             sinh: function (t) {
                 return Math.abs(t = +t) < 1 ? (o(t) - o(-t)) / 2 : (i(t - 1) - i(-t - 1)) * (Math.E / 2)
             }
@@ -1654,9 +1654,9 @@ var _createClass = function () {
                 return e(t), n.promise
             }
         }), f(f.S + f.F * !(O && t(44)(function (t) {
-            _.all(t)["catch"](function () {
-            })
-        })), b, {
+                _.all(t)["catch"](function () {
+                })
+            })), b, {
             all: function (t) {
                 var n = A(this), e = new k(n), r = e.resolve, i = e.reject, u = [], a = j(function () {
                     p(t, !1, u.push, u);
@@ -1713,12 +1713,12 @@ var _createClass = function () {
     141: [function (t, n, e) {
         var r = t(47), o = t(23), i = t(3), u = t(5), a = t(39), c = Function.bind || t(17).Function.prototype.bind;
         o(o.S + o.F * t(25)(function () {
-            function t() {
-            }
+                function t() {
+                }
 
-            return !(Reflect.construct(function () {
-            }, [], t) instanceof t)
-        }), "Reflect", {
+                return !(Reflect.construct(function () {
+                }, [], t) instanceof t)
+            }), "Reflect", {
             construct: function (t, n) {
                 i(t);
                 var e = arguments.length < 3 ? t : i(arguments[2]);
@@ -1746,8 +1746,8 @@ var _createClass = function () {
     142: [function (t, n, e) {
         var r = t(47), o = t(23), i = t(5);
         o(o.S + o.F * t(25)(function () {
-            Reflect.defineProperty(r.setDesc({}, 1, {value: 1}), 1, {value: 2})
-        }), "Reflect", {
+                Reflect.defineProperty(r.setDesc({}, 1, {value: 1}), 1, {value: 2})
+            }), "Reflect", {
             defineProperty: function (t, n, e) {
                 i(t);
                 try {
@@ -2017,10 +2017,10 @@ var _createClass = function () {
             P = !1, k = v("_hidden"), j = r.isEnum, N = s("symbol-registry"), F = s("symbols"),
             L = "function" == typeof O, C = Object.prototype, I = u && f(function () {
                 return 7 != _(x({}, "a", {
-                    get: function () {
-                        return x(this, "a", {value: 7}).a
-                    }
-                })).a
+                        get: function () {
+                            return x(this, "a", {value: 7}).a
+                        }
+                    })).a
             }) ? function (t, n, e) {
                 var r = S(C, n);
                 r && delete C[n], x(t, n, e), r && t !== C && x(C, n, r)
@@ -2898,7 +2898,7 @@ function click_information_submit() {
     }
     $("#nicheng1").html("");
     if (nicheng == null || nicheng.length > 10 || nicheng.length < 2) {
-        $("#nicheng1").html("昵称的长度要在2-10之前");
+        $("#nicheng1").html("昵称的长度要在2-10之间");
         return;
     }
     $("#sex1").html("");
@@ -2907,8 +2907,8 @@ function click_information_submit() {
         return;
     }
     $("#phone1").html("");
-    if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone))) {
-        $("#phone1").html("请填写正确的手机号");
+    if (!(/^[1-9][0-9]{4,11}$/.test(phone))) {
+        $("#phone1").html("请填写正确的qq号");
         return;
     }
     $.ajax({
@@ -2922,7 +2922,9 @@ function click_information_submit() {
             },
             success: function (obj) {
                 if (obj.code == 0) {
-                    var data = obj.data;
+                    $("#nicheng").attr('disabled', "true");
+                    $(".sex1").attr('disabled', "true");
+                    $(".sex2").attr('disabled', "true");
                     $("#span1").html("保存成功");
 
                 } else {
@@ -2943,29 +2945,29 @@ function click_information_head() {
 var size = 0;
 
 /*图片预览
-前段：onchange="previewImg(this, 'img1')
+ 前段：onchange="previewImg(this, 'img1')
 
-function previewImg(file, imgId){
-    if(file.value==""){
-        return;
-    }
-    var img = document.getElementById(imgId);
-    if (file.files && file.files[0]) {
-        var reader = new FileReader();
-        reader.readAsDataURL(file.files[0]);
-        reader.onload = function(evt){
-            var reg = /^data:base64,/;
-            var res = evt.target.result;
-            if(reg.test(res)){
-                res = res.replace(reg, "data:"+file.files[0].type+";base64,");
-            }
-            img.src = res;
-            s = res;
-        };
-    } else {
-        img.src = file.value;
-    }
-}*/
+ function previewImg(file, imgId){
+ if(file.value==""){
+ return;
+ }
+ var img = document.getElementById(imgId);
+ if (file.files && file.files[0]) {
+ var reader = new FileReader();
+ reader.readAsDataURL(file.files[0]);
+ reader.onload = function(evt){
+ var reg = /^data:base64,/;
+ var res = evt.target.result;
+ if(reg.test(res)){
+ res = res.replace(reg, "data:"+file.files[0].type+";base64,");
+ }
+ img.src = res;
+ s = res;
+ };
+ } else {
+ img.src = file.value;
+ }
+ }*/
 function checkImgSize(file) {
 
     if (file.files && file.files[0]) {

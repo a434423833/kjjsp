@@ -51,6 +51,15 @@ public class UserController {
         return new ModelAndView("forward:zhuti/index.jsp");
     }
 
+    /**
+     * 用户登录
+     *
+     * @param code
+     * @param loginVO
+     * @param result
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     public Result userLogin(String code, @Valid LoginVO loginVO, BindingResult result, ModelMap map) {
         if (result.hasErrors()) {
@@ -79,6 +88,48 @@ public class UserController {
         return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE3, null);
     }
 
+    /**
+     * 用户注册
+     *
+     * @param code
+     * @param loginVO
+     * @param result
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/userReg", method = RequestMethod.POST)
+    public Result userReg(String code, @Valid LoginVO loginVO, BindingResult result, ModelMap map) {
+        if (result.hasErrors()) {
+            LOGGER.info(ConstantsUtil.ERROR_MESSAGE1);
+            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE1, null);
+        }
+        if (checkCode(code, map)) {
+            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE2, null);
+        }
+        LoginVO tmp = userServer.userReg(loginVO);
+        if (tmp != null) {
+            int status = 0;
+            for (LoginVO loginStatus : LOGINACCOUNTS) {
+                if (loginStatus.getUid() == tmp.getUid())
+                    status = 1;         //已经登录
+            }
+            if (status == 0) {
+                LOGINACCOUNTS.add(tmp);
+            }
+            map.put("user", tmp);
+            LOGGER.info("账号:" + tmp.getAccount() + "注册(登录)了");
+            return ResultUtil.success(tmp);
+        }
+        return ResultUtil.error(100, "用户名已经被注册了", null);
+    }
+
+    /**
+     * 检查验证码
+     *
+     * @param code
+     * @param map
+     * @return
+     */
     private boolean checkCode(String code, ModelMap map) {
         Object object = map.get("v_code");
         if (object != null && code != null) {
@@ -223,7 +274,8 @@ public class UserController {
      * @throws IOException
      */
     @RequestMapping(value = "upLoad", method = RequestMethod.POST)
-    public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest
+            request, HttpServletResponse response) throws IOException {
         String path = "";
         if (!file.isEmpty()) {
             //生成uuid作为文件名称

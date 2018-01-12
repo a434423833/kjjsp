@@ -12,6 +12,7 @@ function click_login_sq() {
 function click2() {
     var username = $("#exampleInputEmail3").val();
     var password = $("#exampleInputPassword3").val();
+    var code = $("#code").val();
     if (username.length == 0) {
         $("#login_msg").html("请输入用户名");
         return;
@@ -20,13 +21,17 @@ function click2() {
         $("#login_msg").html("请输入密码");
         return;
     }
+    if (code == null || code.length != 4) {
+        $("#login_msg").html("请输入正确验证码");
+        return;
+    }
     $.ajax({
             type: "POST",      //传输方式
             url: "../userLogin",           //地址
             data: {            //传递的参数
-                "account": $("#exampleInputEmail3").val(),
-                "password": $("#exampleInputPassword3").val(),
-                "code": $("#code").val()
+                "account": username,
+                "password": password,
+                "code": code
             },
             success: function (obj) {
                 if (obj.code == '0') {
@@ -41,4 +46,57 @@ function click2() {
         }
     )
     ;
+}
+function click2_reg() {
+    var username = $("#exampleInputEmail3_reg").val();
+    var password = $("#exampleInputPassword3_reg").val();
+    var password1 = $("#exampleInputPassword3_reg1").val();
+    var code = $("#code1").val();
+    if (password != password1) {
+        $("#reg_msg").html("两次密码不一致");
+        return;
+    }
+    if (username.length < 6 || username.length > 10) {
+        $("#reg_msg").html("请输入6-10位用户名");
+        return;
+    }
+    if (password.length < 6 || password.length > 12) {
+        $("#reg_msg").html("请输入6-12位密码");
+        return;
+    }
+    if (code == null || code.length != 4) {
+        $("#reg_msg").html("请输入正确验证码");
+        return;
+    }
+    $.ajax({
+            type: "POST",      //传输方式
+            url: "../userReg",           //地址
+            data: {            //传递的参数
+                "account": username,
+                "password": password,
+                "code": code
+            },
+            success: function (obj) {
+                if (obj.code == '0') {
+                    var data = obj.data;
+                    window.location.href = "guangchang.jsp";
+
+                } else {
+                    $("#reg_msg").html(obj.msg);
+                }
+
+            }
+        }
+    )
+    ;
+
+}
+function showside(i) {
+    if (i == 1) {
+        $("#showlogin").css("display", "none");
+        $("#showreg").css("display", "block");
+        return;
+    }
+    $("#showreg").css("display", "none");
+    $("#showlogin").css("display", "block");
 }

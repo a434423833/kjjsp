@@ -41,7 +41,7 @@ public class OverAllFilter implements Filter {
             return;
         }
         LoginVO loginVO = ((LoginVO) object);
-        if (loginVO.getUsername() == null && !url.endsWith("information.jsp")) {
+        if (loginVO.getSex() == null && !url.endsWith("information.jsp")) {
             request.setAttribute("msg", "首先请完善下列信息");
             request.getRequestDispatcher("information.jsp").forward(request, response);
         }

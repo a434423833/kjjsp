@@ -276,6 +276,16 @@ public class UserServerImpl implements UserServer {
         return friendInforVO;
     }
 
+    @Override
+    public LoginVO userReg(LoginVO loginVO) {
+        Integer count = userMapper.checkAccount(loginVO.getAccount());
+        if (count != 0) {
+            return null;
+        }
+        userMapper.inserUser(loginVO);
+        return userMapper.getUser(loginVO);
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;

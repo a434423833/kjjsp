@@ -39,7 +39,7 @@ public interface UserMapper {
      */
     void updategq(LoginVO loginVO);
 
-    LoginVO getFwInfor(@Param(("fwId")) Integer fwId);
+    LoginVO getFwInfor(@Param("fwId") Integer fwId);
 
     /**
      * 得到会员信息
@@ -47,4 +47,19 @@ public interface UserMapper {
      * @return
      */
     List<LoginVO> listUser();
+
+    /**
+     * 检查用户账号是否重复
+     *
+     * @param account
+     * @return
+     */
+    Integer checkAccount(@Param("account") String account);
+
+    /**
+     * 注册用户
+     *
+     * @param loginVO
+     */
+    void inserUser(LoginVO loginVO);
 }
