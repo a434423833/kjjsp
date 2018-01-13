@@ -573,6 +573,7 @@ $(document).ready(function () {
     $(document).bind('click', function (e) {
         var id = $(e.target).attr("id");
         var src = $(e.target).attr("src");
+        /*判断不是点击显示按钮和表情时，所有class隐藏*/
         if (!/^biaoqing.*$/.test(id) && !/^.*.gif$/.test(src)) {
             var $elements = $('.OwO-body');
             $elements.each(function () {
@@ -583,15 +584,7 @@ $(document).ready(function () {
         }
     });
 
-    /*$('#biaoqing').bind('click', function (e) {
-     stopPropagation(e);
-     });
-     function stopPropagation(e) {
-     if (e.stopPropagation)
-     e.stopPropagation();
-     else
-     e.cancelBubble = true;
-     }*/
+
 })
 
 
