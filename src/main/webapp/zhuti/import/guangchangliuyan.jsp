@@ -16,7 +16,7 @@
             </form>
         </div><!-- #respond -->
         <%@ include file="guangchangbiaoqing.jsp" %>
-        
+
 
         <h3 class="common-title comments-title">
             <li>已经有了<span style="color: #1abc9c;" id="span_count"></span>个大吼的声音</li>

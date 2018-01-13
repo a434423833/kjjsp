@@ -15,7 +15,16 @@ public class GcliuyanDTO {
     private Integer sex;
     private Integer beforgcid;
     private Integer index;
+    private Integer admin;
     private List<GcliuyanDTO1> gcliuyanDTO1List;
+
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
+    }
 
     public Integer getBeforgcid() {
         return beforgcid;

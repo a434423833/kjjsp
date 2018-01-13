@@ -17,6 +17,16 @@ public class GcliuyanDTO1 {
     private Integer index;
     private List<GcliuyanDTO2> gcliuyanDTO2List;
 
+    private Integer admin;
+
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
+    }
+
     public Integer getGcid() {
         return gcid;
     }

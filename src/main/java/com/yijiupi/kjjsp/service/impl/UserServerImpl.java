@@ -327,7 +327,11 @@ public class UserServerImpl implements UserServer {
     private static void converLiuyanPhoto(List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         String path = "<img id='biaoqingdaxiao' src='../css/guangchang/木东驿站_files/";
         for (GcliuyanDTO gcliuyanDTO : gcliuyanDTOList) {
+            //转换空格和换行
             String infor = gcliuyanDTO.getInfor();
+            if (infor != null) {
+                infor = infor.replaceAll("\\n", "<br>").replaceAll(" ", "&nbsp;");
+            }
             String newInfor = "";
             int z = 0;
             for (int i = 0, j; i < infor.length(); i++) {
@@ -353,6 +357,9 @@ public class UserServerImpl implements UserServer {
         if (gcliuyanDTO1List1 != null) {
             for (GcliuyanDTO1 gcliuyanDTO : gcliuyanDTO1List1) {
                 String infor = gcliuyanDTO.getInfor();
+                if (infor != null) {
+                    infor = infor.replaceAll("\\n", "<br>").replaceAll(" ", "&nbsp;");
+                }
                 String newInfor = "";
                 int z = 0;
                 for (int i = 0, j; i < infor.length(); i++) {
@@ -371,6 +378,7 @@ public class UserServerImpl implements UserServer {
                         newInfor += infor.substring(z, begin1) + path + infor.substring(begin2 + 1, end2) + ".gif'>";
                         z = end1;
                     }
+
                 }
                 newInfor += infor.substring(z, infor.length());
                 gcliuyanDTO.setInfor(newInfor);
@@ -379,6 +387,9 @@ public class UserServerImpl implements UserServer {
         if (gcliuyanDTO1List2 != null) {
             for (GcliuyanDTO2 gcliuyanDTO : gcliuyanDTO1List2) {
                 String infor = gcliuyanDTO.getInfor();
+                if (infor != null) {
+                    infor = infor.replaceAll("\\n", "<br>").replaceAll(" ", "&nbsp;");
+                }
                 String newInfor = "";
                 int z = 0;
                 for (int i = 0, j; i < infor.length(); i++) {

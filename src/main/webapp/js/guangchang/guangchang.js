@@ -22,9 +22,13 @@ function load_liuyan(index, count) {
                     var gcliuyanDTOList = obj.data.gcliuyanDTOList;
                     for (var i = 0; i < gcliuyanDTOList.length; i++) {
                         var data = gcliuyanDTOList[i];
-                        var sex1 = "<spanclass='ua'><span class='os_8_1'>♂</span></span>";
+                        var sex1 = "<span class='ua'><span class='os_8_1'>♂</span></span>";
                         if (data.sex == '2') {
-                            sex1 = "<span class='ua'><span class='ua_chrome'></i>♀</span></span>";
+                            sex1 = "<span class='ua'><span class='ua_chrome'>♀</span></span>";
+                        }
+                        var ceo = ""
+                        if (data.admin == '1') {
+                            ceo = "<span class='ua'><span class='ua_firefox'> CEO</span></span>";
                         }
                         str += " <li class='comment even thread-even depth-1' id='li-comment-2952'>"
                             + "<div id='comment-2952' class='comment-body media'>"
@@ -33,7 +37,7 @@ function load_liuyan(index, count) {
                             + "<div class='comment-context media-body'>"
                             + " <div class='comment-head'>"
                             + "<a href='' rel='external nofollow' target='_blank'data-user-id='3e6eaa0f1ac35fac791766d1363bb9c8'>" + data.username + "</a>"
-                            + sex1
+                            + ceo + sex1
                             + " </div>"
                             + "<div class='comment-content'>"
                             + "  <p>" + data.infor + "</p></div>"
@@ -52,6 +56,10 @@ function load_liuyan(index, count) {
                                 if (data1.sex == '2') {
                                     sex2 = "<span class='ua'><span class='ua_chrome'></i>♀</span></span>";
                                 }
+                                var ceo = ""
+                                if (data1.admin == '1') {
+                                    ceo = "<span class='ua'><span class='ua_firefox'> CEO</span></span>";
+                                }
                                 str += " <li class='comment byuser comment-author-dreamwings bypostauthor odd alt depth-2' id='li-comment-2953'>"
                                     + "<div id='comment-2953' class='comment-body media'>"
                                     + "<div class='comment-avartar pull-left'>"
@@ -59,7 +67,7 @@ function load_liuyan(index, count) {
                                     + "<div class='comment-context media-body'>"
                                     + " <div class='comment-head'>"
                                     + "<a href='' rel='external nofollow' target='_blank'data-user-id='3e6eaa0f1ac35fac791766d1363bb9c8'>" + data1.username + "</a>"
-                                    + sex2
+                                    + ceo + sex2
                                     + " </div>"
                                     + "<div class='comment-content'>"
                                     + "<p>" + "<tag style='font-size: 12px;'>&nbsp;回复" + ":&nbsp;</tag>" + data1.infor + "</p></div>"
@@ -78,6 +86,10 @@ function load_liuyan(index, count) {
                                         if (data2.sex == '2') {
                                             sex3 = "<span class='ua'><span class='ua_chrome'></i>♀</span></span>";
                                         }
+                                        var ceo = ""
+                                        if (data2.admin == '1') {
+                                            ceo = "<span class='ua'><span class='ua_firefox'> CEO</span></span>";
+                                        }
                                         str += " <li class='comment even depth-3' id='li-comment-2954'>"
                                             + "<div id='comment-2954' class='comment-body media'>"
                                             + "<div class='comment-avartar pull-left'>"
@@ -85,7 +97,7 @@ function load_liuyan(index, count) {
                                             + "<div class='comment-context media-body'>"
                                             + " <div class='comment-head'>"
                                             + "<a href='' rel='external nofollow' target='_blank'data-user-id='3e6eaa0f1ac35fac791766d1363bb9c8'>" + data2.username + "</a>"
-                                            + sex3 + "<span></span>"
+                                            + ceo + sex3 + "<span></span>"
                                             + " </div>"
                                             + "<div class='comment-content'>"
                                             + " <p>" + "<tag style='font-size: 12px;'>&nbsp;回复:&nbsp;</tag>" + data2.infor + "</p></div>"
@@ -183,8 +195,8 @@ function huifuclick1(beforgcid, index) {
         "                </p></form>" +
         "        </div>" +
         "<div class='OwO OwO-open' style='position: relative;left: 0px;top:-60px'>\n" +
-        "    <div class='OwO-logo'><span><font style='vertical-align: inherit;'><font\n" +
-        "            style='vertical-align: inherit;' onclick='biaoqingclick(" + thisId + ")'>OωO表情</font></font>\n" +
+        "    <div class='OwO-logo' id='biaoqing3' onclick='biaoqingclick(" + thisId + ")'><span><font style='vertical-align: inherit;' ><font\n" +
+        "            style='vertical-align: inherit;' id='biaoqing2' >OωO表情</font></font>\n" +
         "         </span></div>\n" +
         "    <span id='tixing_liuyan' style='color: red;font-size: 12px;margin-left: 20px'></span>\n" +
         "    <div class='OwO-body' style='width: 100%;display: none' id='biaoqing" + thisId + "'>\n" +
@@ -539,10 +551,10 @@ function closehuifu(beforgcid) {
 
 function biaoqingclick(biaoqingId) {
     if (biaoqingId == null || biaoqingId.length <= 0) {
-        $("#biaoqing").fadeToggle(200);
+        $("#biaoqing").fadeToggle(0);
         return;
     }
-    $("#biaoqing" + biaoqingId).fadeToggle(200);
+    $("#biaoqing" + biaoqingId).fadeToggle(0);
 }
 
 function biaoqinglist(obj, clickid) {
@@ -551,11 +563,35 @@ function biaoqinglist(obj, clickid) {
     $('#comment' + clickid).val(val + $(thisObj).attr('title'));
 
 }
+
 $(document).ready(function () {
     $('.OwO-item').click(function () {
         var val = $('#comment').val();
         $('#comment').val(val + $(this).attr('title'));
     });
+
+    $(document).bind('click', function (e) {
+        var id = $(e.target).attr("id");
+        var src = $(e.target).attr("src");
+        if (!/^biaoqing.*$/.test(id) && !/^.*.gif$/.test(src)) {
+            var $elements = $('.OwO-body');
+            $elements.each(function () {
+                var $this = $(this);
+                console.log("进入");
+                $this.css("display", "none");
+            });
+        }
+    });
+
+    /*$('#biaoqing').bind('click', function (e) {
+     stopPropagation(e);
+     });
+     function stopPropagation(e) {
+     if (e.stopPropagation)
+     e.stopPropagation();
+     else
+     e.cancelBubble = true;
+     }*/
 })
 
 

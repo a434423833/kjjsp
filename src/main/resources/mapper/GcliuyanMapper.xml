@@ -11,6 +11,7 @@
         <result column="sex" property="sex" jdbcType="INTEGER"/>
         <result column="index1" property="index" jdbcType="INTEGER"/>
         <result column="beforgcid" property="beforgcid" jdbcType="INTEGER"/>
+        <result column="admin" property="admin" jdbcType="INTEGER"/>
     </resultMap>
 
     <resultMap id="BaseResultMap1" type="com.yijiupi.kjjsp.pojo.GcliuyanDTO1">
@@ -23,6 +24,7 @@
         <result column="sex" property="sex" jdbcType="INTEGER"/>
         <result column="index1" property="index" jdbcType="INTEGER"/>
         <result column="beforgcid" property="beforgcid" jdbcType="INTEGER"/>
+        <result column="admin" property="admin" jdbcType="INTEGER"/>
     </resultMap>
 
     <resultMap id="BaseResultMap2" type="com.yijiupi.kjjsp.pojo.GcliuyanDTO2">
@@ -35,14 +37,15 @@
         <result column="sex" property="sex" jdbcType="INTEGER"/>
         <result column="index1" property="index" jdbcType="INTEGER"/>
         <result column="beforgcid" property="beforgcid" jdbcType="INTEGER"/>
+        <result column="admin" property="admin" jdbcType="INTEGER"/>
     </resultMap>
     <select id="getGuangChangLiuYanList" parameterType="com.yijiupi.kjjsp.pojo.Page" resultMap="BaseResultMap">
-        select gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid from user as u ,gcliuyan as g where g.uid=u.uid and index1=1
+        select gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid,admin from user as u ,gcliuyan as g where g.uid=u.uid and index1=1
         order by g.gcid desc limit #{begin},#{pageSize}
     </select>
 
     <select id="getGuangChangLiuYan1List1" resultMap="BaseResultMap1">
-        SELECT gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid from user as u ,gcliuyan as g
+        SELECT gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid,admin from user as u ,gcliuyan as g
         where g.uid=u.uid and index1=2 and beforgcid IN
         <foreach collection="list1" item="employeeId" index="index" open="(" close=")" separator=",">
             #{employeeId}
@@ -51,7 +54,7 @@
     </select>
 
     <select id="getGuangChangLiuYan1List2" resultMap="BaseResultMap2">
-        SELECT gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid from user as u ,gcliuyan as g
+        SELECT gcid,u.uid,infor,time,username,file,sex ,index1,beforgcid,admin from user as u ,gcliuyan as g
         where g.uid=u.uid and index1=3 and beforgcid IN
         <foreach collection="list2" item="employeeId" index="index" open="(" close=")" separator=",">
             #{employeeId}

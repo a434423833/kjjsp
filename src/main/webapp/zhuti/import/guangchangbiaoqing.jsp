@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="OwO OwO-open">
-    <div class="OwO-logo"><span><font style="vertical-align: inherit;"><font
-            style="vertical-align: inherit;" onclick="biaoqingclick()">OωO表情</font></font>
+    <div class="OwO-logo" id="biaoqing5" onclick="biaoqingclick()"><span><font style="vertical-align: inherit;"><font
+            style="vertical-align: inherit;" id="biaoqing1">OωO表情</font></font>
          </span></div>
     <span id="tixing_liuyan" style="color: red;font-size: 13px;margin-left: 20px"></span>
     <div class="OwO-body" style="width: 100%;display: none" id="biaoqing">

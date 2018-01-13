@@ -14,6 +14,16 @@ public class GcliuyanDTO2 {
     private Integer beforgcid;
     private Integer index;
 
+    private Integer admin;
+
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
+    }
+
     public Integer getBeforgcid() {
         return beforgcid;
     }
