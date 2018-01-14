@@ -179,16 +179,20 @@ public class UserController {
         return ResultUtil.success(i);
     }
 
-    @RequestMapping(value = "findFriend", method = RequestMethod.POST)
-    public Result findFriend(String friendName) {
+    /**
+     * 根据姓名模糊查找会员
+     *
+     * @param friendName
+     * @return
+     */
+    @RequestMapping(value = "findUserByName", method = RequestMethod.POST)
+    public Result findFriend(String friendName, String uid) {
+        LOGGER.info(uid + "通过findFriend查找会员");
         if (null == friendName) {
             return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
         }
-        boolean bl = userServer.findUser(friendName);
-        if (!bl) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE7, null);
-        }
-        return ResultUtil.success();
+        List<LoginVO> loginVOList = userServer.listUserByName(friendName, uid);
+        return ResultUtil.success(loginVOList);
     }
 
     @RequestMapping(value = "addFriend", method = RequestMethod.POST)
@@ -472,7 +476,7 @@ public class UserController {
     }
 
     /**
-     * 获得作者信息
+     * 获得访问主页信息
      *
      * @return
      */

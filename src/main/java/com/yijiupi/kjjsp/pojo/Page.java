@@ -19,7 +19,7 @@ public class Page {
     /**
      * 一页长度
      */
-    private Integer pageSize = 10;
+    private Integer pageSize = 5;
 
     /**
      * 开始的地方

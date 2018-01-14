@@ -112,10 +112,13 @@ function load_liuyan(index, count) {
                             str += "</ul>";
                         }
                     }
-                    str += "<nav class='navigation comment-navigation' role='navigation' style='margin-left: 200px'>" +
+                    str += "<nav class='navigation comment-navigation' role='navigation' style='margin-left: 100px'>" +
                         "<h1 class='screen-reader-text section-heading'>Comment navigation</h1>" +
-                        " <div class='nav-previous'>当前页面：" + obj.data.page.pageIndex + "/" + obj.data.page.pageCount + "&nbsp;&nbsp;&nbsp;" +
-                        "<a href=javascript:void(0);' onclick='load_liuyan(" + (obj.data.page.pageIndex - 1) + "," + obj.data.page.pageCount + ")'> 上一页</a> <a href='javascript:void(0);' onclick='load_liuyan(" + (obj.data.page.pageIndex + 1) + "," + obj.data.page.pageCount + ")'> 下一页</a></div>" +
+                        " <div class='nav-previous' style='width:500px;'>当前页面：" + obj.data.page.pageIndex + "/" + obj.data.page.pageCount + "&nbsp;&nbsp;&nbsp;" +
+                        "<a href=javascript:void(0);' onclick='load_liuyan(" + (obj.data.page.pageIndex - 1) + "," + obj.data.page.pageCount + ")'> 上一页</a> " +
+                        "<a href='javascript:void(0);' onclick='load_liuyan(" + (obj.data.page.pageIndex + 1) + "," + obj.data.page.pageCount + ")'> 下一页</a>&nbsp;&nbsp;&nbsp;" +
+                        "<a href='javascript:void(0);' onclick='load_liuyan(" + 1 + "," + obj.data.page.pageCount + ")'>首页</a>&nbsp;&nbsp;&nbsp;" +
+                        "<a href='javascript:void(0);' onclick='load_liuyan(" + (obj.data.page.pageCount) + "," + obj.data.page.pageCount + ")'>尾页</a></div>" +
                         "<div class='nav-next'></div></nav>";
                     $("#guangchang_liuyan").html(str);
                     $("#span_count").html(obj.data.page.count);

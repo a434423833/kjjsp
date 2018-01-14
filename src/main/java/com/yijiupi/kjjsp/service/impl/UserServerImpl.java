@@ -83,12 +83,9 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public boolean findUser(String friendName) {
-        LoginVO loginVO = userMapper.getUserByFriendName(friendName);
-        if (null == loginVO) {
-            return false;
-        }
-        return true;
+    public List<LoginVO> listUserByName(String friendName, String uid) {
+        List<LoginVO> loginVOList = userMapper.listUserByName(friendName, uid);
+        return loginVOList;
     }
 
     @Override
@@ -104,9 +101,10 @@ public class UserServerImpl implements UserServer {
             //好友请求已经发送过
             return 1;
         }
-        LoginVO loginVOfriend = userMapper.getUserByFriendName(friendName);
+      /*  LoginVO loginVOfriend = userMapper.getUserByFriendName(friendName);
         FriendPO friendPO = convertTOUserPOAndVO(loginVOfriend, loginVO);
-        return friendMapper.insertByFriendName(friendPO);
+        return friendMapper.insertByFriendName(friendPO);*/
+        return 0;
     }
 
     @Override

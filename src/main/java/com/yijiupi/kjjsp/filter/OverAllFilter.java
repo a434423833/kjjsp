@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * 主要过滤没有登录返回主页以及信息没有完善
  */
-@WebFilter(filterName = "overAllFilter", urlPatterns = {"/zhuti/zhuye.jsp", "/zhuti/information.jsp", "/zhuti/friend.jsp"})
+@WebFilter(filterName = "overAllFilter", urlPatterns = {"/zhuti/zhuye.jsp", "/zhuti/information.jsp", "/zhuti/friend.jsp", "/zhuti/myfriend.jsp"})
 public class OverAllFilter implements Filter {
     private static final Logger LOGGER = LoggerFactory.getLogger(OverAllFilter.class);
 

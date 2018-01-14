@@ -45,13 +45,13 @@ public interface UserServer {
     int addChat(String friendName, Object object, String infor);
 
     /**
-     * 判断是否有此人
+     * 模糊查找会员
      *
      * @param
-     * @param friendname
-     * @return
+     * @param friendName
+     * @param uid        @return
      */
-    boolean findUser(String friendname);
+    List<LoginVO> listUserByName(String friendName, String uid);
 
     /**
      * 添加好友申请
@@ -129,7 +129,7 @@ public interface UserServer {
     void addYiZhanShiJi(String infor);
 
     /**
-     * 获得作者信息
+     * 获得访问主页信息
      */
     LoginVO getFwInfor(Integer fwId);
 

@@ -2,7 +2,7 @@
 <div class="padding-content white-color">
     <div id="comments" class="comments-area comments">
         <div id="respond" class="comment-respond">
-            <h3 id="reply-title" class="comment-reply-title" style="color: #3EC3A5">我想大声说~</h3>
+            <h3 id="reply-title" class="comment-reply-title" style="color: #3EC3A5">我想大声DE说~</h3>
             <form action="" method="post"
                   id="commentform" class="comment-form row" novalidate>
                 <div class="col-md-12"><textarea id="comment" class="OwO-textarea"

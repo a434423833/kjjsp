@@ -39,6 +39,12 @@ public interface UserMapper {
      */
     void updategq(LoginVO loginVO);
 
+    /**
+     * 获得访问fwid信息
+     *
+     * @param fwId
+     * @return
+     */
     LoginVO getFwInfor(@Param("fwId") Integer fwId);
 
     /**
@@ -62,4 +68,13 @@ public interface UserMapper {
      * @param loginVO
      */
     void inserUser(LoginVO loginVO);
+
+    /**
+     * 查找会员
+     *
+     * @param friendName
+     * @param uid
+     * @return
+     */
+    List<LoginVO> listUserByName(@Param("friendName") String friendName, @Param("uid") String uid);
 }
