@@ -22,24 +22,26 @@
 
     <link rel="stylesheet" href="../css/guangchang/木东驿站_files/zhuti.css">
     <link rel="stylesheet" href="../css/iconfont.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" id="kotha-responsive-css1" href="../css/guangchang/木东驿站_files/aa.css" type="text/css"
           media="all">
     <script type="text/javascript">
         var uid = "${sessionScope.user.uid}";
     </script>
+    <link rel="stylesheet" href="../css/myfriend/myfriend.css">
     <style type="text/css">
         * {
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover {
+        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover, .zidingyi1:hover, .iconfont:hover {
             cursor: url("../img/cur/15.cur"), auto;
         }
 
     </style>
 </head>
-<body class="home blog custom-background">
+<body class="home blog custom-background" onload="bodyload()">
 <!--头部-->
 <%@ include file="import/head_myfriend.jsp" %>
 <div class="st-content">
@@ -48,6 +50,43 @@
             <div class="col-md-8">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
+                        <div class="row">
+                            <div class="col-sm-11"></div>
+                            <div>
+                                <div class="zidingyi1" onclick="xiaoxitixing()">
+                                </div>
+                                <i class="iconfont" onclick="xiaoxitixing()">&#xe62d;</i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9"></div>
+                            <div class="col-sm-1">
+                                <div class="popover bottom"
+                                     style="position: absolute;width: 250px;margin-left: 35px;margin-top: -2px">
+                                    <div class="arrow"></div>
+                                    <h3 class="popover-title">好友申请通知:</h3>
+                                    <div class="popover-content">
+                                        <ul class="readers-list2">
+                                            <li style="margin-left: -20px;width: 150px"><a
+                                                    href="javascript:void(0);"><img
+                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(89).jpg"
+                                                    alt=><em>一页图案书</em></a></li>
+                                            <div style="margin-left: -20px;margin-top: 10px;height: 40px">同意||拒绝</div>
+                                            <li style="margin-left: -20px;width: 150px"><a
+                                                    href="javascript:void(0);"><img
+                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(122).jpg"
+                                                    alt=><em>I am I</em> </a></li>
+                                            <div style="margin-left: -20px;margin-top: 10px;height: 40px">同意||拒绝</div>
+                                            <li style="margin-left: -20px;width: 150px"><a
+                                                    href="javascript:void(0);"><img
+                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(122).jpg"
+                                                    alt=><em>I am I</em> </a></li>
+                                            <div style="margin-left: -20px;margin-top: 10px">同意||拒绝</div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="padding-content white-color">
                             <div id="showaddname" style="display: none">
                                 <h3>添加好友<a href="javascript:void(0);" onclick="noneaddname()">(点击隐藏)</a></h3>
@@ -76,7 +115,7 @@
                             <ul class="readers-list">
                                 <li><a target="_blank" href="http://t.qq.com/yan838359518" rel="nofollow"><img
                                         src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(130).jpg"
-                                        alt=></img><em>闫柯苹</em> <strong>+91</strong></br></a></li>
+                                        alt=>><em>闫柯苹</em> <strong>+91</strong></br></a></li>
                             </ul>
                         </div>
                     </main>

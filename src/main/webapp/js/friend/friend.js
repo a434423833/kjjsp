@@ -1,7 +1,7 @@
 function friendLoad() {
     $.ajax({
         type: "POST",      //传输方式
-        url: "../getFriendInfor",           //地址
+        url: "../getUserInforList",           //地址
         data: {},
         success: function (obj) {
             if (obj.code == 0) {

@@ -147,5 +147,21 @@ public interface UserServer {
      * @return
      */
     LoginVO userReg(LoginVO loginVO);
+
+    /**
+     * 获取自己好友申请总数
+     *
+     * @param uid
+     * @return
+     */
+    Integer getAddFriendCount(Integer uid);
+
+    /**
+     * 获取自己好友申请列表
+     *
+     * @param uid
+     * @return
+     */
+    List<LoginVO> getAddFriendList(Integer uid);
 }
 

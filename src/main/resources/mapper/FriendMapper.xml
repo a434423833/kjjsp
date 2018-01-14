@@ -9,6 +9,18 @@
         <result column="friendUname" property="frienduname" jdbcType="VARCHAR"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
     </resultMap>
+    <resultMap id="BaseResultMap1" type="com.yijiupi.kjjsp.pojo.LoginVO">
+        <id column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="file" property="file" jdbcType="VARCHAR"/>
+        <result column="qianming" property="qianming" jdbcType="VARCHAR"/>
+        <result column="admin" property="admin" jdbcType="INTEGER"/>
+    </resultMap>
     <select id="listGetFriend" resultMap="BaseResultMap">
         SELECT  id, uid, qzoneUname, fid, friendUname, status FROM friend
         where uid=#{uid} and  status=1 LIMIT #{begin},#{pageSizeStr}
@@ -34,6 +46,12 @@
     <insert id="insertFriendRequest">
         INSERT into friend( uid, fid, status,intimacy) VALUES (#{uid},#{fid},0,0)
     </insert>
+    <select id="getAddFriendCount" resultType="integer">
+        SELECT count(id) FROM friend where status=0 and fid=#{uid}
+    </select>
+    <select id="getAddFriendList" resultMap="BaseResultMap1">
+        select u.uid,u.username,u.sex,u.file  FROM friend as f LEFT JOIN user as u ON f.uid=u.uid where f.fid=#{uid} and f.status=0
+    </select>
     <insert id="insertByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
         INSERT into friend( uid, qzoneUname, fid, friendUname, status) VALUES (#{uid},#{qzoneuname},#{fid},#{frienduname},1)
     </insert>

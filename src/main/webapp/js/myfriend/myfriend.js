@@ -4,6 +4,30 @@ function showaddname() {
 function noneaddname() {
     $("#showaddname").fadeToggle(300);
 }
+
+function bodyload() {
+    getCount()//获取好友申请数量
+
+}
+function getCount() {
+    $.ajax({
+            type: "POST",      //传输方式
+            url: "../getAddFriendCount",           //地址
+            data: {
+                uid: uid
+            },
+            success: function (obj) {
+                if (obj.code == '0') {
+                    $(".zidingyi1").html(obj.data);
+                }
+            }
+        }
+    );
+
+}
+function xiaoxitixing() {
+}
+
 function addfriend(friendid) {
     $.ajax({
         type: "POST",      //传输方式
@@ -23,10 +47,12 @@ function addfriend(friendid) {
     });
 
 }
+
+
 $(document).ready(function () {
     var lastname = "";
-    $('#friendname').bind('input propertychange blur', function () {
 
+    $('#friendname').bind('input propertychange blur', function () {
         var name = $("#friendname").val();
         setTimeout(function () {
             addfriend(name);//带参数
@@ -62,7 +88,7 @@ $(document).ready(function () {
                         str += "<li><a  href='javascript:void(0);' >" +
                             "<img src='../imgPathActionDownLoad?url=" + data.file + "'" +
                             " alt='无头像'><em>" + data.username + "</em> <strong id='strong1' onclick='addfriend(" + data.uid + ")'>添加<i class='iconfont' >&#xe8ca;</i> </strong></a>" +
-                            "</li><span id='addfriendspan" + data.uid + "' style='color: red'></span></br></br></br>";
+                            "</li><div id='addfriendspan" + data.uid + "' style='margin-top: 15px;color: red;height:20px;font-size: 15px'></div></br>";
                     }
                     if (str == "")
                         str = "没有查到此人";

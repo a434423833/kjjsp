@@ -2973,6 +2973,84 @@ embed, iframe, object {
     line-height: 40px
 }
 
+.readers-list2 {
+    line-height: 18px;
+    text-align: left;
+    overflow: hidden;
+    _zoom: 1
+}
+
+.readers-list2 li {
+    width: 200px;
+    float: left;
+    margin-right: -1px;
+    list-style-type: none
+}
+
+.readers-list2 a, .readers-list2 a:hover strong {
+    background-color: #f2f2f2;
+    background-image: -webkit-linear-gradient(#f8f8f8, #f2f2f2);
+    background-image: -moz-linear-gradient(#f8f8f8, #f2f2f2);
+    background-image: linear-gradient(#f8f8f8, #f2f2f2)
+}
+
+.readers-list2 a {
+    position: relative;
+    display: block;
+    height: 36px;
+    margin: 4px;
+    padding: 4px 4px 4px 44px;
+    color: #999;
+    overflow: hidden;
+    border: 1px dashed #e2e2e2;
+    border-radius: 10px
+}
+
+.readers-list2 img, .readers-list2 em, .readers-list2 strong {
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    transition: all .2s ease-out
+}
+
+.readers-list2 img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 0 8px 0 -40px;
+    border-radius: 2px
+}
+
+.readers-list2 em {
+    color: #666;
+    font-style: normal;
+    margin-right: 10px
+}
+
+.readers-list2 strong {
+    color: #ddd;
+    width: 40px;
+    text-align: right;
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    font: bold 12px/14px microsoft yahei
+}
+
+.readers-list2 a:hover {
+
+}
+
+.readers-list2 a:hover img {
+
+}
+
+.readers-list2 a:hover em {
+}
+
+.readers-list2 a:hover strong {
+
+}
+
 #toploading {
     background-color: rgba(204, 153, 255, 0.5);
     height: 3px;

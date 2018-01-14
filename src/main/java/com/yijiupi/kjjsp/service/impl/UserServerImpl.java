@@ -90,7 +90,6 @@ public class UserServerImpl implements UserServer {
 
     @Override
     public Integer addFriend(Integer uid, Integer friendId) {
-
         String status = friendMapper.getFriend(uid, friendId);
         if ("1".equals(status)) {
             //1 代表已经为好友
@@ -100,8 +99,13 @@ public class UserServerImpl implements UserServer {
             //好友请求已经发送过
             return 0;
         }
-        friendMapper.insertFriendRequest(uid, friendId);
-        return 2;
+        if (status == null) {
+            friendMapper.insertFriendRequest(uid, friendId);
+            return 2;
+        } else {
+            Assert.notNull(null, "好友状态数据出错uid:" + uid + "fid:" + friendId);
+            return 0;
+        }
     }
 
     @Override
@@ -279,6 +283,16 @@ public class UserServerImpl implements UserServer {
         }
         userMapper.inserUser(loginVO);
         return userMapper.getUser(loginVO);
+    }
+
+    @Override
+    public Integer getAddFriendCount(Integer uid) {
+        return friendMapper.getAddFriendCount(uid);
+    }
+
+    @Override
+    public List<LoginVO> getAddFriendList(Integer uid) {
+        return friendMapper.getAddFriendList(uid);
     }
 
     private TalkPO getTalkPO(String infor, LoginVO object) {

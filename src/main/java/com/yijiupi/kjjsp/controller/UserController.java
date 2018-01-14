@@ -494,13 +494,13 @@ public class UserController {
     }
 
     /**
-     * 得到会员信息
+     * 得到用户信息
      *
      * @param map
      * @return
      */
-    @RequestMapping(value = "/getFriendInfor", method = RequestMethod.POST)
-    public Result getFriendInfor(ModelMap map) {
+    @RequestMapping(value = "/getUserInforList", method = RequestMethod.POST)
+    public Result getUserInforList(ModelMap map) {
         Object object = map.get("user");
         if (object != null) {
             LoginVO tmp = (LoginVO) object;
@@ -509,5 +509,33 @@ public class UserController {
         FriendInforVO friendInforVO = userServer.listUser();
         friendInforVO.setLoginUserList(LOGINACCOUNTS);
         return ResultUtil.success(friendInforVO);
+    }
+
+    /**
+     * 获取自己好友申请总数
+     *
+     * @param uid
+     * @return
+     */
+    @RequestMapping(value = "/getAddFriendCount", method = RequestMethod.POST)
+    public Result getAddFriendCount(Integer uid) {
+        LOGGER.info(uid + "获得获得自己好友申请总数");
+        Assert.notNull(uid, "uid不能为null");
+        Integer count = userServer.getAddFriendCount(uid);
+        return ResultUtil.success(count);
+    }
+
+    /**
+     * 获取自己好友申请总数
+     *
+     * @param uid
+     * @return
+     */
+    @RequestMapping(value = "/getAddFriendList", method = RequestMethod.POST)
+    public Result getAddFriendList(Integer uid) {
+        LOGGER.info(uid + "获得获得自己好友申请列表");
+        Assert.notNull(uid, "uid不能为null");
+        List<LoginVO> loginVOList = userServer.getAddFriendList(uid);
+        return ResultUtil.success(loginVOList);
     }
 }
