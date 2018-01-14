@@ -14,4 +14,5 @@ public class ConstantsUtil {
     public static final String ERROR_MESSAGE6 = "session数据取出为空";
     public static final String ERROR_MESSAGE7 = "查无此人";
     public static final String ERROR_MESSAGE8 = "已经是您好友";
+    public static final String ERROR_MESSAGE9 = "发送好友申请不能太频繁";
 }

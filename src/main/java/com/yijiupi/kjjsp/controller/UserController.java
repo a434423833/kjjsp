@@ -196,19 +196,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "addFriend", method = RequestMethod.POST)
-    public Result addFriend(String friendName, ModelMap map) {
-        if (null == friendName) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
-        }
-        Object object = map.get("user");
-        int index = userServer.addFriend(object, friendName);
-        if (index == 2) {
-            return ResultUtil.error(101, ConstantsUtil.ERROR_MESSAGE8, null);
+    public Result addFriend(Integer uid, Integer friendId) {
+        LOGGER.info(uid + "发送好友申请,好友id" + friendId);
+        Integer index = userServer.addFriend(uid, friendId);
+        if (index == 0) {
+            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE9, null);
         }
         if (index == 1) {
-            return ResultUtil.success();
+            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE8, null);
         }
-        return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE1, null);
+        if (index == 2) {
+            return ResultUtil.success();
+        } else {
+            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE1, null);
+        }
     }
 
     @RequestMapping(value = "showMessage", method = RequestMethod.POST)
@@ -466,6 +467,7 @@ public class UserController {
     @RequestMapping(value = "/addYiZhanShiJi", method = RequestMethod.POST)
     public Result addYiZhanShiJi(String infor, ModelMap map) {
         Object object = map.get("user");
+        Assert.notNull(object, "session为null没登陆");
         LoginVO tmp = (LoginVO) object;
         if (tmp.getUid() != 18) {
             return null;

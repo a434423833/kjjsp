@@ -10,9 +10,23 @@ public interface FriendMapper {
 
     Integer getCount(Integer uid);
 
-    Integer insertByFriendName(FriendPO friendPO);
+    /**
+     * 发送好友申请
+     *
+     * @param uid
+     * @param friendId
+     * @return
+     */
+    Integer insertFriendRequest(@Param("uid") Integer uid, @Param("fid") Integer friendId);
 
-    String getFriend(@Param("username") String username, @Param("friendName") String friendName);
+    /**
+     * 判断添加用户与自身状态1,好友，0已经发送好友申请
+     *
+     * @param uid
+     * @param friendId
+     * @return
+     */
+    String getFriend(@Param("uid") Integer uid, @Param("fid") Integer friendId);
 
     List listByFid(Integer fid);
 

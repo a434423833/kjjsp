@@ -89,22 +89,19 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public int addFriend(Object object, String friendName) {
-        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        LoginVO loginVO = (LoginVO) object;
-        String status = friendMapper.getFriend(loginVO.getUsername(), friendName);
+    public Integer addFriend(Integer uid, Integer friendId) {
+
+        String status = friendMapper.getFriend(uid, friendId);
         if ("1".equals(status)) {
-            //2 代表已经为好友
-            return 2;
+            //1 代表已经为好友
+            return 1;
         }
         if ("0".equals(status)) {
             //好友请求已经发送过
-            return 1;
+            return 0;
         }
-      /*  LoginVO loginVOfriend = userMapper.getUserByFriendName(friendName);
-        FriendPO friendPO = convertTOUserPOAndVO(loginVOfriend, loginVO);
-        return friendMapper.insertByFriendName(friendPO);*/
-        return 0;
+        friendMapper.insertFriendRequest(uid, friendId);
+        return 2;
     }
 
     @Override

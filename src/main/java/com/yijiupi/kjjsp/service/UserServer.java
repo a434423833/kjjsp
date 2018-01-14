@@ -56,11 +56,11 @@ public interface UserServer {
     /**
      * 添加好友申请
      *
-     * @param object
-     * @param friendName
+     * @param uid
+     * @param friendId
      * @return
      */
-    int addFriend(Object object, String friendName);
+    Integer addFriend(Integer uid, Integer friendId);
 
     /**
      * 显示当前好友申请信息

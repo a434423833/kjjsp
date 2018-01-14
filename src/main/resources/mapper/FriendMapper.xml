@@ -13,16 +13,16 @@
         SELECT  id, uid, qzoneUname, fid, friendUname, status FROM friend
         where uid=#{uid} and  status=1 LIMIT #{begin},#{pageSizeStr}
     </select>
-    <select id="getCount" parameterType="Integer" resultType="Integer">
+    <select id="getCount" parameterType="integer" resultType="integer">
         select count(id) from friend where  uid=#{uid} and status=1
     </select>
-    <select id="getFriend" resultType="String">
-        select status from friend where qzoneUname=#{username} and friendUname=#{friendName}
+    <select id="getFriend" resultType="string">
+        select status from friend where uid=#{uid} and fid=#{fid}
     </select>
     <select id="listByFid" resultMap="BaseResultMap">
         select uid,qzoneUname from friend where fid=#{fid} and status=0
     </select>
-    <select id="getStatusByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO" resultType="String">
+    <select id="getStatusByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO" resultType="string">
         select status from friend where uid=#{uid} and fid=#{fid}
     </select>
     <update id="updateStatus" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
@@ -31,8 +31,8 @@
     <update id="updateStatusByFidAndUid" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
         UPDATE  friend set status=1 where uid in (#{uid},#{fid}) and fid in (#{uid},#{fid})
     </update>
-    <insert id="insertByFriendName" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
-        INSERT into friend( uid, qzoneUname, fid, friendUname, status) VALUES (#{uid},#{qzoneuname},#{fid},#{frienduname},0)
+    <insert id="insertFriendRequest">
+        INSERT into friend( uid, fid, status,intimacy) VALUES (#{uid},#{fid},0,0)
     </insert>
     <insert id="insertByFriendPO" parameterType="com.yijiupi.kjjsp.pojo.FriendPO">
         INSERT into friend( uid, qzoneUname, fid, friendUname, status) VALUES (#{uid},#{qzoneuname},#{fid},#{frienduname},1)

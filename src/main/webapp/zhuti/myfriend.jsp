@@ -33,7 +33,7 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover, h4:hover {
+        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover {
             cursor: url("../img/cur/15.cur"), auto;
         }
 
@@ -52,7 +52,7 @@
                             <div id="showaddname" style="display: none">
                                 <h3>添加好友<a href="javascript:void(0);" onclick="noneaddname()">(点击隐藏)</a></h3>
                                 <li>请输入好友名称:<input type="text" id="friendname"/></li>
-                                <ul class="readers-list" id="addfriendshow">
+                                <ul class="readers-list1" id="addfriendshow">
 
                                 </ul>
                             </div>

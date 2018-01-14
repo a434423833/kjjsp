@@ -16,7 +16,7 @@ public interface UserMapper {
      */
     LoginVO getUser(LoginVO loginVO);
 
-    LoginVO getUserByFriendName(String friendName);
+    LoginVO getUserByFriendName(Integer uid, Integer friendId);
 
     /**
      * 修改用户头像
