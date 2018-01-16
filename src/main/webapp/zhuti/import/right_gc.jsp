@@ -39,7 +39,8 @@
                             <div class="form-group">
                                 <input type="text" name="code" class="form-control" id="code" value=""
                                        placeholder="验证码" style="width: 150px ; height: 43px;display: inline-block">
-                                <img alt="" src="../getCode" style="margin-top:0px" onclick="chick1(this)">
+                                <img alt="" src="../getCode" style="margin-top:0px;width: 120px;height:43px;"
+                                     onclick="chick1(this)">
                             </div>
                             <div id="login_msg" style="height: 20px;font-size: 12px;color: red"></div>
                             </br>

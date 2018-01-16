@@ -63,19 +63,10 @@ public interface UserServer {
     Integer addFriend(Integer uid, Integer friendId);
 
     /**
-     * 显示当前好友申请信息
+     * 修改头像
      *
-     * @param user
-     * @return
+     * @param tmp
      */
-    List showMessage(Object user);
-
-    void friendApply(FriendVO friendVO, LoginVO loginVO, int index);
-
-    List listByUidAndToday(String uid);
-
-    List listByUidAndYesday(String uid);
-
     void updateUser(LoginVO tmp);
 
     /**
@@ -163,5 +154,13 @@ public interface UserServer {
      * @return
      */
     List<LoginVO> getAddFriendList(Integer uid);
+
+    /**
+     * 好友选择同意或者拒绝
+     *
+     * @param uid
+     * @return
+     */
+    void friendSelect(Integer uid, Integer fid, Integer index);
 }
 

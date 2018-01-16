@@ -1,13 +1,11 @@
 package com.yijiupi.kjjsp.mapper;
 
-import com.yijiupi.kjjsp.pojo.FriendPO;
 import com.yijiupi.kjjsp.pojo.LoginVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface FriendMapper {
-    List listGetFriend(@Param("uid") Integer uid, @Param("begin") Integer begin, @Param("pageSizeStr") Integer pageSizeStr);
 
     Integer getCount(Integer uid);
 
@@ -45,16 +43,28 @@ public interface FriendMapper {
      */
     List<LoginVO> getAddFriendList(@Param("uid") Integer uid);
 
-    List listByFid(Integer fid);
+    /**
+     * 删除双方好友记录
+     *
+     * @param uid
+     * @param fid
+     * @return
+     */
+    void deleteFriendStatus(@Param("uid")Integer uid, @Param("fid")Integer fid);
 
-    void updateStatus(FriendPO friendPO);
+    /**
+     * 添加好友
+     *
+     * @param uid
+     * @param fid
+     */
+    void insertFriend(@Param("uid")Integer uid, @Param("fid")Integer fid);
 
-    void insertByFriendPO(FriendPO friendPO);
-
-    void deleteFriend(FriendPO friendPO);
-
-    String getStatusByFriendPO(FriendPO friendPO);
-
-    void updateStatusByFidAndUid(FriendPO friendPO);
-
+    /**
+     * 删除申请状态
+     *
+     * @param uid
+     * @param fid
+     */
+    void deleteAgreeAddFriend(@Param("uid")Integer uid,@Param("fid") Integer fid);
 }

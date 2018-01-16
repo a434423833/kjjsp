@@ -35,8 +35,9 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover, .zidingyi1:hover, .iconfont:hover {
+        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover, .iconfont:hover, span:hover {
             cursor: url("../img/cur/15.cur"), auto;
+            color: #b3d4fc;
         }
 
     </style>
@@ -53,36 +54,23 @@
                         <div class="row">
                             <div class="col-sm-11"></div>
                             <div>
-                                <div class="zidingyi1" onclick="xiaoxitixing()">
-                                </div>
-                                <i class="iconfont" onclick="xiaoxitixing()">&#xe62d;</i>
+                                <div class="zidingyi1"></div>
+                                <i class="iconfont" onMouseOver="xiaoxitixing()" onMouseOut="xiaoxitixing1()">
+                                    &#xe62d;
+                                </i>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-9"></div>
-                            <div class="col-sm-1">
-                                <div class="popover bottom"
-                                     style="position: absolute;width: 250px;margin-left: 35px;margin-top: -2px">
-                                    <div class="arrow"></div>
-                                    <h3 class="popover-title">好友申请通知:</h3>
-                                    <div class="popover-content">
-                                        <ul class="readers-list2">
-                                            <li style="margin-left: -20px;width: 150px"><a
-                                                    href="javascript:void(0);"><img
-                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(89).jpg"
-                                                    alt=><em>一页图案书</em></a></li>
-                                            <div style="margin-left: -20px;margin-top: 10px;height: 40px">同意||拒绝</div>
-                                            <li style="margin-left: -20px;width: 150px"><a
-                                                    href="javascript:void(0);"><img
-                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(122).jpg"
-                                                    alt=><em>I am I</em> </a></li>
-                                            <div style="margin-left: -20px;margin-top: 10px;height: 40px">同意||拒绝</div>
-                                            <li style="margin-left: -20px;width: 150px"><a
-                                                    href="javascript:void(0);"><img
-                                                    src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(122).jpg"
-                                                    alt=><em>I am I</em> </a></li>
-                                            <div style="margin-left: -20px;margin-top: 10px">同意||拒绝</div>
-                                        </ul>
+                            <div class="row">
+                                <div class="col-sm-9"></div>
+                                <div class="col-sm-1" onMouseOver="xiaoxitixing_show()" onMouseOut="xiaoxitixing1()">
+                                    <div class="popover bottom" id="xiaoxitixing"
+                                         style="position: absolute;width: 250px;margin-left: 30px;margin-top: -2px">
+                                        <div class="arrow"></div>
+                                        <h3 class="popover-title">好友申请通知:</h3>
+                                        <div class="popover-content">
+                                            <ul class="readers-list2" id="tongzhilist">
+                                                <!--好友申请通知-->
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -98,24 +86,14 @@
                             <br>
 
 
-                            <h3>本周评论排行 TOP</h3>
-                            <ul class="readers-list">
-                                <li><a target="_blank" href="" rel="nofollow"><img
-                                        src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(89).jpg"
-                                        alt=><em>一页图案书</em> <strong>+1</strong></br></a></li>
-                                <li><a target="_blank" href="https://5ime.cn" rel="nofollow"><img
-                                        src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(122).jpg"
-                                        alt=><em>I am I</em> <strong>+1</strong></br></a></li>
-                                <li><a target="_blank" href="http://www.zhisou.cc/" rel="nofollow"><img
-                                        src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(30).jpg"
-                                        alt=><em>来语直搜</em> <strong>+1</strong></br></a></li>
+                            <h3>本周亲密度排行 TOP</h3>
+                            <ul class="readers-list" id="toplist">
+
                             </ul>
                             <br>
                             <h3>ALL</h3>
-                            <ul class="readers-list">
-                                <li><a target="_blank" href="http://t.qq.com/yan838359518" rel="nofollow"><img
-                                        src="https://static.dreamwings.cn/wp-content/themes/kotha/images/avatar/(130).jpg"
-                                        alt=>><em>闫柯苹</em> <strong>+91</strong></br></a></li>
+                            <ul class="readers-list" id="alllist">
+
                             </ul>
                         </div>
                     </main>

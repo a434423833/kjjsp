@@ -6,6 +6,7 @@ import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
 import com.yijiupi.kjjsp.utile.PageResultUtil;
 import com.yijiupi.kjjsp.utile.ResultUtil;
+import com.yijiupi.kjjsp.utile.SessionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -212,38 +213,11 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "showMessage", method = RequestMethod.POST)
-    public Result showMessage(ModelMap map) {
-        List list = userServer.showMessage(map.get("user"));
-        return ResultUtil.success(list);
-    }
-
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public ModelAndView logOut(SessionStatus status) {
         ModelAndView modelAndView = new ModelAndView("redirect:login.jsp");
         status.setComplete();
         return modelAndView;
-    }
-
-    @RequestMapping(value = "friendApply", method = RequestMethod.POST)
-    public Result friendApply(FriendVO friendVO, ModelMap map, int index) {
-        if (null == friendVO.getFrienduname()) {
-            return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
-        }
-        Object object = map.get("user");
-        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        userServer.friendApply(friendVO, (LoginVO) object, index);
-        return ResultUtil.success();
-    }
-
-    @RequestMapping(value = "lookVisitor", method = RequestMethod.POST)
-    public Result lookVisitor(String uid, ModelMap map, HttpSession session) {
-        Assert.notNull(uid, ConstantsUtil.ERROR_MESSAGE5);
-        List list1 = userServer.listByUidAndYesday(uid);
-        List list2 = userServer.listByUidAndToday(uid);
-        map.put("list1", list1);
-        map.put("list2", list2);
-        return ResultUtil.success();
     }
 
     @RequestMapping(value = "getCode", method = RequestMethod.GET)
@@ -518,7 +492,11 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getAddFriendCount", method = RequestMethod.POST)
-    public Result getAddFriendCount(Integer uid) {
+    public Result getAddFriendCount(Integer uid, ModelMap modelMap) {
+        if (SessionUtil.checkSession(modelMap, uid)) {
+            LOGGER.error(uid + "非法参数");
+            return ResultUtil.error(200, "非法参数", uid);
+        }
         LOGGER.info(uid + "获得获得自己好友申请总数");
         Assert.notNull(uid, "uid不能为null");
         Integer count = userServer.getAddFriendCount(uid);
@@ -526,16 +504,47 @@ public class UserController {
     }
 
     /**
-     * 获取自己好友申请总数
+     * 获取自己好友申请列表
      *
      * @param uid
      * @return
      */
     @RequestMapping(value = "/getAddFriendList", method = RequestMethod.POST)
-    public Result getAddFriendList(Integer uid) {
+    public Result getAddFriendList(Integer uid, ModelMap modelMap) {
+        if (SessionUtil.checkSession(modelMap, uid)) {
+            LOGGER.error(uid + "非法参数");
+            return ResultUtil.error(200, "非法参数", uid);
+        }
         LOGGER.info(uid + "获得获得自己好友申请列表");
         Assert.notNull(uid, "uid不能为null");
         List<LoginVO> loginVOList = userServer.getAddFriendList(uid);
         return ResultUtil.success(loginVOList);
+    }
+
+    /**
+     * 好友选择同意或者拒绝
+     *
+     * @param uid
+     * @return
+     */
+    @RequestMapping(value = "/friendSelect", method = RequestMethod.POST)
+    public Result friendSelect(Integer uid, Integer fid, Integer index, ModelMap modelMap) {
+        if (SessionUtil.checkSession(modelMap, uid)) {
+            LOGGER.error(uid + "非法参数");
+            return ResultUtil.error(200, "非法参数", uid);
+        }
+        LOGGER.info(uid + "同意或者拒绝好友");
+        userServer.friendSelect(uid, fid, index);
+        return ResultUtil.success();
+    }
+
+    /**
+     * 获得好友列表
+     *
+     * @param uid
+     * @return
+     */
+    public Result getFriendList(Integer uid) {
+        return null;
     }
 }

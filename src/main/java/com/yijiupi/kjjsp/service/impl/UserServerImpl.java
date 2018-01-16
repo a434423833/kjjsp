@@ -61,7 +61,7 @@ public class UserServerImpl implements UserServer {
         map.put("pageIndexStr", pageIndexStr);
         map.put("pageCountStr", pageCountStr);
         Integer begin = (Integer.parseInt(pageIndexStr) - 1) * pageSizeStr;
-        List list = friendMapper.listGetFriend(loginVO.getUid(), begin, pageSizeStr);
+        List list =/* friendMapper.listGetFriend(loginVO.getUid(), begin, pageSizeStr);*/null;
         map.put("list", list);
         return map;
     }
@@ -106,39 +106,6 @@ public class UserServerImpl implements UserServer {
             Assert.notNull(null, "好友状态数据出错uid:" + uid + "fid:" + friendId);
             return 0;
         }
-    }
-
-    @Override
-    public List showMessage(Object object) {
-        Assert.notNull(object, ConstantsUtil.ERROR_MESSAGE6);
-        return friendMapper.listByFid(((LoginVO) object).getUid());
-    }
-
-    @Override
-    public void friendApply(FriendVO friendVO, LoginVO loginVO, int index) {
-
-        FriendPO friendPO = convertTOUserVO(friendVO, loginVO);
-        if (index == 0) {
-            friendMapper.deleteFriend(friendPO);
-            return;
-        }
-        String status = friendMapper.getStatusByFriendPO(friendPO);
-        if (null == status) {
-            friendMapper.updateStatus(friendPO);
-            friendMapper.insertByFriendPO(friendPO);
-            return;
-        }
-        friendMapper.updateStatusByFidAndUid(friendPO);
-    }
-
-    @Override
-    public List listByUidAndToday(String uid) {
-        return visitorMapper.listByUidAndToday(uid);
-    }
-
-    @Override
-    public List listByUidAndYesday(String uid) {
-        return visitorMapper.listByUidAndYesday(uid);
     }
 
     @Override
@@ -295,6 +262,20 @@ public class UserServerImpl implements UserServer {
         return friendMapper.getAddFriendList(uid);
     }
 
+    @Override
+    public void friendSelect(Integer uid, Integer fid, Integer index) {
+        //同意
+        if (index == 1) {
+            friendMapper.deleteFriendStatus(uid, fid);//删除双方好友状态
+            friendMapper.insertFriend(uid, fid);//添加好友
+            friendMapper.insertFriend(fid, uid);//添加好友
+        }
+        //拒绝
+        if (index == 2) {
+            friendMapper.deleteAgreeAddFriend(uid, fid);//删除好友状态
+        }
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;
@@ -315,23 +296,9 @@ public class UserServerImpl implements UserServer {
         return visitorPO;
     }
 
-    private FriendPO convertTOUserVO(FriendVO friendVO, LoginVO loginVO) {
-        FriendPO friendPO = new FriendPO();
-        friendPO.setUid(loginVO.getUid());
-        friendPO.setQzoneuname(loginVO.getUsername());
-        friendPO.setFid(friendVO.getFid());
-        friendPO.setFrienduname(friendVO.getFrienduname());
-        return friendPO;
-    }
 
-    private FriendPO convertTOUserPOAndVO(LoginVO loginVOfriend, LoginVO loginVO) {
-        FriendPO friendPO = new FriendPO();
-        friendPO.setUid(loginVO.getUid());
-        friendPO.setQzoneuname(loginVO.getUsername());
-        friendPO.setFid(loginVOfriend.getUid());
-        friendPO.setFrienduname(loginVOfriend.getUsername());
-        return friendPO;
-    }
+
+
 
     private static void converLiuyanPhoto(List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         String path = "<img id='biaoqingdaxiao' src='../css/guangchang/木东驿站_files/";
