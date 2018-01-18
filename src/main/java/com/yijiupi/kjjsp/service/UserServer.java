@@ -162,5 +162,13 @@ public interface UserServer {
      * @return
      */
     void friendSelect(Integer uid, Integer fid, Integer index);
+
+    /**
+     * 获得好友列表
+     *
+     * @param uid
+     * @return
+     */
+    List<LoginVO> getFriendList(Integer uid);
 }
 

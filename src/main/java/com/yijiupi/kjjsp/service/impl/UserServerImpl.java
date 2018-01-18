@@ -276,6 +276,11 @@ public class UserServerImpl implements UserServer {
         }
     }
 
+    @Override
+    public List<LoginVO> getFriendList(Integer uid) {
+        return friendMapper.getFriendList(uid);
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;

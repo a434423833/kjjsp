@@ -142,7 +142,7 @@ public class UserController {
         return true;
     }
 
-    @RequestMapping(value = "getFriend", method = RequestMethod.POST)
+    @RequestMapping(value = "getFriend  ", method = RequestMethod.POST)
     public Result getFriend(String pageIndexStr, ModelMap modelMap) {
         if (null == pageIndexStr) {
             return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
@@ -544,7 +544,14 @@ public class UserController {
      * @param uid
      * @return
      */
-    public Result getFriendList(Integer uid) {
-        return null;
+    @RequestMapping(value = "/getFriendList", method = RequestMethod.POST)
+    public Result getFriendList(Integer uid, ModelMap modelMap) {
+        if (SessionUtil.checkSession(modelMap, uid)) {
+            LOGGER.error(uid + "非法参数");
+            return ResultUtil.error(200, "非法参数", uid);
+        }
+        LOGGER.info(uid + "获得好友列表");
+        List<LoginVO> list = userServer.getFriendList(uid);
+        return ResultUtil.success(list);
     }
 }

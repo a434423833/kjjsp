@@ -51,28 +51,45 @@
             <div class="col-md-8">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
-                        <div class="row">
-                            <div class="col-sm-11"></div>
-                            <div>
-                                <div class="zidingyi1"></div>
-                                <i class="iconfont" onMouseOver="xiaoxitixing()" onMouseOut="xiaoxitixing1()">
-                                    &#xe62d;
-                                </i>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-9"></div>
-                                <div class="col-sm-1" onMouseOver="xiaoxitixing_show()" onMouseOut="xiaoxitixing1()">
-                                    <div class="popover bottom" id="xiaoxitixing"
-                                         style="position: absolute;width: 250px;margin-left: 30px;margin-top: -2px">
-                                        <div class="arrow"></div>
-                                        <h3 class="popover-title">好友申请通知:</h3>
-                                        <div class="popover-content">
-                                            <ul class="readers-list2" id="tongzhilist">
-                                                <!--好友申请通知-->
-                                            </ul>
-                                        </div>
+                        <div class="row" style="height: 80px">
+                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4">
+                                <div class="page-header navbar ">
+                                    <div class="top-menu">
+                                        <ul class="nav navbar-nav pull-right">
+                                            <li class="dropdown dropdown-extended dropdown-notification"
+                                                id="header_notification_bar">
+                                                <a href="javascript:" class="dropdown-toggle hover-initialized"
+                                                   onMouseOver="xiaoxitixing()" onMouseOut="xiaoxitixing1()">
+                                                    <i class="iconfont">&#xe62d;</i>
+                                                    <span class="badge badge-default " id="friendcount"></span>
+                                                </a>
+                                                <ul class="dropdown-menu ng-scope" onMouseOver="xiaoxitixing_show()"
+                                                    onMouseOut="xiaoxitixing1()" id="xiaoxitixing"
+                                                    style="margin-top: -8px">
+                                                    <li class="external">
+                                                        <h3><span class="bold ng-binding">好友申请消息</span> 通知</h3>
+                                                    </li>
+                                                    <li>
+                                                        <ul class="readers-list1" id="tongzhilist">
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                                <link href="../css/myfriend/供应链后台_files/layout.css" rel="stylesheet" type="text/css">
+                                <link href="../css/myfriend/供应链后台_files/darkblue.css" rel="stylesheet" type="text/css"
+                                      id="style_color">
+                                <link href="../css/myfriend/供应链后台_files/bootstrap.min.css" rel="stylesheet"
+                                      type="text/css">
+                                <link href="../css/myfriend/供应链后台_files/custom(1).css" rel="stylesheet" type="text/css">
+                                <link href="../css/myfriend/供应链后台_files/font-awesome.min.css" rel="stylesheet"
+                                      type="text/css">
+                                <link href="../css/myfriend/供应链后台_files/components-rounded.css" id="style_components"
+                                      rel="stylesheet"
+                                      type="text/css">
                             </div>
                         </div>
                         <div class="padding-content white-color">

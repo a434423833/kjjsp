@@ -18,6 +18,15 @@ public class LoginVO {
     private String file;
     private String qianming;
     private Integer admin;
+    private Integer intimacy;
+
+    public Integer getIntimacy() {
+        return intimacy;
+    }
+
+    public void setIntimacy(Integer intimacy) {
+        this.intimacy = intimacy;
+    }
 
     public Integer getAdmin() {
         return admin;

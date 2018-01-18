@@ -51,9 +51,9 @@ function yizhanload() {
                 obj = obj.data;
                 $("#gyhead").attr('src', "../imgPathActionDownLoad?url=" + obj.file);
                 if (obj.sex == 1) {
-                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nan.png'>");
+                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nan.png' style='width: 19px;height: 21px'>");
                 } else {
-                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nv.png'>");
+                    $("#gyname").html(obj.username + "&nbsp;&nbsp;<img src='../img/nv.png' style='width: 19px;height: 21px'>");
                 }
                 $("#gyage").html(obj.age + "&nbsp;&nbsp;");
             }

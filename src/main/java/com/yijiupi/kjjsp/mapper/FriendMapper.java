@@ -36,7 +36,7 @@ public interface FriendMapper {
     Integer getAddFriendCount(@Param("uid") Integer uid);
 
     /**
-     * 获取自己好友申请列表
+     * 获取自己好友申请列表,别人向你添加好友自己处于fid位置
      *
      * @param uid
      * @return
@@ -50,7 +50,7 @@ public interface FriendMapper {
      * @param fid
      * @return
      */
-    void deleteFriendStatus(@Param("uid")Integer uid, @Param("fid")Integer fid);
+    void deleteFriendStatus(@Param("uid") Integer uid, @Param("fid") Integer fid);
 
     /**
      * 添加好友
@@ -58,7 +58,7 @@ public interface FriendMapper {
      * @param uid
      * @param fid
      */
-    void insertFriend(@Param("uid")Integer uid, @Param("fid")Integer fid);
+    void insertFriend(@Param("uid") Integer uid, @Param("fid") Integer fid);
 
     /**
      * 删除申请状态
@@ -66,5 +66,13 @@ public interface FriendMapper {
      * @param uid
      * @param fid
      */
-    void deleteAgreeAddFriend(@Param("uid")Integer uid,@Param("fid") Integer fid);
+    void deleteAgreeAddFriend(@Param("uid") Integer uid, @Param("fid") Integer fid);
+
+    /**
+     * 获得好友列表
+     *
+     * @param uid
+     * @return
+     */
+    List<LoginVO> getFriendList(@Param("uid") Integer uid);
 }

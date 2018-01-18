@@ -18,6 +18,7 @@
         <result column="file" property="file" jdbcType="VARCHAR"/>
         <result column="qianming" property="qianming" jdbcType="VARCHAR"/>
         <result column="admin" property="admin" jdbcType="INTEGER"/>
+        <result column="intimacy" property="intimacy" jdbcType="INTEGER"/>
     </resultMap>
     <select id="getCount" parameterType="integer" resultType="integer">
         select count(id) from friend where  uid=#{uid} and status=1
@@ -43,6 +44,10 @@
     <select id="getAddFriendList" resultMap="BaseResultMap1">
         select u.uid,u.username,u.sex,u.file  FROM friend as f LEFT JOIN user as u ON f.uid=u.uid
         where f.fid=#{uid} and f.status=0 ORDER BY id desc
+    </select>
+    <select id="getFriendList" resultMap="BaseResultMap1">
+        select u.uid,u.username,u.sex,u.file,intimacy  FROM friend as f LEFT JOIN user as u ON f.fid=u.uid
+        where f.uid=#{uid} and f.status=1 ORDER BY intimacy desc
     </select>
 
 </mapper>

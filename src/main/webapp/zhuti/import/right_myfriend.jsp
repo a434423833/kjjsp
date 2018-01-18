@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="about-me-content" align="center">${user.username}&nbsp;&nbsp;${user.age}&nbsp;&nbsp;
-                    <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}">
+                    <img src="${user.sex==1?'../img/nan.png':'../img/nv.png'}" style=" width: 19px;height: 21px;"/>
                 </div>
                 <h1 class="widget-title"
                     style="font-size: 12px;margin-top: 10px">

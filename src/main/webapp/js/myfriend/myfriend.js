@@ -7,6 +7,7 @@ function noneaddname() {
 
 function bodyload() {
     getCount();//获取好友申请数量
+    getAddFriendList();
     getFriendList();
 
 }
@@ -19,7 +20,7 @@ function getCount() {
             },
             success: function (obj) {
                 if (obj.code == '0') {
-                    $(".zidingyi1").html(obj.data);
+                    $("#friendcount").html(obj.data);
                 }
             }
         }
@@ -34,13 +35,52 @@ function getFriendList() {
             },
             success: function (obj) {
                 if (obj.code == '0') {
-                    $(".zidingyi1").html(obj.data);
+                    var str = "";
+                    var length = obj.data.length;
+                    if (obj.data.length > 3) {
+                        length = 3
+                    }
+                    for (var i = 0; i < length; i++) {
+                        var data = obj.data[i];
+                        str += "<li><a target='_blank' href='javascript:void(0);' rel='nofollow'>" +
+                            "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt=><em>" + data.username + "</em>" +
+                            "<strong>" + data.intimacy + "</strong></br></a></li><li>";
+                    }
+                    $("#toplist").html(str);
+                    str = "";
+                    length = obj.data.length;
+                    if (obj.data.length < 3) {
+                        length = 3
+                    }
+                    for (var i = 3; i < length; i++) {
+                        var data = obj.data[i];
+                        str += "<li><a target='_blank' href='javascript:void(0);' rel='nofollow'>" +
+                            "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt='无头像'><em>" + data.username + "</em>" +
+                            "<strong>" + data.intimacy + "</strong></br></a></li><li>";
+                    }
+                    $("#alllist").html(str);
                 }
             }
         }
     );
 }
+var time = 0;
 function xiaoxitixing() {
+    $("#xiaoxitixing").css("display", "block");
+    if (time == 0) {
+        time = 1; //设定间隔时间（秒）
+        //设置1秒内只执行一次
+        var index = setInterval(function () {
+            time--;
+            if (time == 0) {
+                clearInterval(index);
+            }
+        }, 800);
+        getAddFriendList();
+    }
+}
+//获得好友申请数量
+function getAddFriendList() {
     $.ajax({
         type: "POST",      //传输方式
         url: "../getAddFriendList",           //地址
@@ -52,20 +92,19 @@ function xiaoxitixing() {
                 var str = "";
                 for (var i = 0; i < obj.data.length; i++) {
                     var data = obj.data[i];
-                    var sex1 = "<span class='ua' ><span class='os_8_1' >♂</span></span>";
+                    var sex1 = "<div class='ua' style='margin-top: 5px;'><span class='os_8_1' >♂</span></div>";
                     if (data.sex == '2') {
-                        sex1 = "<span class='ua'><span class='ua_chrome'>♀</span></span>";
+                        sex1 = "<div class='ua' style='margin-top: 5px;'><span class='ua_chrome'>♀</span></div>";
                     }
-                    str += " <li style='margin-left: -20px;width: 150px'><a" +
+                    str += " <li style='margin-left: -20px;width: 190px'><a" +
                         " href='javascript:void(0);'><img " +
-                        " src='../imgPathActionDownLoad?url=" + data.file + "'" +
-                        " alt='无头像'><em>" + data.username + "</em> <strong>" + sex1 + "</strong></a></li>" +
-                        " <div style='margin-left: -20px;margin-top: 10px;height: 40px' id='caozuoquyu" + data.uid + "'>" +
+                        "  src='../imgPathActionDownLoad?url=" + data.file + "'" +
+                        " alt='无头像'/><em>" + data.username + "</em> <strong>" + sex1 + "</strong></a></li>" +
+                        " <div style='margin-top: 10px;height: 40px' id='caozuoquyu" + data.uid + "'>" +
                         "   <span style='color: purple' href='javascript:void(0);' onclick='haoyouxuanze(" + 1 + "," + data.uid + ")'>同意</span>||<span" +
                         " style='color: rebeccapurple' href='javascript:void(0);' onclick='haoyouxuanze(" + 2 + "," + data.uid + ")'>拒绝</span>" +
                         " </div>";
                 }
-                $("#xiaoxitixing").css("display", "block");
                 if (str == "") {
                     str = "暂时没有好友申请";
                 }
@@ -74,7 +113,6 @@ function xiaoxitixing() {
             }
         }
     });
-
 }
 function haoyouxuanze(index, fid) {
     $.ajax({
@@ -88,19 +126,22 @@ function haoyouxuanze(index, fid) {
         success: function (obj) {
             if (obj.code == '0') {
                 if (index == 1) {
-                    $("#caozuoquyu" + fid).html("<span style='color: deepskyblue'>聊天去！</span>")
+                    $("#caozuoquyu" + fid).html("<span style='color: deepskyblue'>聊天去！</span>");
                 }
                 if (index == 2) {
                     $("#caozuoquyu" + fid).html("<span style='color: red'>已拒绝</span>")
                 }
                 getCount();
+                getFriendList();
             }
         }
     });
 }
+
 function xiaoxitixing_show() { /* 此时鼠标进入div ，不用再进入ajax*/
     $("#xiaoxitixing").css("display", "block");
 }
+
 function xiaoxitixing1() {
     $("#xiaoxitixing").css("display", "none");
 }
