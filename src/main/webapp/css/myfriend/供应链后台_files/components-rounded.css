@@ -264,7 +264,6 @@ body {
 }
 .form-group.form-md-line-input .form-control[readonly], .form-group.form-md-line-input .form-control[disabled], fieldset[disabled] .form-group.form-md-line-input .form-control {
   background: none;
-  cursor: not-allowed;
   border-bottom: 1px dashed #e5e5e5;
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control ~ label {
@@ -516,7 +515,6 @@ body {
   position: absolute;
 }
 .md-checkbox label {
-  cursor: pointer;
   padding-left: 30px;
 }
 .md-checkbox label > span {
@@ -584,19 +582,16 @@ body {
 }
 .md-checkbox input[type=checkbox]:disabled ~ label,
 .md-checkbox input[type=checkbox][disabled] ~ label {
-  cursor: not-allowed;
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
 .md-checkbox input[type=checkbox]:disabled ~ label > .box,
 .md-checkbox input[type=checkbox][disabled] ~ label > .box {
-  cursor: not-allowed;
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
 .md-checkbox input[type=checkbox]:disabled:checked ~ label > .check,
 .md-checkbox input[type=checkbox][disabled]:checked ~ label > .check {
-  cursor: not-allowed;
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
@@ -722,7 +717,6 @@ body {
   position: absolute;
 }
 .md-radio label {
-  cursor: pointer;
   padding-left: 30px;
 }
 .md-radio label > span {
@@ -782,19 +776,18 @@ body {
 }
 .md-radio input[type=radio]:disabled ~ label,
 .md-radio input[type=radio][disabled] ~ label {
-  cursor: not-allowed;
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
 .md-radio input[type=radio]:disabled ~ label > .box,
 .md-radio input[type=radio][disabled] ~ label > .box {
-  cursor: not-allowed;
+
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
 .md-radio input[type=radio]:disabled:checked ~ label > .check,
 .md-radio input[type=radio][disabled]:checked ~ label > .check {
-  cursor: not-allowed;
+
   opacity: 0.7 ;
   filter: alpha(opacity=70) ;
 }
@@ -1008,10 +1001,10 @@ code {
   filter: alpha(opacity=50) !important;
 }
 .disabled-link .disable-target:hover {
-  cursor: not-allowed !important;
+
 }
 .disabled-link:hover {
-  cursor: not-allowed !important;
+
 }
 
 /***
@@ -1019,7 +1012,7 @@ Utilities
 ***/
 /* Links */
 a:hover {
-  cursor: pointer;
+
 }
 
 /* Primary Link */

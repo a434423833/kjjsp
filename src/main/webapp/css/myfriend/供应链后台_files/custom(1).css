@@ -365,7 +365,6 @@ textarea.form-control {
     height: 50px;
     line-height: 30px;
     position: relative;
-    cursor: default;
     overflow: hidden;
     display: inline-block;
 }
@@ -410,7 +409,6 @@ textarea.form-control {
 
 .form-control[readonly], .datetime_input {
     background-color: white;
-    cursor: auto;
 }
 
 .form-control-addon {

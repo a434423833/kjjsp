@@ -42,9 +42,11 @@ function getFriendList() {
                     }
                     for (var i = 0; i < length; i++) {
                         var data = obj.data[i];
-                        str += "<li><a target='_blank' href='javascript:void(0);' rel='nofollow'>" +
-                            "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt=><em>" + data.username + "</em>" +
-                            "<strong>" + data.intimacy + "</strong></br></a></li><li>";
+                        str += "<li><a href='zhuye.jsp?fw_Id=" + data.uid + "'>" +
+                            "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt='无头像'><em>" + data.username + "</em>" +
+                            "<strong>" + data.intimacy + "</strong></a></li>" +
+                            "<div style='padding-top: 10px'><i class='iconfont'>&#xe630;</i></div>" +
+                            "</br>";
                     }
                     $("#toplist").html(str);
                     str = "";
@@ -54,9 +56,11 @@ function getFriendList() {
                     }
                     for (var i = 3; i < length; i++) {
                         var data = obj.data[i];
-                        str += "<li><a target='_blank' href='javascript:void(0);' rel='nofollow'>" +
+                        str += "<li><a href='zhuye.jsp?fw_Id=" + data.uid + "' rel='nofollow'>" +
                             "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt='无头像'><em>" + data.username + "</em>" +
-                            "<strong>" + data.intimacy + "</strong></br></a></li><li>";
+                            "<strong>" + data.intimacy + "</strong></a></li>" +
+                            "<div style='padding-top: 10px'>123</div>" +
+                            "</br>";
                     }
                     $("#alllist").html(str);
                 }

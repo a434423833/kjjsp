@@ -31,7 +31,7 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover {
+        a:hover, font:hover, p:hover, li:hover, img:hover, span:hover {
             cursor: url("../img/cur/15.cur"), auto;
         }
 

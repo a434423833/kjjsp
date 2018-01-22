@@ -35,9 +35,8 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover, h4:hover, #strong1:hover, .iconfont:hover, span:hover {
+         a:hover, font:hover, p:hover, li:hover, h4:hover, .iconfont:hover, span:hover, strong:hover, em:hover {
             cursor: url("../img/cur/15.cur"), auto;
-            color: #b3d4fc;
         }
 
     </style>

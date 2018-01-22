@@ -21,7 +21,8 @@
                 </div>
                 <h1 class="widget-title"
                     style="font-size: 12px;margin-top: 10px">
-                    <a href="javascript:void(0);" onclick="showaddname()">点击添加好友</a>
+                    <a href="javascript:void(0);" onclick="showaddname()"
+                       style="cursor: url('../img/cur/15.cur'), auto;">点击添加好友</a>
                 </h1>
             </div>
         </aside>

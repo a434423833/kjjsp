@@ -356,7 +356,7 @@
     }
 
     .page-header.navbar .search-form.search-form-expanded .input-group .form-control:hover {
-        cursor: text;
+
     }
 
     .page-header.navbar .search-form.search-form-expanded .input-group .input-group-btn .btn.submit {
@@ -1123,7 +1123,6 @@ Horizontal Menu
 
     .page-sidebar .sidebar-toggler, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler {
         display: block;
-        cursor: pointer;
         opacity: 0.7;
         filter: alpha(opacity=70);
         width: 30px;
@@ -2042,7 +2041,7 @@ Horizontal Menu
     }
 
     .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-chat .page-quick-sidebar-chat-users .media-list .media:hover {
-        cursor: pointer;
+
     }
 
     .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-chat .page-quick-sidebar-chat-users .media-list .media:hover .media-object {
@@ -2613,7 +2612,7 @@ Horizontal Menu
     }
 
     .scroll-to-top:hover {
-        cursor: pointer;
+
     }
 
     .scroll-to-top:hover > i {
@@ -2657,7 +2656,7 @@ Horizontal Menu
         top: 4px;
         right: 0;
         padding: 20px;
-        cursor: pointer;
+
         position: absolute;
 
         -webkit-border-radius: 4px;
@@ -2677,7 +2676,6 @@ Horizontal Menu
         right: 0;
         padding: 20px;
         z-index: 101;
-        cursor: pointer;
         position: absolute;
 
         -webkit-border-radius: 4px;
@@ -2750,7 +2748,6 @@ Horizontal Menu
         width: 40px;
         height: 40px;
         margin: 0 4px;
-        cursor: pointer;
         list-style: none;
         float: left;
         border: solid 1px #707070;
