@@ -35,7 +35,7 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-         a:hover, font:hover, p:hover, li:hover, h4:hover, .iconfont:hover, span:hover, strong:hover, em:hover {
+        a:hover, font:hover, p:hover, li:hover, h4:hover, .iconfont:hover, span:hover, strong:hover, em:hover {
             cursor: url("../img/cur/15.cur"), auto;
         }
 
@@ -91,7 +91,12 @@
                                       type="text/css">
                             </div>
                         </div>
-                        <div class="padding-content white-color">
+                        <link rel="stylesheet"
+                              href="../css/bootstrap.min.css">
+                        <script src="../js/jquery.min.js"></script>
+                        <script src="../js/bootstrap.min.js"></script>
+
+                        <div class="padding-content white-color" id="zhutikuang">
                             <div id="showaddname" style="display: none">
                                 <h3>添加好友<a href="javascript:void(0);" onclick="noneaddname()">(点击隐藏)</a></h3>
                                 <li>请输入好友名称:<input type="text" id="friendname"/></li>
@@ -121,9 +126,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
 <script type="text/javascript" src="../js/myfriend/myfriend.js"></script>
-
 <%--
 <div class="copy-right-text text-center">
     <p><span id="span_dt_dt" style="display: none"></span>　</p>

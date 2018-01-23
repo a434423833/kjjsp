@@ -44,8 +44,12 @@ function getFriendList() {
                         var data = obj.data[i];
                         str += "<li><a href='zhuye.jsp?fw_Id=" + data.uid + "'>" +
                             "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt='无头像'><em>" + data.username + "</em>" +
-                            "<strong>" + data.intimacy + "</strong></a></li>" +
-                            "<div style='padding-top: 10px'><i class='iconfont'>&#xe630;</i></div>" +
+                            "<strong >" + data.intimacy + "</strong></a></li>" +
+                            "<div style='padding-top: 10px'>" +
+                            "<i class='iconfont' title='与<a>" + data.username + "</a>聊天中' data-html='true'" +
+                            "  data-container='body' data-toggle='popover' data-placement='right'" +
+                            "data-content='<textarea  style=\"position:absolute;top:86%;height:40px;width:200px\" autofocus></textarea>" +
+                            "<div id=\"liaotian" + data.uid + "\" style=\"height: 300px; overflow:scroll;overflow-x: hidden\"></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
                             "</br>";
                     }
                     $("#toplist").html(str);
@@ -59,14 +63,28 @@ function getFriendList() {
                         str += "<li><a href='zhuye.jsp?fw_Id=" + data.uid + "' rel='nofollow'>" +
                             "<img src='../imgPathActionDownLoad?url=" + data.file + "' alt='无头像'><em>" + data.username + "</em>" +
                             "<strong>" + data.intimacy + "</strong></a></li>" +
-                            "<div style='padding-top: 10px'>123</div>" +
+                            "<div style='padding-top: 10px'>" +
+                            "<i class='iconfont' title='与<a>" + data.username + "</a>聊天中' data-html='true'" +
+                            "  data-container='body' data-toggle='popover' data-placement='right'" +
+                            "data-content='<textarea  style=\"position:absolute;top:86%;height:40px;width:200px\" autofocus></textarea>" +
+                            "<div id=\"liaotian" + data.uid + "\" style=\"height: 350px; overflow:scroll;\"></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
                             "</br>";
                     }
                     $("#alllist").html(str);
+                    $("[data-toggle='popover']").popover();
                 }
             }
         }
     );
+}
+function liaotianload(fid) {
+    var friend = "<div style='float: left;margin-top: 10px'><img style='width: 30px;height:30px;' src='../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png' alt='一页天书'/> :" +
+        "<div style='margin-left: 40px;margin-top: -25px;font-size: 12px' >假如把犯得起的错能错的都错过应该还来得及去悔过</div></div>";
+    var my = "<div style='float: right;'><div style='display: inline-block;width:190px;margin-top: 15px;font-size: 12px;text-align: right'>假如没把一切说破那一场小风波将一笑带过:</div>" +
+        "<div style='display: inline-block;width:30px;margin-top: 10px;float: right'><img style='width: 30px;height:30px;position: relative;top:0;'  src='../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png ' alt='一页天书'/></div></div></br>";
+    setTimeout(function () {
+        $("#liaotian" + fid).html(friend + friend + friend + friend + my + friend + friend + my + my + my + my);
+    }, 100);
 }
 var time = 0;
 function xiaoxitixing() {
@@ -170,17 +188,15 @@ function addfriend(friendid) {
 
 }
 
-
 $(document).ready(function () {
     var lastname = "";
-
     $('#friendname').bind('input propertychange blur', function () {
         var name = $("#friendname").val();
         setTimeout(function () {
             addfriend(name);//带参数
         }, 200)
 
-    })
+    });
 
     function addfriend(name) {
         var name1 = $("#friendname").val();
