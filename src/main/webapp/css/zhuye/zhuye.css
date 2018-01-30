@@ -26,3 +26,28 @@
     min-height: 100%;
     text-align: center;
 }
+
+/*圆头像显示设置*/
+.imgtest1 {
+    margin: -5px 5px;
+    overflow: hidden;
+}
+
+.imgtest1 figure div {
+    display: inline-block;
+    margin: 5px auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
+}
+
+.imgtest1 img {
+    width: 30px;
+    height: 30px;
+    min-height: 100%;
+    text-align: center;
+}

@@ -77,4 +77,12 @@ public interface UserMapper {
      * @return
      */
     List<LoginVO> listUserByName(@Param("friendName") String friendName, @Param("uid") String uid);
+
+    /**
+     * 查找头像路径
+     *
+     * @param fid
+     * @return
+     */
+    LoginVO getFriendFile(@Param("fid") String fid);
 }

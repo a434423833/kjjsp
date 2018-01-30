@@ -281,6 +281,11 @@ public class UserServerImpl implements UserServer {
         return friendMapper.getFriendList(uid);
     }
 
+    @Override
+    public LoginVO getFriendFile(String fid) {
+        return userMapper.getFriendFile( fid);
+    }
+
     private TalkPO getTalkPO(String infor, LoginVO object) {
         TalkPO talkPO = new TalkPO();
         LoginVO loginVO = object;
@@ -300,10 +305,6 @@ public class UserServerImpl implements UserServer {
         visitorPO.setFwTime(time);
         return visitorPO;
     }
-
-
-
-
 
     private static void converLiuyanPhoto(List<GcliuyanDTO> gcliuyanDTOList, List<GcliuyanDTO1> gcliuyanDTO1List1, List<GcliuyanDTO2> gcliuyanDTO1List2) {
         String path = "<img id='biaoqingdaxiao' src='../css/guangchang/木东驿站_files/";

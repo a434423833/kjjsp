@@ -170,5 +170,13 @@ public interface UserServer {
      * @return
      */
     List<LoginVO> getFriendList(Integer uid);
+
+    /**
+     * 查找头像路径
+     *
+     * @param fid
+     * @return
+     */
+    LoginVO getFriendFile(String fid);
 }
 

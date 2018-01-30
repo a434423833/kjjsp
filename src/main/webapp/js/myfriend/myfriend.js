@@ -47,9 +47,10 @@ function getFriendList() {
                             "<strong >" + data.intimacy + "</strong></a></li>" +
                             "<div style='padding-top: 10px'>" +
                             "<i class='iconfont' title='与<a>" + data.username + "</a>聊天中' data-html='true'" +
-                            "  data-container='body' data-toggle='popover' data-placement='right'" +
-                            "data-content='<textarea  style=\"position:absolute;top:86%;height:40px;width:200px\" autofocus></textarea>" +
-                            "<div id=\"liaotian" + data.uid + "\" style=\"height: 300px; overflow:scroll;overflow-x: hidden\"></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
+                            " data-container='body' data-toggle='popover' data-placement='right'" +
+                            "data-content='<div style=\"position:absolute;top:88%;\"><textarea id=\"liaotianneirong" + data.uid + "\" class=\"textarea\" autofocus></textarea>" +
+                            "<button class=\"btn btn-default btn-xs \" id=\"button1\" onclick=\"button1(" + data.uid + ")\">发送</button></div>" +
+                            "<div id=\"liaotian" + data.uid + "\" class=\"liaotian\"></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
                             "</br>";
                     }
                     $("#toplist").html(str);
@@ -65,9 +66,10 @@ function getFriendList() {
                             "<strong>" + data.intimacy + "</strong></a></li>" +
                             "<div style='padding-top: 10px'>" +
                             "<i class='iconfont' title='与<a>" + data.username + "</a>聊天中' data-html='true'" +
-                            "  data-container='body' data-toggle='popover' data-placement='right'" +
-                            "data-content='<textarea  style=\"position:absolute;top:86%;height:40px;width:200px\" autofocus></textarea>" +
-                            "<div id=\"liaotian" + data.uid + "\" style=\"height: 350px; overflow:scroll;\"></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
+                            " data-container='body' data-toggle='popover' data-placement='right'" +
+                            "data-content='<div style=\"position:absolute;top:88%;\"><textarea  style=\"height:30px;width:180px;font-size\" autofocus></textarea>" +
+                            "<button class=\"btn btn-default btn-xs \" id=\"button1\" onclick=\"button1(" + data.uid + ")\">发送</button></div>" +
+                            "<div id=\"liaotian" + data.uid + "\" class=\"liaotian\" ></div>' onclick='liaotianload(" + data.uid + ")'>&#xe630;</i></div>" +
                             "</br>";
                     }
                     $("#alllist").html(str);
@@ -77,16 +79,125 @@ function getFriendList() {
         }
     );
 }
-function liaotianload(fid) {
-    var friend = "<div style='float: left;margin-top: 10px'><img style='width: 30px;height:30px;' src='../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png' alt='一页天书'/> :" +
-        "<div style='margin-left: 40px;margin-top: -25px;font-size: 12px' >假如把犯得起的错能错的都错过应该还来得及去悔过</div></div>";
-    var my = "<div style='float: right;'><div style='display: inline-block;width:190px;margin-top: 15px;font-size: 12px;text-align: right'>假如没把一切说破那一场小风波将一笑带过:</div>" +
-        "<div style='display: inline-block;width:30px;margin-top: 10px;float: right'><img style='width: 30px;height:30px;position: relative;top:0;'  src='../imgPathActionDownLoad?url=/img/head/bf6f156659574120aa2e4159f81ad4ab.png ' alt='一页天书'/></div></div></br>";
-    setTimeout(function () {
-        $("#liaotian" + fid).html(friend + friend + friend + friend + my + friend + friend + my + my + my + my);
-    }, 100);
+function button1(fid) {
+    var infor = $("#liaotianneirong" + fid).val();
+    if (infor == null || infor == "" || infor.length == 0) {
+        return;
+    }
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../setInfor",           //地址
+        data: {
+            uid: uid,
+            fid: fid,
+            infor: infor
+        },
+        success: function (obj) {
+            if (obj.code == 0) {
+                $("#liaotianneirong" + fid).val("");
+                digui(fid, 2);
+            }
+        }
+    });
 }
+String.prototype.format = function () {
+    if (arguments.length == 0) return this;
+    var param = arguments[0];
+    var s = this;
+    if (typeof(param) == 'object') {
+        for (var key in param)
+            s = s.replace(new RegExp("\\{{" + key + "\\}}", "g"), param[key]);
+        return s;
+    } else {
+        for (var i = 0; i < arguments.length; i++)
+            s = s.replace(new RegExp("\\{{" + i + "\\}}", "g"), arguments[i]);
+        return s;
+    }
+}
+
+function liaotianload(fid) {
+    setTimeout(function () {
+        digui(fid, 1);//带参数
+    }, 500)
+}
+function digui(fid, status) {
+    if (status == 1) {
+        var display = $("#liaotian" + fid).css('display');
+        if (display == "none") {
+            $("#liaotian" + fid).css('display', 'block');
+        } else {
+            $("#liaotian" + fid).css('display', 'none');
+        }
+    }
+    var display1 = $("#liaotian" + fid).css('display');
+    console.log("处于递归中");
+    if (display1 == "none" || display1 == undefined) {
+        console.log("退出递归中");
+        return;
+    }
+    var friendfile = "";
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../getFriendFile",           //地址
+        data: {
+            fid: fid
+        },
+        success: function (obj) {
+            if (obj.code == 0) {
+                friendfile = obj.data;
+            }
+            $.ajax({
+                type: "POST",      //传输方式
+                url: "../getInfor",           //地址
+                data: {
+                    uid: uid,
+                    fid: fid
+                },
+                success: function (obj) {
+                    var friend = "<div style='float: left;'>" +
+                        "<div style='display: inline-block;width:38px;margin-top: 10px;margin-right:10px;float: left;'>" +
+                        "<div class='imgtest1'><figure><div><img style=''  src='../imgPathActionDownLoad?url=" + friendfile + "' alt='无'/></div></figure></div></div>" +
+                        "<div style='display: inline-block;width:180px;margin-top: 15px;font-size: 12px;text-align: left;word-wrap: break-word'>{{0}}</div></div></br>";
+
+                    var my = "<div style='float: right;'>" +
+                        "<div class='myinfor' style='display: inline-block;width:180px;margin-top: 15px;font-size: 12px;text-align: right;word-wrap: break-word'>{{0}}</div>" +
+                        "<div style='display: inline-block;width:38px;margin-top: 10px;margin-right:10px;float: right'>" +
+                        "<div class='imgtest1'><figure><div><img style=''  src='../imgPathActionDownLoad?url=" + myfile + "' alt='无'/></div></figure></div></div></div></br>";
+                    if (obj.code == 0) {
+                        var str = "";
+                        for (var i = 0; i < obj.data.list.length; i++) {
+                            var data = obj.data.list[i];
+                            if (data.uid == uid) {
+                                str += my.format(data.infor);
+                            } else {
+                                str += friend.format(data.infor);
+                            }
+                        }
+                        $("#liaotian" + fid).html(str);
+                        /*根据高度判断文字是否超过1行了*/
+                        $(".myinfor").each(function () {
+                            if ($(this).height() != 17) {
+                                $(this).css("text-align", "left");
+                            }
+                        });
+
+                    }
+                }
+            });
+        }
+    });
+    if (status == 1) {
+        // TODO:滚动条
+
+    }
+    setTimeout(function () {
+        status++;
+        digui(fid, status);//带参数
+    }, 500)
+}
+
 var time = 0;
+
 function xiaoxitixing() {
     $("#xiaoxitixing").css("display", "block");
     if (time == 0) {
@@ -101,6 +212,7 @@ function xiaoxitixing() {
         getAddFriendList();
     }
 }
+
 //获得好友申请数量
 function getAddFriendList() {
     $.ajax({
@@ -121,7 +233,7 @@ function getAddFriendList() {
                     str += " <li style='margin-left: -20px;width: 190px'><a" +
                         " href='javascript:void(0);'><img " +
                         "  src='../imgPathActionDownLoad?url=" + data.file + "'" +
-                        " alt='无头像'/><em>" + data.username + "</em> <strong>" + sex1 + "</strong></a></li>" +
+                        " alt='无'/><em>" + data.username + "</em> <strong>" + sex1 + "</strong></a></li>" +
                         " <div style='margin-top: 10px;height: 40px' id='caozuoquyu" + data.uid + "'>" +
                         "   <span style='color: purple' href='javascript:void(0);' onclick='haoyouxuanze(" + 1 + "," + data.uid + ")'>同意</span>||<span" +
                         " style='color: rebeccapurple' href='javascript:void(0);' onclick='haoyouxuanze(" + 2 + "," + data.uid + ")'>拒绝</span>" +
@@ -136,6 +248,7 @@ function getAddFriendList() {
         }
     });
 }
+
 function haoyouxuanze(index, fid) {
     $.ajax({
         type: "POST",      //传输方式

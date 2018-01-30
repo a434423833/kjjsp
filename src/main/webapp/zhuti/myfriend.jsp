@@ -28,6 +28,7 @@
           media="all">
     <script type="text/javascript">
         var uid = "${sessionScope.user.uid}";
+        var myfile = "${sessionScope.user.file}"
     </script>
     <link rel="stylesheet" href="../css/myfriend/myfriend.css">
     <style type="text/css">

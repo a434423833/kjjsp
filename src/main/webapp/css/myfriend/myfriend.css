@@ -20,3 +20,25 @@
     left: 15px;
     top: -10px;
 }
+
+#button1 {
+    position: absolute;
+    width: 45px;
+    top: 0px;
+    height: 30px;
+    background: #3ac19f;
+    color: white;
+}
+
+.liaotian {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+
+.textarea {
+    overflow: hidden;
+    height: 30px;
+    width: 180px;
+}

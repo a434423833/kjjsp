@@ -196,6 +196,17 @@ public class UserController {
         return ResultUtil.success(loginVOList);
     }
 
+    /**
+     * 根据id模糊查找用户头像
+     *
+     * @return
+     */
+    @RequestMapping(value = "getFriendFile", method = RequestMethod.POST)
+    public Result findFriend(String fid) {
+        LoginVO loginVO = userServer.getFriendFile(fid);
+        return ResultUtil.success(loginVO.getFile());
+    }
+
     @RequestMapping(value = "addFriend", method = RequestMethod.POST)
     public Result addFriend(Integer uid, Integer friendId) {
         LOGGER.info(uid + "发送好友申请,好友id" + friendId);

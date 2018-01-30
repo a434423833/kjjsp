@@ -43,4 +43,7 @@
     <insert id="inserUser" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
         INSERT INTO user(account,password,username)  VALUES (#{account},#{password},#{account})
     </insert>
+    <select id="getFriendFile" parameterType="string" resultMap="BaseResultMap">
+         SELECT file FROM user where uid =#{fid}
+    </select>
 </mapper>
