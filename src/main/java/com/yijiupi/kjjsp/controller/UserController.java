@@ -295,7 +295,7 @@ public class UserController {
     @RequestMapping(value = "/imgPathActionDownLoad", method = RequestMethod.GET)
     public void show(String url, HttpServletRequest request, HttpServletResponse response) {
         try {
-            FileInputStream inputStream = new FileInputStream("/usr" + url);
+            FileInputStream inputStream = new FileInputStream("C:" + url);
             int i = inputStream.available();
             //byte数组用于存放图片字节数据
             byte[] buff = new byte[i];
