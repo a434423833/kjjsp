@@ -275,7 +275,7 @@ public class UserController {
             //获得文件后缀名称
             String imageName = contentType.substring(contentType.indexOf("/") + 1);
             path = "/img/head/" + uuid + "." + imageName;
-            file.transferTo(new File("c:" + path));
+            file.transferTo(new File("/usr" + path));
             LOGGER.info("图片上传成功");
         }
         System.out.println(path);
@@ -295,7 +295,7 @@ public class UserController {
     @RequestMapping(value = "/imgPathActionDownLoad", method = RequestMethod.GET)
     public void show(String url, HttpServletRequest request, HttpServletResponse response) {
         try {
-            FileInputStream inputStream = new FileInputStream("c:" + url);
+            FileInputStream inputStream = new FileInputStream("/usr" + url);
             int i = inputStream.available();
             //byte数组用于存放图片字节数据
             byte[] buff = new byte[i];
