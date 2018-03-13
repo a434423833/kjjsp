@@ -47,7 +47,7 @@
     </select>
     <select id="getFriendList" resultMap="BaseResultMap1">
         select u.uid,u.username,u.sex,u.file,intimacy  FROM friend as f LEFT JOIN user as u ON f.fid=u.uid
-        where f.uid=#{uid} and f.status=1 ORDER BY intimacy desc
+        where f.uid=#{uid} and f.status=1 ORDER BY intimacy,id desc
     </select>
 
 </mapper>

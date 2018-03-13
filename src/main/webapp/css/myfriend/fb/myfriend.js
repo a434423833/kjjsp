@@ -25,24 +25,6 @@ function createSession(nickname, username, avatar) {
     };
 }
 
-// stomp 客户端
-var stompClient = null;
-
-/**
- * 建立 WebSocket 连接
- */
-function connect() {
-    var socket = new SockJS('/any-socket');
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
-        stompClient.subscribe('/topic/notice', function (message) {
-            saveMessageToLocal(message, true);
-        });
-        stompClient.subscribe('/user/topic/chat', function (message) {
-            saveMessageToLocal(message, false);
-        });
-    });
-}
 
 /**
  * 将收到的消息存储在本地
@@ -115,22 +97,7 @@ function getFriendList() {
     })
 }
 
-/**
- * 添加好友
- */
-function addFriend(friend) {
-    $.post("/api/friend",
-        {
-            friendUsername: friend.username
-        },
-        function (response) {
-            if (response.code === 0) {
-                var session = createSession(friend.nickname, friend.username, friend.avatar);
-                app.sessions.push(session);
-            }
-        }
-    )
-}
+
 
 /**
  * 初始化信息

@@ -275,7 +275,7 @@ public class UserController {
             //获得文件后缀名称
             String imageName = contentType.substring(contentType.indexOf("/") + 1);
             path = "/img/head/" + uuid + "." + imageName;
-            file.transferTo(new File("/usr" + path));
+            file.transferTo(new File("C:" + path));
             LOGGER.info("图片上传成功");
         }
         System.out.println(path);

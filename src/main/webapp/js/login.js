@@ -56,8 +56,8 @@ function click2_reg() {
         $("#reg_msg").html("两次密码不一致");
         return;
     }
-    if (username.length < 6 || username.length > 10) {
-        $("#reg_msg").html("请输入6-10位用户名");
+    if (username.length < 6 || username.length > 12) {
+        $("#reg_msg").html("请输入6-12位用户名");
         return;
     }
     if (password.length < 6 || password.length > 12) {

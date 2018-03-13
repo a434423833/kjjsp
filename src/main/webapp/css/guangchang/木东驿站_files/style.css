@@ -2894,6 +2894,7 @@ embed, iframe, object {
 }
 
 .readers-list1 li {
+    height: 50px;
     width: 200px;
     float: left;
     margin-right: -1px;
@@ -2909,13 +2910,21 @@ embed, iframe, object {
 
 .readers-list1 a {
     position: relative;
-    display: block;
+    display: inline-block;
     height: 36px;
     margin: 4px;
     padding: 4px 4px 4px 44px;
     color: #999;
     overflow: hidden;
     border: 1px dashed #e2e2e2;
+    border-radius: 10px
+}
+
+.readers-list1 div {
+    position: relative;
+    display: inline-block;
+    height: 36px;
+    overflow: hidden;
     border-radius: 10px
 }
 

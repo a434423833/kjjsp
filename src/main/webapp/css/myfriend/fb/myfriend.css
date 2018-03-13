@@ -61,7 +61,16 @@
 
 .friend-add {
     background-color: rgba(0, 0, 0, 0);
-    color: #33FF99;
+    color: #1abc9c;
+    border: 1px solid #33FF99;
+    float: right;
+    height: 30px;
+    outline: none;
+}
+
+.friend-delete {
+    background-color: rgba(0, 0, 0, 0);
+    color: red;
     border: 1px solid #33FF99;
     float: right;
     height: 30px;

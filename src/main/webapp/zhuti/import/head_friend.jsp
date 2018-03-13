@@ -21,7 +21,7 @@
                 </li>
                 <li id="menu-item-3906"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855">
-                    <a href="myfriend.jsp"><i class="iconfont">&#xe865;</i>好友</a>
+                    <a href="myfriend_fb.jsp"><i class="iconfont">&#xe865;</i>好友</a>
                 </li>
                 <li id="menu-item-2356"
                     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1857">

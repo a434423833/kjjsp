@@ -127,20 +127,40 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../js/myfriend/myfriend.js"></script>
-<%--
-<div class="copy-right-text text-center">
-    <p><span id="span_dt_dt" style="display: none"></span>　</p>
-</div>
-<script src="../css/zhuye/zhuye_files/hm.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js"></script>
-<script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js"></script>
---%>
+//错误提示模态框
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">提示!</h4>
+            </div>
+            <div class="modal-body" id="modelMsg" style="color: red">
+                该聊天主题已废弃，很多功能不完善！
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/myfriend/myfriend.js"></script>
+    <%--
+    <div class="copy-right-text text-center">
+        <p><span id="span_dt_dt" style="display: none"></span>　</p>
+    </div>
+    <script src="../css/zhuye/zhuye_files/hm.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.slicknav.min.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/jquery.fitvids.min.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/MathJax.js"></script>
+    <script type="text/javascript" src="../css/zhuye/zhuye_files/scripts.js"></script>
+    --%>
 
 </body>
 

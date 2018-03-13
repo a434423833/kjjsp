@@ -27,8 +27,12 @@
           media="all">
     <script type="text/javascript">
         var uid = "${sessionScope.user.uid}";
-        var fid;
-        var myfile = "${sessionScope.user.file}"
+        var _fid = 0;
+        var applyFriendList;
+        var myfile = "${sessionScope.user.file}";
+        var tuLingChatJson = [
+            {'index': '0', 'value': 'Hello，我是小沫！你可以随意调侃我哦！ o(&gt;﹏&lt;)o'}
+        ];
     </script>
 
     <link rel="stylesheet" href="../css/myfriend/fb/style.css">
@@ -36,6 +40,7 @@
     <script src="../css/myfriend/fb/sockjs.min.js"></script>
     <script src="../css/myfriend/fb/stomp.min.js"></script>
     <script src="../css/myfriend/fb/vue.min.js"></script>
+    <script src="../css/myfriend/fb/tuling.js"></script>
     <link rel="stylesheet" href="../css/myfriend/fb/myfriend.css">
     <script src="../css/myfriend/fb/myfriend.js"></script>
     <script src="../css/myfriend/fb/myfriend_this.js"></script>
@@ -44,7 +49,7 @@
             cursor: url("../img/cur/1.cur"), auto;
         }
 
-        a:hover, font:hover, p:hover, li:hover, h4:hover, .iconfont:hover, span:hover, strong:hover, em:hover {
+        a:hover, font:hover, p:hover, li:hover, h4:hover, .iconfont:hover, span:hover, strong:hover, em:hover, button:hover {
             cursor: url("../img/cur/15.cur"), auto;
         }
 
@@ -64,6 +69,9 @@
                         <img src="../imgPathActionDownLoad?url=${user.file}" alt="无头像"
                              width="40" height="40" alt="Coffce" v-bind:src="user.avatar">
                         <p class="name">${user.username}</p>
+                        <button class="btn btn-success btn-xs" style="float: right"
+                                onclick="javascrtpt:window.location.href='myfriend.jsp'">切换
+                        </button>
                     </header>
                     <footer>
                         <input class="search" placeholder="search user..." v-model="searchInput">
@@ -80,30 +88,22 @@
                     </ul>
                 </div>
                 <button class="m-button" onclick="onModalShow()">
-                    添加好友&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:" class="dropdown-toggle hover-initialized">
+                    添加好友&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:"
+                                                                class="dropdown-toggle hover-initialized">
                     <i class="iconfont">&#xe62d;</i>
                     <span class="badge badge-default " id="friendcount">5</span>
                 </a>
                 </button>
             </div>
             <div class="main">
-                <div class="m-message">
+                <div class="m-message" id="chatDiv">
                     <!-- 聊天记录 -->
-                    <ul>
-                        <li v-for="message in currentMessages">
-                            <p class="time"><span class="messageTime">{{ message.time }}</span></p>
-                            <div v-bind:class="message.me ? 'messageContent self' : 'messageContent'">
-                                <img class="avatar" width="30" height="30" v-bind:src="message.avatar">
-                                <div class="text">
-                                    {{ message.content }}
-                                </div>
-                            </div>
-                        </li>
+                    <ul id="chatRecord" class="chatRecord">
                     </ul>
                 </div>
                 <!-- 输入框 -->
                 <div class="m-text">
-                    <textarea placeholder="按 Ctrl + Enter 发送" v-model="messageInput"> </textarea>
+                    <textarea placeholder="按 Ctrl + Enter 发送" id="inputChat"> </textarea>
                 </div>
             </div>
 
@@ -112,17 +112,11 @@
                     <div class="modal-container">
                         <div class="m-card">
                             <footer>
-                                <input class="search" placeholder="查找用户" v-model="keyword" @keyUp="searchUser">
+                                <input class="search" placeholder="查找用户" id="friendname">
                             </footer>
                         </div>
                         <div class="m-list" style="overflow-y: scroll; height: 370px;">
-                            <!-- 在线列表 -->
-                            <ul style="color: #fff">
-                                <li v-for="onlineUser in onlineUsers">
-                                    <img class="avatar" width="30" height="30" v-bind:src="onlineUser.avatar"/>
-                                    <p class="name">{{ onlineUser.nickname }}</p>
-                                    <button class="friend-add" @click="addFriend(onlineUser)"> 添加</button>
-                                </li>
+                            <ul style="color: #fff" class="readers-list1" id="addFriendList">
                             </ul>
                         </div>
                         <button class="m-button" onclick="onModalClose()">

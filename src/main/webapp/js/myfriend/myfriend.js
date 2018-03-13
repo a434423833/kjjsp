@@ -9,6 +9,7 @@ function bodyload() {
     getCount();//获取好友申请数量
     getAddFriendList();
     getFriendList();
+    $('#myModal').modal();
 
 }
 function getCount() {
