@@ -32,9 +32,9 @@ public class SessionUtil {
      * @param checkId
      * @return
      */
-    public static boolean checkSession(ModelMap modelMap, Integer checkId) {
+    public static boolean checkSession(ModelMap modelMap, int checkId) {
         LoginVO tmp = SessionUtil.getSession(modelMap);
         Assert.notNull(tmp, "session为null");
-        return tmp.getUid() == checkId ? false : true;
+        return tmp.getUid() != checkId;
     }
 }

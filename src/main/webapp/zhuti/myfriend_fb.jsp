@@ -27,12 +27,12 @@
           media="all">
     <script type="text/javascript">
         var uid = "${sessionScope.user.uid}";
+        var diguiStatu = 0;
         var _fid = 0;
         var applyFriendList;
         var myfile = "${sessionScope.user.file}";
-        var tuLingChatJson = [
-            {'index': '0', 'value': 'Hello，我是小沫！你可以随意调侃我哦！ o(&gt;﹏&lt;)o'}
-        ];
+        var tuLingChatJson = [];
+        var friendList;
     </script>
 
     <link rel="stylesheet" href="../css/myfriend/fb/style.css">
@@ -74,17 +74,13 @@
                         </button>
                     </header>
                     <footer>
-                        <input class="search" placeholder="search user..." v-model="searchInput">
+                        <input class="search" placeholder="search user..." id="searchInput">
                     </footer>
                 </div>
                 <div class="m-list" style="overflow-y: scroll; height: 455px;">
                     <!-- 好友列表 -->
                     <ul id="user-list">
-                        <li>
-                            <img class="avatar" width="30" height="30" v-bind:src="session.user.avatar"/>
-                            <p class="name">{{ session.user.nickname }}</p>
-                            <p class="username" hidden>{{ session.user.username }}</p>
-                        </li>
+
                     </ul>
                 </div>
                 <button class="m-button" onclick="onModalShow()">
@@ -135,7 +131,18 @@
      */
     function getNowDate() {
         var date = new Date();
-        return (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+        var month = checkTime(date.getMonth() + 1);
+        var day = checkTime(date.getDate());
+        var hour = checkTime(date.getHours());
+        var minutes = checkTime(date.getMinutes());
+        var secend = checkTime(date.getSeconds());
+        return (month + '-' + day + ' ' + hour + ':' + minutes + ':' + secend);
+    }
+    function checkTime(obj) {
+        if (obj < 10) {
+            return '0' + obj;
+        }
+        return obj;
     }
 
 </script>

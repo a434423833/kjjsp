@@ -8,6 +8,7 @@ function onModalClose() {
 function bodyload() {
     getFriendList();
     getCount();
+    tuLingChatJson.push({'index': '0', 'value': 'Hello，我是小沫！你可以随意调侃我哦！ o(&gt;﹏&lt;)o', "time": getNowDate()});
     var obj = sessionStorage.getItem("tuling");
     if (obj != null) {
         tuLingChatJson = JSON.parse(obj);
@@ -128,6 +129,7 @@ function getFriendList() {
                             "<p class='name'>" + data.username + "</p></li>";
                     }
                     $("#user-list").html(str);
+                    friendList = obj.data;
                 }
             }
         }
@@ -139,25 +141,40 @@ function getFriendList() {
  * @param thisobj
  */
 function getUid(fid, thisobj) {
+    _fid = fid;
     $("li").each(function () {
         $(this).removeClass("active");
     });
     $(thisobj).addClass("active");
     if (fid == 0) {
+        //停止递归刷新1
+        diguiStatu = 1;
         tuLingShow();
-    } else {
-        chatShow(fid);
+    } else {//与好友交流时
+        diguiStatu = 0;
+        liaotianload();
     }
 }
 
-/**
- * 与好友的聊天
- */
-function chatShow(fid) {
-    $("#chatRecord").html("");
+function toAddFriendChat(content) {
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../setInfor",           //地址
+        data: {
+            uid: uid,
+            fid: _fid,
+            infor: content
+        },
+        success: function (obj) {
+            if (obj.code == 0) {
+
+            }
+        }
+    });
 }
 
 var lastname = "";
+var lastfriend = -1;
 $(document).ready(function () {
         /**
          * 查找好友改变事件
@@ -168,6 +185,23 @@ $(document).ready(function () {
             setTimeout(function () {
                 findUserByName(name);//带参数
             }, 200)//0.2S判断一次
+        });
+        /**
+         * 好友选择改变事件
+         */
+        $('#searchInput').bind('input propertychange blur', function () {
+            var name = $("#searchInput").val();
+            setTimeout(function () {
+                findUserAsFriend(name);//带参数
+            }, 200)//0.2S判断一次
+        });
+        $('#searchInput').bind('keyup', function () {
+            if (event.keyCode == "8") {
+                var name = $("#searchInput").val();
+                setTimeout(function () {
+                    findUserAsFriend(name);//带参数
+                }, 200)//0.2S判断一次
+            }
         });
         /**
          * ctrl+enter回车输入
@@ -182,9 +216,9 @@ $(document).ready(function () {
                 var content = $(this).val();
                 //和小沫聊天时
                 if (_fid == 0 && content != "" && content.length > 0) {
-                    toTuLingChat(content);
+                    toAddTuLingChat(content);
                 } else {
-
+                    toAddFriendChat(content);
                 }
                 $(this).val("");
                 gundongdiv();
@@ -204,91 +238,82 @@ function gundongdiv(size) {
 }
 
 /**
- * 聊天
+ * 聊天刷新
  * @param fid
  */
-function liaotianload(fid) {
+function liaotianload() {
+    getFriendFile();
     setTimeout(function () {
-        digui(fid, 1);//带参数
-    }, 500)
+        digui();//带参数
+    }, 100)
 }
-
-function digui(fid, status) {
-    if (status == 1) {
-        var display = $("#liaotian" + fid).css('display');
-        if (display == "none") {
-            $("#liaotian" + fid).css('display', 'block');
-        } else {
-            $("#liaotian" + fid).css('display', 'none');
-        }
-    }
-    var display1 = $("#liaotian" + fid).css('display');
-    console.log("处于递归中");
-    if (display1 == "none" || display1 == undefined) {
-        console.log("退出递归中");
-        return;
-    }
-    var friendfile = "";
+var friendfile = "";
+function getFriendFile() {
     $.ajax({
         type: "POST",      //传输方式
         url: "../getFriendFile",           //地址
         data: {
-            fid: fid
+            fid: _fid
         },
         success: function (obj) {
             if (obj.code == 0) {
                 friendfile = obj.data;
             }
-            $.ajax({
-                type: "POST",      //传输方式
-                url: "../getInfor",           //地址
-                data: {
-                    uid: uid,
-                    fid: fid
-                },
-                success: function (obj) {
-                    var friend = "<div style='float: left;'>" +
-                        "<div style='display: inline-block;width:38px;margin-top: 10px;margin-right:10px;float: left;'>" +
-                        "<div class='imgtest1'><figure><div><img style=''  src='../imgPathActionDownLoad?url=" + friendfile + "' alt='无'/></div></figure></div></div>" +
-                        "<div style='display: inline-block;width:180px;margin-top: 15px;font-size: 12px;text-align: left;word-wrap: break-word'>{{0}}</div></div></br>";
-
-                    var my = "<div style='float: right;'>" +
-                        "<div class='myinfor' style='display: inline-block;width:180px;margin-top: 15px;font-size: 12px;text-align: right;word-wrap: break-word'>{{0}}</div>" +
-                        "<div style='display: inline-block;width:38px;margin-top: 10px;margin-right:10px;float: right'>" +
-                        "<div class='imgtest1'><figure><div><img style=''  src='../imgPathActionDownLoad?url=" + myfile + "' alt='无'/></div></figure></div></div></div></br>";
-                    if (obj.code == 0) {
-                        var str = "";
-                        for (var i = 0; i < obj.data.list.length; i++) {
-                            var data = obj.data.list[i];
-                            if (data.uid == uid) {
-                                str += my.format(data.infor);
-                            } else {
-                                str += friend.format(data.infor);
-                            }
+        }
+    })
+}
+function digui() {
+    var fid = _fid;
+    console.log("刷新中- -");
+    if (diguiStatu == 1) {
+        console.log("停止刷新--");
+        return;
+    }
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../getInfor",           //地址
+        data: {
+            uid: uid,
+            fid: fid
+        },
+        success: function (obj) {
+            var friend = "<li><p class='time'><span class='messageTime'>{{time}}</span></p>" +
+                " <div class='messageContent'><img width='30' height='30' src='../imgPathActionDownLoad?url=" + friendfile + "' class='avatar'>" +
+                " <div class='text'>{{infor}}" +
+                "</div></div>" +
+                "</li>";
+            var my = "<li><p class='time'><span class='messageTime'>{{time}}</span></p> " +
+                "<div class='messageContent self'><img width='30' height='30' src='../imgPathActionDownLoad?url=" + myfile + "' class='avatar'>" +
+                " <div class='text'>{{infor}}</div> " +
+                "</div></li>";
+            if (obj.code == 0) {
+                var str = "";
+                if (obj.data != null) {
+                    for (var i = 0; i < obj.data.list.length; i++) {
+                        var data = obj.data.list[i];
+                        if (data.uid == uid) {
+                            str += my.format(data);
+                        } else {
+                            str += friend.format(data);
                         }
-                        $("#liaotian" + fid).html(str);
-                        /*根据高度判断文字是否超过1行了*/
-                        $(".myinfor").each(function () {
-                            if ($(this).height() != 17) {
-                                $(this).css("text-align", "left");
-                            }
-                        });
-
+                    }
+                    if (diguiStatu == 0) {//当此时state不等于0，说明用户已经切换，停止显示
+                        $("#chatRecord").html(str);
+                        gundongdiv(500 * obj.data.list.length);
+                    }
+                } else {
+                    if (diguiStatu == 0) {
+                        $("#chatRecord").html(str);
                     }
                 }
-            });
+
+            }
         }
     });
-    if (status == 1) {
-        // TODO:滚动条
-
-    }
     setTimeout(function () {
-        status++;
-        digui(fid, status);//带参数
-    }, 500)
+        digui(fid);//带参数
+    }, 200)
 }
-
 function findUserByName(name) {
     var name1 = $("#friendname").val();
     //如果当前查询值与搜索框输入值不相同，说明用户已经有新的查询name，本次不执行
@@ -330,4 +355,48 @@ function findUserByName(name) {
             }
         }
     });
+}
+
+function findUserAsFriend(name) {
+    var name1 = $("#searchInput").val();
+    //如果当前查询值与搜索框输入值不相同，说明用户已经有新的查询name，本次不执行
+    if (name != name1) {
+        return;
+    }
+    //判断上次查找值是否跟这次相同，是的不查询
+    if (lastfriend == name1) {
+        return;
+    }
+    lastname = name1;
+    if (friendList == null || friendList.length == 0) {
+        return;
+    }
+    var str = "<li  onclick='getUid(0,this)' class='active'> <img class='avatar' width='30' height='30' " +
+        "src='../img/xiaomo.png' alt='无'/>  " +
+        "<p class='name'>小沫 </p></li>";
+    for (var i = 0; i < friendList.length; i++) {
+        var data = friendList[i];
+        if (data.username.search(name1) == -1 && name1.length != 0) {
+            //没有找到子串
+            continue;
+        }
+        str += " <li onclick='getUid(" + data.uid + ",this)'> <img class='avatar' width='30' height='30' " +
+            "src='../imgPathActionDownLoad?url=" + data.file + "' alt='无'/>  " +
+            "<p class='name'>" + data.username + "</p></li>";
+    }
+    $("#user-list").html(str);
+}
+String.prototype.format = function () {
+    if (arguments.length == 0) return this;
+    var param = arguments[0];
+    var s = this;
+    if (typeof(param) == 'object') {
+        for (var key in param)
+            s = s.replace(new RegExp("\\{{" + key + "\\}}", "g"), param[key]);
+        return s;
+    } else {
+        for (var i = 0; i < arguments.length; i++)
+            s = s.replace(new RegExp("\\{{" + i + "\\}}", "g"), arguments[i]);
+        return s;
+    }
 }

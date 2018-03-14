@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by caohao on 2018/1/18.
+ * redis controller
+ *
+ * @author caohao 2018/3/14
  */
 @RestController
 @RequestMapping("/")
