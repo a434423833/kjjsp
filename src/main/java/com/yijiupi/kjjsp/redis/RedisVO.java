@@ -2,40 +2,38 @@ package com.yijiupi.kjjsp.redis;
 
 import java.io.Serializable;
 
-/**
- * Created by caohao on 2018/1/18.
- */
 public class RedisVO implements Serializable {
     private Integer uid;
-    private Integer fid;
+    private String userFile;
     private String infor;
     private String time;
 
-    public RedisVO(String infor, String time, Integer uid, Integer fid) {
+    public RedisVO(String infor, String time, Integer uid, String userFile) {
         this.infor = infor;
         this.time = time;
         this.uid = uid;
-        this.fid = fid;
+        this.userFile = userFile;
+        this.infor = infor;
     }
 
     public Integer getUid() {
-        return uid;
+        return this.uid;
     }
 
     public void setUid(Integer uid) {
         this.uid = uid;
     }
 
-    public Integer getFid() {
-        return fid;
+    public String getUserFile() {
+        return this.userFile;
     }
 
-    public void setFid(Integer fid) {
-        this.fid = fid;
+    public void setUserFile(String userFile) {
+        this.userFile = userFile;
     }
 
     public String getInfor() {
-        return infor;
+        return this.infor;
     }
 
     public void setInfor(String infor) {
@@ -43,7 +41,7 @@ public class RedisVO implements Serializable {
     }
 
     public String getTime() {
-        return time;
+        return this.time;
     }
 
     public void setTime(String time) {

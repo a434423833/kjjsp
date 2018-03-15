@@ -38,7 +38,10 @@
         SELECT count(uid) from user where account=#{account}
     </select>
     <select id="listUserByName" resultType="com.yijiupi.kjjsp.pojo.LoginVO">
-        SELECT uid,username,file,admin FROM user where uid not in(#{uid}) and username like CONCAT('%',#{friendName},'%')
+        SELECT uid,username,file,admin
+        FROM user
+        where uid not in(#{uid})
+        and username like CONCAT('%',#{friendName},'%')
     </select>
     <insert id="inserUser" parameterType="com.yijiupi.kjjsp.pojo.LoginVO">
         INSERT INTO user(account,password,username)  VALUES (#{account},#{password},#{account})

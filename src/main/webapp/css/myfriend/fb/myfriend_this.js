@@ -120,7 +120,10 @@ function getFriendList() {
                 if (obj.code == '0') {
                     var str = "<li  onclick='getUid(0,this)' class='active'> <img class='avatar' width='30' height='30' " +
                         "src='../img/xiaomo.png' alt='无'/>  " +
-                        "<p class='name'>小沫 </p></li>";
+                        "<p class='name'>小沫 </p></li>" +
+                        "<li  onclick='getUid(-1,this)' > <img class='avatar' width='30' height='30' " +
+                        "src='../img/quanfudating.png' alt='无'/>  " +
+                        "<p class='name'>全服大厅</p></li>";
                     var length = obj.data.length;
                     for (var i = 0; i < length; i++) {
                         var data = obj.data[i];
@@ -146,6 +149,7 @@ function getUid(fid, thisobj) {
         $(this).removeClass("active");
     });
     $(thisobj).addClass("active");
+    $("#chatRecord").html("");
     if (fid == 0) {
         //停止递归刷新1
         diguiStatu = 1;
@@ -195,14 +199,6 @@ $(document).ready(function () {
                 findUserAsFriend(name);//带参数
             }, 200)//0.2S判断一次
         });
-        $('#searchInput').bind('keyup', function () {
-            if (event.keyCode == "8") {
-                var name = $("#searchInput").val();
-                setTimeout(function () {
-                    findUserAsFriend(name);//带参数
-                }, 200)//0.2S判断一次
-            }
-        });
         /**
          * ctrl+enter回车输入
          * (e.metaKey || e.ctrlKey) 是CMD命令键和Ctrl键。
@@ -242,25 +238,9 @@ function gundongdiv(size) {
  * @param fid
  */
 function liaotianload() {
-    getFriendFile();
     setTimeout(function () {
         digui();//带参数
     }, 100)
-}
-var friendfile = "";
-function getFriendFile() {
-    $.ajax({
-        type: "POST",      //传输方式
-        url: "../getFriendFile",           //地址
-        data: {
-            fid: _fid
-        },
-        success: function (obj) {
-            if (obj.code == 0) {
-                friendfile = obj.data;
-            }
-        }
-    })
 }
 function digui() {
     var fid = _fid;
@@ -278,12 +258,12 @@ function digui() {
         },
         success: function (obj) {
             var friend = "<li><p class='time'><span class='messageTime'>{{time}}</span></p>" +
-                " <div class='messageContent'><img width='30' height='30' src='../imgPathActionDownLoad?url=" + friendfile + "' class='avatar'>" +
+                " <div class='messageContent'><img width='30' height='30' src='../imgPathActionDownLoad?url={{userFile}}' class='avatar'>" +
                 " <div class='text'>{{infor}}" +
                 "</div></div>" +
                 "</li>";
             var my = "<li><p class='time'><span class='messageTime'>{{time}}</span></p> " +
-                "<div class='messageContent self'><img width='30' height='30' src='../imgPathActionDownLoad?url=" + myfile + "' class='avatar'>" +
+                "<div class='messageContent self'><img width='30' height='30' src='../imgPathActionDownLoad?url={{userFile}}' class='avatar'>" +
                 " <div class='text'>{{infor}}</div> " +
                 "</div></li>";
             if (obj.code == 0) {
@@ -348,13 +328,33 @@ function findUserByName(name) {
                     str += "<li style='width: 300px;'><a href='zhuye.jsp?fw_id=" + data.uid + "' style='width: 180px'>" +
                         "<img src='../imgPathActionDownLoad?url=" + data.file + "'alt='无'/>" +
                         "<em>" + data.username + " </em> <strong>" + sex1 + "</strong></a>" +
-                        "<div ><button class='btn btn-info btn-xs' onclick='haoyouxuanze(" + 1 + "," + data.uid + ")'>添加</button>" +
+                        "<div  id='caozuoquyu" + data.uid + "'><button class='btn btn-info btn-xs' onclick='addfriend(" + data.uid + ")'>添加</button>" +
                         "</div></li>";
                 }
                 showAddFrined(applyFriendList, str);
             }
         }
     });
+}
+
+function addfriend(friendid) {
+    $.ajax({
+        type: "POST",      //传输方式
+        url: "../addFriend",           //地址
+        data: {
+            uid: uid,
+            friendId: friendid
+        },
+        success: function (obj) {
+            if (obj.code == '0') {
+                $("#caozuoquyu" + friendid).html("<span style='color: deepskyblue'>已发送</span>")
+            }
+            else {
+                $("#caozuoquyu" + friendid).html("<span style='color: red;'>" + obj.msg + "</span>");
+            }
+        }
+    });
+
 }
 
 function findUserAsFriend(name) {
@@ -373,7 +373,10 @@ function findUserAsFriend(name) {
     }
     var str = "<li  onclick='getUid(0,this)' class='active'> <img class='avatar' width='30' height='30' " +
         "src='../img/xiaomo.png' alt='无'/>  " +
-        "<p class='name'>小沫 </p></li>";
+        "<p class='name'>小沫 </p></li>" +
+        "<li  onclick='getUid(-1,this)' > <img class='avatar' width='30' height='30' " +
+        "src='../img/quanfudating.png' alt='无'/>  " +
+        "<p class='name'>全服大厅</p></li>";
     for (var i = 0; i < friendList.length; i++) {
         var data = friendList[i];
         if (data.username.search(name1) == -1 && name1.length != 0) {

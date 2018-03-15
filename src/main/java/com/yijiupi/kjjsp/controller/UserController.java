@@ -207,6 +207,13 @@ public class UserController {
         return ResultUtil.success(loginVO.getFile());
     }
 
+    /**
+     * 发送好友申请
+     *
+     * @param uid
+     * @param friendId
+     * @return
+     */
     @RequestMapping(value = "addFriend", method = RequestMethod.POST)
     public Result addFriend(Integer uid, Integer friendId) {
         LOGGER.info(uid + "发送好友申请,好友id" + friendId);
