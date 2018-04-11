@@ -1,8 +1,11 @@
 package com.yijiupi.kjjsp.utile;
 
 import com.yijiupi.kjjsp.pojo.LoginVO;
+import org.apache.http.protocol.HTTP;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 有关session的各种工具类
@@ -13,6 +16,10 @@ public class SessionUtil {
      */
     public static boolean getSessionExist(ModelMap modelMap) {
         return modelMap.get("user") == null ? false : true;
+    }
+
+    public static String getUid(HttpSession session) {
+        return session.getAttribute("user") == null ? null : ((LoginVO) session.getAttribute("user")).getUid().toString();
     }
 
     /**

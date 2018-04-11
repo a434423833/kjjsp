@@ -13,6 +13,12 @@
     </appender>
     <appender name="loginfo"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 过滤器，只记录INFO级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <!-- rollingPolicy:当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名。 -->
         <!-- TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -36,6 +42,12 @@
     <!--             2.如果日期没有发生变化，但是当前日志的文件大小超过1KB时，对当前日志进行分割 重命名-->
     <appender name="logerror"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 过滤器，只记录ERROR级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <!--  <File>c:/log/error/kjjsp.log</File>-->
         <!-- rollingPolicy:当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名。 -->
         <!-- TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动 -->
@@ -59,25 +71,37 @@
     <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
     <!-- com.appley为根包，也就是只要是发生在这个根包下面的所有日志操作行为的权限都是DEBUG -->
     <!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
-    <logger name="com.yijiupi.kjjsp.filter" level="ERROR">
+
+    <!-- 日志记录级别 -->
+    <Logger name="com.yijiupi.kjjsp" level="error">
         <appender-ref ref="logerror"/>
-    </logger>
-    <logger name="com.yijiupi.kjjsp.filter" level="INFO">
+    </Logger>
+    <Logger name="com.yijiupi.kjjsp" level="info">
         <appender-ref ref="loginfo"/>
-    </logger>
-    <logger name="com.yijiupi.kjjsp.mapper" level="ERROR">
-        <appender-ref ref="logerror"/>
-    </logger>
-    <logger name="com.yijiupi.kjjsp.exception" level="ERROR">
-        <appender-ref ref="logerror"/>
-    </logger>
-    <logger name="com.yijiupi.kjjsp.controller.UserController" level="INFO">
-        <appender-ref ref="loginfo"/>
-    </logger>
-    <logger name="com.yijiupi.kjjsp.service" level="INFO">
-        <appender-ref ref="loginfo"/>
-    </logger>
+    </Logger>
+
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
+    <!-- <logger name="com.yijiupi.kjjsp.filter" level="ERROR">
+         <appender-ref ref="logerror"/>
+     </logger>
+     <logger name="com.yijiupi.kjjsp.filter" level="INFO">
+         <appender-ref ref="loginfo"/>
+     </logger>
+     <logger name="com.yijiupi.kjjsp.mapper" level="ERROR">
+         <appender-ref ref="logerror"/>
+     </logger>
+     <logger name="com.yijiupi.kjjsp.exception" level="ERROR">
+         <appender-ref ref="logerror"/>
+     </logger>
+     <logger name="com.yijiupi.kjjsp.controller.UserController" level="INFO">
+         <appender-ref ref="loginfo"/>
+     </logger>
+     <logger name="com.yijiupi.kjjsp.service" level="INFO">
+         <appender-ref ref="loginfo"/>
+     </logger>
+     <root level="info">
+         <appender-ref ref="STDOUT"/>
+     </root>-->
 </configuration>

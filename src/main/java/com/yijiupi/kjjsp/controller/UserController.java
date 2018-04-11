@@ -1,6 +1,7 @@
 package com.yijiupi.kjjsp.controller;
 
 import cn.dsna.util.images.ValidateCode;
+import com.yijiupi.kjjsp.aop.Log;
 import com.yijiupi.kjjsp.pojo.*;
 import com.yijiupi.kjjsp.service.UserServer;
 import com.yijiupi.kjjsp.utile.ConstantsUtil;
@@ -42,12 +43,13 @@ import java.util.UUID;
 @SessionAttributes(value = {"v_code", "user", "list1", "list2"})
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    public static List<LoginVO> LOGINACCOUNTS = new ArrayList<>();
+    public static List<LoginVO> LOGIN_ACCOUNTS = new ArrayList<>();
 
     @Autowired
     private UserServer userServer;
 
     @RequestMapping(value = "/")
+    @Log()
     public ModelAndView index() {
         return new ModelAndView("forward:zhuti/index.jsp");
     }
@@ -62,6 +64,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+    @Log()
     public Result userLogin(String code, @Valid LoginVO loginVO, BindingResult result, ModelMap map) {
         if (result.hasErrors()) {
             LOGGER.info(ConstantsUtil.ERROR_MESSAGE1);
@@ -73,12 +76,12 @@ public class UserController {
         LoginVO tmp = userServer.userLogin(loginVO);
         if (tmp != null) {
             int status = 0;
-            for (LoginVO loginStatus : LOGINACCOUNTS) {
+            for (LoginVO loginStatus : LOGIN_ACCOUNTS) {
                 if (loginStatus.getUid() == tmp.getUid())
                     status = 1;         //已经登录
             }
             if (status == 0) {
-                LOGINACCOUNTS.add(tmp);
+                LOGIN_ACCOUNTS.add(tmp);
             } else {
                 return ResultUtil.error(100, "账号已经被登录", null);
             }
@@ -99,6 +102,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/userReg", method = RequestMethod.POST)
+    @Log()
     public Result userReg(String code, @Valid LoginVO loginVO, BindingResult result, ModelMap map) {
         if (result.hasErrors()) {
             LOGGER.info(ConstantsUtil.ERROR_MESSAGE1);
@@ -110,12 +114,12 @@ public class UserController {
         LoginVO tmp = userServer.userReg(loginVO);
         if (tmp != null) {
             int status = 0;
-            for (LoginVO loginStatus : LOGINACCOUNTS) {
+            for (LoginVO loginStatus : LOGIN_ACCOUNTS) {
                 if (loginStatus.getUid() == tmp.getUid())
                     status = 1;         //已经登录
             }
             if (status == 0) {
-                LOGINACCOUNTS.add(tmp);
+                LOGIN_ACCOUNTS.add(tmp);
             }
             map.put("user", tmp);
             LOGGER.info("账号:" + tmp.getAccount() + "注册(登录)了");
@@ -143,6 +147,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "getFriend  ", method = RequestMethod.POST)
+    @Log()
     public Result getFriend(String pageIndexStr, ModelMap modelMap) {
         if (null == pageIndexStr) {
             return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
@@ -155,6 +160,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "chatFriend", method = RequestMethod.POST)
+    @Log()
     public Result chatFriend(String friendName, ModelMap map) {
         if (null == friendName) {
             return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
@@ -168,6 +174,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "addChat", method = RequestMethod.POST)
+    @Log()
     public Result addChat(String friendName, String infor, ModelMap map) {
         if (null == friendName && null == infor) {
             return ResultUtil.error(100, ConstantsUtil.ERROR_MESSAGE5, null);
@@ -187,6 +194,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "findUserByName", method = RequestMethod.POST)
+    @Log()
     public Result findFriend(String friendName, String uid) {
         LOGGER.info(uid + "通过findFriend查找会员");
         if (null == friendName) {
@@ -202,6 +210,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "getFriendFile", method = RequestMethod.POST)
+    @Log()
     public Result findFriend(String fid) {
         LoginVO loginVO = userServer.getFriendFile(fid);
         return ResultUtil.success(loginVO.getFile());
@@ -215,7 +224,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "addFriend", method = RequestMethod.POST)
-    public Result addFriend(Integer uid, Integer friendId) {
+    @Log
+    Result addFriend(Integer uid, Integer friendId) {
         LOGGER.info(uid + "发送好友申请,好友id" + friendId);
         Integer index = userServer.addFriend(uid, friendId);
         if (index == 0) {
@@ -232,6 +242,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "logout", method = RequestMethod.GET)
+    @Log()
     public ModelAndView logOut(SessionStatus status) {
         ModelAndView modelAndView = new ModelAndView("redirect:login.jsp");
         status.setComplete();
@@ -239,6 +250,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "getCode", method = RequestMethod.GET)
+    @Log()
     public void getCode(HttpServletResponse response, ModelMap map) {
         ServletOutputStream fw = null;
         ValidateCode vcode = new ValidateCode(90, 33, 4, 10);
@@ -271,6 +283,7 @@ public class UserController {
      * @throws IOException
      */
     @RequestMapping(value = "upLoad", method = RequestMethod.POST)
+    @Log()
     public ModelAndView upload(ModelMap map, @RequestParam("studentPhoto") MultipartFile file, HttpServletRequest
             request, HttpServletResponse response) throws IOException {
         String path = "";
@@ -283,6 +296,7 @@ public class UserController {
             String imageName = contentType.substring(contentType.indexOf("/") + 1);
             path = "/img/head/" + uuid + "." + imageName;
             file.transferTo(new File("C:" + path));
+            // file.transferTo(new File("/usr" + path));
             LOGGER.info("图片上传成功");
         }
         System.out.println(path);
@@ -303,6 +317,7 @@ public class UserController {
     public void show(String url, HttpServletRequest request, HttpServletResponse response) {
         try {
             FileInputStream inputStream = new FileInputStream("C:" + url);
+            //FileInputStream inputStream = new FileInputStream("/usr" + url);
             int i = inputStream.available();
             //byte数组用于存放图片字节数据
             byte[] buff = new byte[i];
@@ -316,8 +331,6 @@ public class UserController {
             //关闭响应输出流
             fw.close();
         } catch (FileNotFoundException e) {
-            LOGGER.info("没有设置头像，所以异常了，找不到文件");
-            return;
         } catch (IOException e) {
             LOGGER.error("IO异常了");
             return;
@@ -332,6 +345,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/addInfor", method = RequestMethod.POST)
+    @Log()
     public Result addInfor(LoginVO loginVO, ModelMap map) {
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
@@ -342,7 +356,6 @@ public class UserController {
         tmp.setAge(loginVO.getAge());
         tmp.setUsername(loginVO.getUsername());
         map.put("user", tmp);
-        LOGGER.info("账号:" + tmp.getAccount() + "完善信息");
 
         return ResultUtil.success();
     }
@@ -355,6 +368,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/exit", method = RequestMethod.GET)
+    @Log()
     public ModelAndView exit(HttpSession session, SessionStatus sessionStatus) {
         Object object = session.getAttribute("user");
         if (object == null) {
@@ -362,12 +376,11 @@ public class UserController {
             return new ModelAndView("redirect:zhuti/guangchang.jsp");
         }
         LoginVO tmp = (LoginVO) object;
-        for (int i = 0; i < LOGINACCOUNTS.size(); i++) {
-            if (tmp.getUid() == LOGINACCOUNTS.get(i).getUid()) {
-                LOGINACCOUNTS.remove(i);     //移除登录信息
+        for (int i = 0; i < LOGIN_ACCOUNTS.size(); i++) {
+            if (tmp.getUid() == LOGIN_ACCOUNTS.get(i).getUid()) {
+                LOGIN_ACCOUNTS.remove(i);     //移除登录信息
             }
         }
-        LOGGER.info("账号:" + tmp.getAccount() + "退出驿站了");
         sessionStatus.setComplete();
         session.invalidate();
         return new ModelAndView("redirect:zhuti/guangchang.jsp");
@@ -381,6 +394,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/updategq", method = RequestMethod.POST)
+    @Log()
     public Result updategq(LoginVO loginVO, ModelMap map) {
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
@@ -388,7 +402,6 @@ public class UserController {
         userServer.updategq(loginVO);
         tmp.setQianming(loginVO.getQianming());
         map.put("user", tmp);
-        LOGGER.info("账号:" + tmp.getAccount() + "修改个性签名");
         return ResultUtil.success(loginVO.getQianming());
     }
 
@@ -398,8 +411,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getGuangChangLiuYanList", method = RequestMethod.POST)
+    @Log()
     public PageResult getGuangChangLiuYanList(Page page) {
-        LOGGER.info("进入getGuangChangLiuYanList ");
         GuangChangLiuYanVO guangChangLiuYanVO = userServer.getGuangChangLiuYanVo(page);
         return PageResultUtil.success(guangChangLiuYanVO, page);
     }
@@ -410,12 +423,11 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/addGuangChangLiuYan", method = RequestMethod.POST)
+    @Log()
     public Result addGuangChangLiuYan(GcliuyanDTO gcliuyanDTO, ModelMap map) {
-        LOGGER.info("进入addGuangChangLiuYan ");
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
         userServer.addGuangChangLiuYan(gcliuyanDTO);
-        LOGGER.info("账号:" + tmp.getAccount() + "添加广场留言");
         return ResultUtil.success();
     }
 
@@ -425,13 +437,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/huifuGuangChangLiuYan", method = RequestMethod.POST)
+    @Log()
     public Result huifuGuangChangLiuYan(HuifuGuangChangLiuYanDTO huifuGuangChangLiuYanDTO, ModelMap map) {
-        LOGGER.info("进入huifuGuangChangLiuYan ");
         Object object = map.get("user");
         LoginVO tmp = (LoginVO) object;
         huifuGuangChangLiuYanDTO.setUid(tmp.getUid());
         userServer.huifuGuangChangLiuYan(huifuGuangChangLiuYanDTO);
-        LOGGER.info("账号:" + tmp.getAccount() + "回复广场留言了");
         return ResultUtil.success();
     }
 
@@ -441,11 +452,11 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getYiZhanShiJi", method = RequestMethod.POST)
+    @Log()
     public Result getYiZhanShiJi(ModelMap map) {
         Object object = map.get("user");
         if (object != null) {
             LoginVO tmp = (LoginVO) object;
-            LOGGER.info("账号:" + tmp.getAccount() + "得到驿站大事记");
         }
         List list = userServer.getYiZhanShiJi();
         return ResultUtil.success(list);
@@ -457,6 +468,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/addYiZhanShiJi", method = RequestMethod.POST)
+    @Log()
     public Result addYiZhanShiJi(String infor, ModelMap map) {
         Object object = map.get("user");
         Assert.notNull(object, "session为null没登陆");
@@ -464,7 +476,6 @@ public class UserController {
         if (tmp.getUid() != 18) {
             return null;
         }
-        LOGGER.info("账号:" + tmp.getAccount() + "添加驿站大事记");
         userServer.addYiZhanShiJi(infor);
         return ResultUtil.success();
     }
@@ -475,6 +486,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getAuthorInfor", method = RequestMethod.POST)
+    @Log()
     public Result getAuthorInfor(Integer fwId, ModelMap map) {
         Object object = map.get("user");
         if (object != null) {
@@ -492,6 +504,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getUserInforList", method = RequestMethod.POST)
+    @Log()
     public Result getUserInforList(ModelMap map) {
         Object object = map.get("user");
         if (object != null) {
@@ -499,7 +512,7 @@ public class UserController {
             LOGGER.info("账号:" + tmp.getAccount() + "获得会员信息");
         }
         FriendInforVO friendInforVO = userServer.listUser();
-        friendInforVO.setLoginUserList(LOGINACCOUNTS);
+        friendInforVO.setLoginUserList(LOGIN_ACCOUNTS);
         return ResultUtil.success(friendInforVO);
     }
 
@@ -510,12 +523,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getAddFriendCount", method = RequestMethod.POST)
+    @Log()
     public Result getAddFriendCount(Integer uid, ModelMap modelMap) {
         if (SessionUtil.checkSession(modelMap, uid)) {
             LOGGER.error(uid + "非法参数");
             return ResultUtil.error(200, "非法参数", uid);
         }
-        LOGGER.info(uid + "获得获得自己好友申请总数");
         Assert.notNull(uid, "uid不能为null");
         Integer count = userServer.getAddFriendCount(uid);
         return ResultUtil.success(count);
@@ -528,12 +541,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getAddFriendList", method = RequestMethod.POST)
+    @Log()
     public Result getAddFriendList(Integer uid, ModelMap modelMap) {
         if (SessionUtil.checkSession(modelMap, uid)) {
             LOGGER.error(uid + "非法参数");
             return ResultUtil.error(200, "非法参数", uid);
         }
-        LOGGER.info(uid + "获得获得自己好友申请列表");
         Assert.notNull(uid, "uid不能为null");
         List<LoginVO> loginVOList = userServer.getAddFriendList(uid);
         return ResultUtil.success(loginVOList);
@@ -546,12 +559,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/friendSelect", method = RequestMethod.POST)
+    @Log()
     public Result friendSelect(Integer uid, Integer fid, Integer index, ModelMap modelMap) {
         if (SessionUtil.checkSession(modelMap, uid)) {
             LOGGER.error(uid + "非法参数");
             return ResultUtil.error(200, "非法参数", uid);
         }
-        LOGGER.info(uid + "同意或者拒绝好友");
         userServer.friendSelect(uid, fid, index);
         return ResultUtil.success();
     }
@@ -563,6 +576,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/getFriendList", method = RequestMethod.POST)
+    @Log()
     public Result getFriendList(Integer uid, ModelMap modelMap) {
         if (SessionUtil.checkSession(modelMap, uid)) {
             LOGGER.error(uid + "非法参数");

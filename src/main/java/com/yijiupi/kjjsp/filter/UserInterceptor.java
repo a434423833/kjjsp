@@ -24,9 +24,6 @@ public class UserInterceptor implements HandlerInterceptor {
         if (obj != null) {
             return true;
         }
-        if (!"0:0:0:0:0:0:0:1 ".equals(IpUtil.getIpFromRequest(request))) {
-            return true;
-        }
         String url = request.getRequestURI();
         LOGGER.error(IpUtil.getIpFromRequest(request) + "没有登录就访问资源!!!!!!!存在恶意攻击");
         LOGGER.error("请求url：" + url);

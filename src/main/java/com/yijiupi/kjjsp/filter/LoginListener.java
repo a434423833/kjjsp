@@ -37,10 +37,10 @@ public class LoginListener implements HttpSessionListener {
         Object obj = event.getSession().getAttribute("user");
         if (obj != null) {
             LoginVO loginVO = (LoginVO) obj;
-            List<LoginVO> loginList = UserController.LOGINACCOUNTS;
+            List<LoginVO> loginList = UserController.LOGIN_ACCOUNTS;
             //session销毁时 从list中remove登录状态
             for (int i = 0; i < loginList.size(); i++) {
-                if (loginVO.getUid() == loginList.get(i).getUid()) {
+                if (loginVO.getUid() .equals( loginList.get(i).getUid())) {
                     LOGGER.error(loginVO.getAccount() + "的session销毁");
                     LOGGER.info(loginVO.getAccount() + "的session销毁");
                     loginList.remove(i);
