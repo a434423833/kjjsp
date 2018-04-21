@@ -13,17 +13,22 @@ public class OnChange {
     /**
      * 显示数组 4X4
      */
-    public static int[][] str = new int[4][4];
+    public int[][] str = new int[4][4];
     /**
      * 游戏是否失败 false:失败
      */
-    public static Boolean bl = true;
+    public Boolean bl = true;
     /**
      * 当期分数
      */
-    public static int grade = 0;
+    public int grade = 0;
 
-    OnChange(int[][] change) {
+    public OnChange() {
+        getNewValue();
+        getNewValue();
+    }
+
+    public OnChange(int[][] change) {
         str = change;
     }
 

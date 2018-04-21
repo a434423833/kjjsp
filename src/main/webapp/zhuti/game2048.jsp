@@ -77,7 +77,7 @@
                                         <center><p></p>
                                             <div class="container">
                                                 <div class="above-game">
-                                                    <a class="restart-button">New</a>
+                                                    <a class="restart-button" id="newButton">New</a>
                                                 </div>
                                                 <div class="game-container">
                                                     <div class="game-message">
@@ -88,45 +88,32 @@
                                                     </div>
                                                     <div class="grid-container">
                                                         <div class="grid-row">
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
+                                                            <div class="grid-cell" id="show0" title="0"></div>
+                                                            <div class="grid-cell" id="show1" title="0"></div>
+                                                            <div class="grid-cell" id="show2" title="0"></div>
+                                                            <div class="grid-cell" id="show3" title="0"></div>
                                                         </div>
                                                         <div class="grid-row">
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
+                                                            <div class="grid-cell" id="show4" title="0"></div>
+                                                            <div class="grid-cell" id="show5" title="0"></div>
+                                                            <div class="grid-cell" id="show6" title="0"></div>
+                                                            <div class="grid-cell" id="show7" title="0"></div>
                                                         </div>
                                                         <div class="grid-row">
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
+                                                            <div class="grid-cell" id="show8" title="0"></div>
+                                                            <div class="grid-cell" id="show9" title="0"></div>
+                                                            <div class="grid-cell" id="show10" title="0"></div>
+                                                            <div class="grid-cell" id="show11" title="0"></div>
                                                         </div>
                                                         <div class="grid-row">
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                            <div class="grid-cell"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tile-container">
-                                                        <div class="tile tile-4 tile-position-1-4 tile-new">
-                                                            <div class="tile-inner">4</div>
-                                                        </div>
-                                                        <div class="tile tile-4 tile-position-2-4 tile-new">
-                                                            <div class="tile-inner">4</div>
-                                                        </div>
-                                                        <div class="tile tile-2 tile-position-3-4 tile-new">
-                                                            <div class="tile-inner">2</div>
-                                                        </div>
-                                                        <div class="tile tile-2 tile-position-4-1 tile-new">
-                                                            <div class="tile-inner">2</div>
+                                                            <div class="grid-cell" id="show12" title="0"></div>
+                                                            <div class="grid-cell" id="show13" title="0"></div>
+                                                            <div class="grid-cell" id="show14" title="0"></div>
+                                                            <div class="grid-cell" id="show15" title="0"></div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                0
                                             </div>
                                             <p></p></center>
                                         <br>
